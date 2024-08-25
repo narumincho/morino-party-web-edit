@@ -9,6 +9,7 @@ table {
   border-collapse: collapse;
   border-width: 4px;
   border-color: #aaaaaa;
+  border-style: solid;
 }
 
 .easy {
@@ -27,6 +28,10 @@ tr:nth-child(even)>td {
   background-color: var(--theme-color);
 }
 
+th, td {
+  padding: 8px;
+}
+
 .right {
   text-align: right;
 }
@@ -38,7 +43,7 @@ tr:nth-child(even)>td {
   <thead>
     <tr>
       <th>クエスト名</th>
-      <th>報酬</th>
+      <th class="right">報酬</th>
       <th>内容</th>
     </tr>
   </thead>
@@ -202,7 +207,7 @@ tr:nth-child(even)>td {
   <thead>
     <tr>
       <th>クエスト名</th>
-      <th>報酬</th>
+      <th class="right">報酬</th>
       <th>内容</th>
     </tr>
   </thead>
@@ -326,7 +331,7 @@ tr:nth-child(even)>td {
   <thead>
     <tr>
       <th>クエスト名</th>
-      <th>報酬</th>
+      <th class="right">報酬</th>
       <th>内容</th>
     </tr>
   </thead>
