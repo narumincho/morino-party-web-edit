@@ -1,6 +1,10 @@
 import { decode, Image } from "https://deno.land/x/imagescript@1.3.0/mod.ts";
 import { decodeBase64 } from "jsr:@std/encoding/base64";
 
+// Minecraft ユーザーのUUIDから名前とスキンを取得できるAPI
+
+// 既存のものもあるが, 名前の取得も作ってみたかったため作成
+
 Deno.serve(async (request: Request): Promise<Response> => {
   const cors = supportCrossOriginResourceSharing(request);
   if (cors.type === "skipMainProcess") {
