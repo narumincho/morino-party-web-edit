@@ -1,5 +1,4 @@
-import { Image } from "https://deno.land/x/imagescript@1.2.17/mod.ts";
-import decode from "https://deno.land/x/wasm_image_decoder@v0.0.7/mod.js";
+import { decode, Image } from "https://deno.land/x/imagescript@1.3.0/mod.ts";
 import { decodeBase64 } from "jsr:@std/encoding/base64";
 
 Deno.serve(async (request: Request): Promise<Response> => {
@@ -18,10 +17,10 @@ Deno.serve(async (request: Request): Promise<Response> => {
   }
   // https://minecraft.wiki/w/Mojang_API#Query_player's_skin_and_cape
   const response: {
-    name: string;
-    properties: ReadonlyArray<{
-      name: "textures" | string;
-      value: string;
+    readonly name: string;
+    readonly properties: ReadonlyArray<{
+      readonly name: "textures" | string;
+      readonly value: string;
     }>;
   } = await (await fetch(
     `https://sessionserver.mojang.com/session/minecraft/profile/${uuid}`,
@@ -43,11 +42,11 @@ Deno.serve(async (request: Request): Promise<Response> => {
       });
     }
     const texture: {
-      textures: {
-        SKIN: {
-          url: string;
-          metadata?: {
-            model: "slim";
+      readonly textures: {
+        readonly SKIN: {
+          readonly url: string;
+          readonly metadata?: {
+            readonly model: "slim";
           };
         };
       };
@@ -63,21 +62,33 @@ Deno.serve(async (request: Request): Promise<Response> => {
     }
     const skinImage = await (await fetch(skinUrl)).arrayBuffer();
     const canvas = new Image(8, 8);
-    const skinImageParsed = decode(skinImage);
-    const skinImageData = skinImageParsed.data;
-    console.log(skinImageParsed, skinImageParsed.width, skinImageParsed.height);
-    for (let y = 0; y < 8; y++) {
-      for (let x = 0; x < 8; x++) {
-        console.log(x, y);
-        const offset = ((8 + y) * skinImageParsed.width + 8 + x) * 4;
-        const r = skinImageData[offset];
-        const g = skinImageData[offset + 1];
-        const b = skinImageData[offset + 2];
-        const a = skinImageData[offset + 3];
-        console.log(r, g, b, a);
-        canvas.setPixelAt(1 + x, 1 + y, r << 24 | g << 16 | b << 8 | a);
-      }
+    const skinImageParsed = await decode(skinImage);
+    if (!(skinImageParsed instanceof Image)) {
+      return new Response("Failed to decode skin image", {
+        status: 500,
+        headers: cors.headers,
+      });
     }
+    drawImage({
+      source: skinImageParsed,
+      target: canvas,
+      targetX: 0,
+      targetY: 0,
+      sourceX: 8,
+      sourceY: 8,
+      width: 8,
+      height: 8,
+    });
+    drawImage({
+      source: skinImageParsed,
+      target: canvas,
+      targetX: 0,
+      targetY: 0,
+      sourceX: 40,
+      sourceY: 8,
+      width: 8,
+      height: 8,
+    });
 
     cors.headers.append("content-type", "image/png");
     return new Response(await canvas.encode(), {
@@ -86,6 +97,36 @@ Deno.serve(async (request: Request): Promise<Response> => {
   }
   return new Response("Not found", { status: 404, headers: cors.headers });
 });
+
+const drawImage = (
+  { source, target, targetX, targetY, sourceX, sourceY, width, height }: {
+    readonly source: Image;
+    readonly target: Image;
+    readonly targetX: number;
+    readonly targetY: number;
+    readonly sourceX: number;
+    readonly sourceY: number;
+    readonly width: number;
+    readonly height: number;
+  },
+) => {
+  for (let y = 0; y < height; y++) {
+    for (let x = 0; x < width; x++) {
+      const [sR, sG, sB, sA] = Image.colorToRGBA(
+        source.getPixelAt(1 + sourceX + x, 1 + sourceY + y),
+      );
+      if (sA < 255) {
+        continue;
+      } else {
+        target.setPixelAt(
+          1 + targetX + x,
+          1 + targetY + y,
+          Image.rgbaToColor(sR, sG, sB, sA),
+        );
+      }
+    }
+  }
+};
 
 const supportCrossOriginResourceSharing = (
   request: Request,
