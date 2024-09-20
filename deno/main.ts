@@ -1,4 +1,5 @@
-import { decode, Image } from "https://deno.land/x/imagescript@1.3.0/mod.ts";
+import { Image } from "https://deno.land/x/imagescript@1.2.17/mod.ts";
+import decode from "https://deno.land/x/wasm_image_decoder@v0.0.7/mod.js";
 import { decodeBase64 } from "jsr:@std/encoding/base64";
 
 Deno.serve(async (request: Request): Promise<Response> => {
@@ -61,51 +62,27 @@ Deno.serve(async (request: Request): Promise<Response> => {
       });
     }
     const skinImage = await (await fetch(skinUrl)).arrayBuffer();
+    const canvas = new Image(8, 8);
+    const skinImageParsed = decode(skinImage);
+    const skinImageData = skinImageParsed.data;
+    console.log(skinImageParsed, skinImageParsed.width, skinImageParsed.height);
+    for (let y = 0; y < 8; y++) {
+      for (let x = 0; x < 8; x++) {
+        console.log(x, y);
+        const offset = ((8 + y) * skinImageParsed.width + 8 + x) * 4;
+        const r = skinImageData[offset];
+        const g = skinImageData[offset + 1];
+        const b = skinImageData[offset + 2];
+        const a = skinImageData[offset + 3];
+        console.log(r, g, b, a);
+        canvas.setPixelAt(1 + x, 1 + y, r << 24 | g << 16 | b << 8 | a);
+      }
+    }
+
     cors.headers.append("content-type", "image/png");
-    return new Response(skinImage, {
+    return new Response(await canvas.encode(), {
       headers: cors.headers,
     });
-    //   // ArrayBuffer を Blob に変換
-    //   const blob = new Blob([arrayBuffer], { type: "image/png" });
-
-    //   // Blob を使ってオブジェクトURLを生成
-    //   const url = URL.createObjectURL(blob);
-
-    //   // Image オブジェクトを作成
-    //   const img = new Image();
-
-    //   // 画像が読み込まれたらキャンバスに描画
-    //   img.onload = function () {
-    //     const canvas = document.createElement("canvas");
-    //     const ctx = canvas.getContext("2d");
-
-    //     // キャンバスサイズを画像のサイズに設定
-    //     canvas.width = img.width;
-    //     canvas.height = img.height;
-
-    //     // 画像をキャンバスに描画
-    //     ctx.drawImage(img, 0, 0);
-
-    //     // URL を解放
-    //     URL.revokeObjectURL(url);
-
-    //     // キャンバスの ImageData を取得して putImageData する場合
-    //     const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-    //     ctx.putImageData(imageData, 0, 0); // 必要に応じて他のキャンバスに描画する
-    //   };
-
-    //   // 画像のソースをオブジェクトURLに設定
-    //   img.src = url;
-    //   const canvasContext = createCanvas(64, 64).getContext("2d");
-    //   canvasContext.putImageData(
-    //     new ImageData(skinImage, 64, 64),
-    //     0,
-    //     0,
-    //     8,
-    //     8,
-    //     8,
-    //     8,
-    //   );
   }
   return new Response("Not found", { status: 404, headers: cors.headers });
 });
