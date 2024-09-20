@@ -15,7 +15,7 @@ Deno.serve(async (request: Request): Promise<Response> => {
       headers: cors.headers,
     });
   }
-  // https://minecraft.wiki/w/Mojang_API#Query_player's_skin_and_cape
+  // https://minecraft.wiki/w/Mojang_API#Query_player%27s_skin_and_cape
   const response: {
     readonly name: string;
     readonly properties: ReadonlyArray<{
@@ -69,6 +69,8 @@ Deno.serve(async (request: Request): Promise<Response> => {
         headers: cors.headers,
       });
     }
+
+    // 顔
     drawImage({
       source: skinImageParsed,
       target: canvas,
@@ -115,13 +117,23 @@ const drawImage = (
       const [sR, sG, sB, sA] = Image.colorToRGBA(
         source.getPixelAt(1 + sourceX + x, 1 + sourceY + y),
       );
-      if (sA < 255) {
+      const [tR, tG, tB, _tA] = Image.colorToRGBA(
+        source.getPixelAt(1 + sourceX + x, 1 + sourceY + y),
+      );
+      if (sA === 0) {
         continue;
       } else {
+        const sRate = sA / 255;
+        const tRate = 1 - sRate;
         target.setPixelAt(
           1 + targetX + x,
           1 + targetY + y,
-          Image.rgbaToColor(sR, sG, sB, sA),
+          Image.rgbaToColor(
+            tR * tRate + sR * sRate,
+            tG * tRate + sG * sRate,
+            tB * tRate + sB * sRate,
+            255,
+          ),
         );
       }
     }
