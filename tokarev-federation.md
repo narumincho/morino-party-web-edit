@@ -25,7 +25,7 @@
   _Tokarev
 </div>
 
-連邦の主
+トカレフ連邦書記長
 
 <div class="user">
   <img class="skin" src="https://narumincho-minecraft.deno.dev/skin?uuid=4945bdbfa96b45e1914e5d9b59856387">
