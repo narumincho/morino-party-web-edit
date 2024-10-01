@@ -38,6 +38,8 @@
 
 ### 開拓メンバー限定
 
+![](img/tokarev-federation-development.png)
+
 そこから南下すると開拓メンバーの活動拠点があります。
 開拓メンバーには食料、ロケット花火、ポーションが無料配布されます。
 
@@ -47,7 +49,9 @@
 
 ### エルドランド城
 
-### 銀行
+### 銀行 (Frosty Oakmont)
+
+![](img/tokarev-federation-bank.png)
 
 ### カジノ
 
