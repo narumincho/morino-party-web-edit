@@ -1,4 +1,4 @@
-(全景画像)
+2024 年 5 月から, トカレフ氏（\_Tokarev）により, x3000 z-2000 周辺に誕生した大都市
 
 **トカレフ連邦へようこそ！**
 
@@ -103,9 +103,7 @@
 
 ## 来訪する方法
 
-```
-<iframe width="100%" height="256px" src="https://seikatsumain.map.morino.party/#minecraft_overworld;flat;3449,64,-2029;2">
-```
+<iframe width="100%" height="256px" src="https://seikatsumain.map.morino.party/#minecraft_overworld;flat;3449,64,-2029;2"></iframe>
 
 ### 景観と安全性重視
 
@@ -143,7 +141,7 @@ Z=-250 のところで「とかれふれんぽう! こっち ←」と書かれ�
 
 narumincho, \_Tokarev, NatsumikanNa
 
-最終更新日 2024/10/02
+最終更新日 2024/10/04
 
 <style>
   .user {
