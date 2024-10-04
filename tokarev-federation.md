@@ -38,7 +38,7 @@
 
 ### 開拓メンバー限定
 
-![](img/tokarev-federation-development.png)
+![](/img/tokarev-federation-development.png)
 
 そこから南下すると開拓メンバーの活動拠点があります。
 開拓メンバーには食料、ロケット花火、ポーションが無料配布されます。
@@ -51,7 +51,7 @@
 
 ### 銀行 (Frosty Oakmont)
 
-![](img/tokarev-federation-bank.png)
+![](/img/tokarev-federation-bank.png)
 
 ### カジノ
 
@@ -110,15 +110,15 @@
 
 スポーン地点 星樹から北に伸びる路線「聖花線」に乗ります
 
-![](img/tokarev-federation-route-0.png)
+![](/img/tokarev-federation-route-0.png)
 
 花めいろ, 水時計, 花木郡, 平林をそのまま通過して, 「牛嶋」で他の路線に乗り換えず北の「聖花線」を進みます
 
-![](img/tokarev-federation-route-1.png)
+![](/img/tokarev-federation-route-1.png)
 
 竹屋敷, 岩間, そして「青原」に着いたら白い階段を登った先の路線に乗り換えます
 
-![](img/tokarev-federation-route-2.png)
+![](/img/tokarev-federation-route-2.png)
 
 右にエルドランド城を見て着いた駅で到着です
 
@@ -128,15 +128,15 @@
 
 スポーン地点のネザーゲートからネザーに行きます
 
-![](img/tokarev-federation-route-nether-0.png)
+![](/img/tokarev-federation-route-nether-0.png)
 
 X-方向 (西) に進み X=500 の交差点(S4 E4)まで進み, Z-方向 (北) に進みます
 
-![](img/tokarev-federation-route-nether-1.png)
+![](/img/tokarev-federation-route-nether-1.png)
 
 Z=-250 のところで「とかれふれんぽう! こっち ←」と書かれた看板があるので, 看板の方向に少し進むとトカレフ連邦に出られるネザーゲートがあります
 
-![](img/tokarev-federation-route-nether-2.png)
+![](/img/tokarev-federation-route-nether-2.png)
 
 ## 編集者
 
