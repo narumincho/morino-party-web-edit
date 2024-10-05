@@ -20,17 +20,23 @@
 
 ### 時計台駅
 
+![](/img/tokarev-federation-clock-tower-station.png)
+
 もりぱ内最大規模の駅舎で、使用されたレンガブロックは 16000 個に及びます。
 
 1 階部分には開拓メンバーによりデザインされたステンドグラスがはめられており、全体マップや開拓メンバーによる掲示板が設置されています。
 
 ### 住宅街
 
+<!-- ![](/img/tokarev-federation-residential-area.png) -->
+
 駅から東側は住民により建築された住宅街が広がります。
 
 連邦住民は、他の街と比べ大きな敷地が与えられますので、今までにない幅広い建築が可能です。
 
 ### 自動畑
+
+![](/img/tokarev-federation-automatic-farm.png)
 
 さらに東に進むと、大きな農作物倉庫と自動回収畑が建ち並びます。
 
@@ -55,7 +61,11 @@
 
 ### カジノ
 
+![](/img/tokarev-federation-casino.png)
+
 ### ジブリパーク
+
+![](/img/tokarev-federation-ghibli-park.png)
 
 ## 主な住人
 
@@ -104,7 +114,7 @@
 
 ## 来訪する方法
 
-<iframe width="100%" height="256px" src="https://seikatsumain.map.morino.party/#minecraft_overworld;flat;3449,64,-2029;2"></iframe>
+<iframe width="100%" style="aspect-ratio: 1" src="https://seikatsumain.map.morino.party/#minecraft_overworld;flat;3449,64,-2029;2"></iframe>
 
 ### 景観と安全性重視
 
