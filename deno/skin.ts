@@ -87,10 +87,10 @@ const drawImage = (
     for (let x = 0; x < width; x++) {
       const [sR, sG, sB, sA] = Image.colorToRGBA(
         source.getPixelAt(1 + sourceX + x, 1 + sourceY + y),
-      );
+      ) as [number, number, number, number];
       const [tR, tG, tB, _tA] = Image.colorToRGBA(
         source.getPixelAt(1 + sourceX + x, 1 + sourceY + y),
-      );
+      ) as [number, number, number, number];
       if (sA === 0) {
         continue;
       } else {
