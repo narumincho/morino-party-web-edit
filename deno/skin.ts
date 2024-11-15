@@ -5,9 +5,10 @@ import { decode, Image } from "https://deno.land/x/imagescript@1.3.0/mod.ts";
 /**
  * Minecraft ユーザーのUUIDからスキンの顔の画像を生成するAPI
  */
-export const handleSkin = async (request: Request): Promise<Response> => {
-  const url = new URL(request.url);
-  const uuid = url.searchParams.get("uuid");
+export const handleSkin = async (
+  searchParams: URLSearchParams,
+): Promise<Response> => {
+  const uuid = searchParams.get("uuid");
   if (!uuid) {
     return new Response("UUID is required", { status: 400 });
   }

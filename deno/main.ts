@@ -1,5 +1,6 @@
 import { getProfile } from "./profile.ts";
 import { handleSkin } from "./skin.ts";
+import { handleWebmap, webmapPrefix } from "./webmap.ts";
 
 Deno.serve(async (request: Request): Promise<Response> => {
   const cors = supportCrossOriginResourceSharing(request);
@@ -19,7 +20,14 @@ Deno.serve(async (request: Request): Promise<Response> => {
     });
   }
   if (url.pathname === "/skin") {
-    const response = await handleSkin(request);
+    const response = await handleSkin(url.searchParams);
+    cors.headers.forEach((value, key) => {
+      response.headers.set(key, value);
+    });
+    return response;
+  }
+  if (url.pathname.startsWith(webmapPrefix)) {
+    const response = await handleWebmap(request);
     cors.headers.forEach((value, key) => {
       response.headers.set(key, value);
     });
