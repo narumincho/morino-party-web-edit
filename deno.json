@@ -4,6 +4,13 @@
     "exactOptionalPropertyTypes": true
   },
   "tasks": {
-    "start": "deno run --check --watch --allow-net ./deno/main.ts"
+    "start-http-server": {
+      "command": "deno run --check --watch --allow-net ./deno/main.ts",
+      "description": "スキン画像を生成するサーバーを起動 (開発用)"
+    },
+    "start-2024-to-2025": {
+      "command": "deno run --check -A ./deno/2024-to-2025/main.ts",
+      "description": "年越しイベントの処理を実行"
+    }
   }
 }
