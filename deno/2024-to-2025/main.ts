@@ -51,6 +51,30 @@ const create2025Image = (input: Image): Image => {
   return result;
 };
 
+const createTileImage = (input: Image): Image => {
+  const result = new Image(input.width, input.height);
+  for (let y = 1; y < input.height + 1; y++) {
+    for (let x = 1; x < input.width + 1; x++) {
+      const pixel = fromImageMagicColor(input.getPixelAt(x, y));
+      result.setPixelAt(
+        x,
+        y,
+        toImageMagicColor(getColorById(closestColor(pixel))),
+      );
+    }
+  }
+  return result;
+};
+
+await Deno.writeFile(
+  new URL(import.meta.resolve("./img/tile-out.png")),
+  await createTileImage(
+    await readImageFromFile(
+      new URL(import.meta.resolve("./img/tile.png")),
+    ),
+  ).encode(),
+);
+
 await Deno.writeFile(
   new URL(import.meta.resolve("./img/2024-out.png")),
   await create2024Image(

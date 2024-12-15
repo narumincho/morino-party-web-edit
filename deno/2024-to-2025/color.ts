@@ -200,7 +200,7 @@ export function lightPixel(
  */
 export const closestColor = (
   color: Color,
-  type: ColorType,
+  type?: ColorType,
 ): ColorId => {
   let delta = Infinity;
   let clr: ColorId;
@@ -209,7 +209,7 @@ export const closestColor = (
   const b = Math.min(Math.max(color.b, 0), 255);
   for (
     const [colorId, colorData] of [...colorMap].filter(([, c]) =>
-      c.type === type
+      type ? c.type === type : true
     )
   ) {
     const c = colorData.color;
