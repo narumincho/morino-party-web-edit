@@ -44,7 +44,7 @@ const create2025Image = (input: Image): Image => {
       result.setPixelAt(
         x,
         y,
-        toImageMagicColor(getColorById(closestColor(pixel, "grayScale"))),
+        toImageMagicColor(getColorById(closestColor(pixel))),
       );
     }
   }
