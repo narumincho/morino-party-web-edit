@@ -3,7 +3,6 @@ import {
   closestColor,
   fromImageMagicColor,
   getColorById,
-  randomColor,
   toImageMagicColor,
 } from "./color.ts";
 
@@ -51,53 +50,47 @@ const create2025Image = (input: Image): Image => {
   return result;
 };
 
-const createTileImage = (input: Image): Image => {
-  const result = new Image(input.width, input.height);
-  for (let y = 1; y < input.height + 1; y++) {
-    for (let x = 1; x < input.width + 1; x++) {
-      const pixel = fromImageMagicColor(input.getPixelAt(x, y));
-      result.setPixelAt(
-        x,
-        y,
-        toImageMagicColor(getColorById(closestColor(pixel))),
+const createCommands = (concretePowder: Image, carpet: Image): string => {
+  const result: string[] = [];
+  for (let y = 1; y < concretePowder.height + 1; y++) {
+    for (let x = 1; x < concretePowder.width + 1; x++) {
+      const colorId = closestColor(
+        fromImageMagicColor(concretePowder.getPixelAt(x, y)),
+      );
+      result.push(
+        `setblock ~${x} ~ ~${y} minecraft:${colorId}_concrete_powder`,
       );
     }
   }
-  return result;
+  return result.join("\n");
 };
 
-await Deno.writeFile(
-  new URL(import.meta.resolve("./img/tile-out.png")),
-  await createTileImage(
-    await readImageFromFile(
-      new URL(import.meta.resolve("./img/tile.png")),
-    ),
-  ).encode(),
+const carpetImage = create2024Image(
+  await readImageFromFile(
+    new URL(import.meta.resolve("./img/2024.png")),
+  ),
 );
 
 await Deno.writeFile(
   new URL(import.meta.resolve("./img/2024-out.png")),
-  await create2024Image(
-    await readImageFromFile(
-      new URL(import.meta.resolve("./img/2024.png")),
-    ),
-  ).encode(),
+  await carpetImage.encode(),
+);
+
+const concretePowderImage = create2025Image(
+  await readImageFromFile(
+    new URL(import.meta.resolve("./img/2025.png")),
+  ),
 );
 
 await Deno.writeFile(
   new URL(import.meta.resolve("./img/2025-out.png")),
-  await create2025Image(
-    await readImageFromFile(
-      new URL(import.meta.resolve("./img/2025.png")),
-    ),
-  ).encode(),
+  await concretePowderImage.encode(),
 );
 
-// await Deno.writeFile(
-//   new URL(import.meta.resolve("./img/2025-out.png")),
-//   await create2025Image(
-//     await readImageFromFile(
-//       import.meta.resolve("./img/2025.png"),
-//     ),
-//   ).encode(),
-// );
+await Deno.writeTextFile(
+  new URL(import.meta.resolve("./art/data/art/functions/m.mcfunction")),
+  createCommands(
+    concretePowderImage,
+    carpetImage,
+  ),
+);
