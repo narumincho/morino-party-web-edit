@@ -21,13 +21,13 @@ const create2024Image = (input: Image): Image => {
   for (let y = 1; y < input.height + 1; y++) {
     for (let x = 1; x < input.width + 1; x++) {
       const pixel = fromImageMagicColor(input.getPixelAt(x, y));
-      const colorId = closestColor(pixel, "grayScale");
+      const colorId = closestColor(pixel);
       result.setPixelAt(
         x,
         y,
         toImageMagicColor(
           getColorById(
-            colorId === "white" ? randomColor(["blue"]) : colorId,
+            colorId,
           ),
         ),
       );
