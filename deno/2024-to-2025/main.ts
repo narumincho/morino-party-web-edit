@@ -90,7 +90,7 @@ await Deno.writeFile(
 );
 
 await Deno.writeTextFile(
-  new URL(import.meta.resolve("./art/data/art/functions/m.mcfunction")),
+  new URL(import.meta.resolve("./art/data/art/function/m.mcfunction")),
   createCommands(
     concretePowderImage,
     carpetImage,
