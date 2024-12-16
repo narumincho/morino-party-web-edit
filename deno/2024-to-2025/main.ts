@@ -57,8 +57,12 @@ type Direction = typeof directions[number];
 
 const directions = ["north", "south", "west", "east"] as const;
 
+/**
+ * ランダムな方向
+ */
 const randomDirection = (): Direction => {
-  return directions[Math.floor(Math.random() * directions.length)]!;
+  const table = ["north", "north", "north", "south", "west", "east"] as const;
+  return table[Math.floor(Math.random() * table.length)]!;
 };
 
 const moveDirection = (
