@@ -1,11 +1,10 @@
 import { decode, Image } from "https://deno.land/x/imagescript@1.3.0/mod.ts";
 import {
-  closestColor,
-  fromImageMagicColor,
-  getColorById,
-  toImageMagicColor,
-  transparentFallback,
+  colorIdFromImageMagicColor,
+  colorIdToImageMagicColor,
 } from "./color.ts";
+
+const size = 16 * 8;
 
 const readImageFromFile = async (url: URL): Promise<Image> => {
   const image = await decode(await (await fetch(url)).arrayBuffer());
@@ -16,19 +15,15 @@ const readImageFromFile = async (url: URL): Promise<Image> => {
   }
 };
 
-const discretizeImageColors = (input: Image, background: Image): Image => {
+const discretizeImageColors = (input: Image): Image => {
   const result = new Image(input.width, input.height);
   for (let y = 1; y < input.height + 1; y++) {
     for (let x = 1; x < input.width + 1; x++) {
-      const pixel = fromImageMagicColor(input.getPixelAt(x, y));
-      const colorId = closestColor(pixel);
       result.setPixelAt(
         x,
         y,
-        toImageMagicColor(
-          getColorById(
-            colorId,
-          ),
+        colorIdToImageMagicColor(
+          colorIdFromImageMagicColor(input.getPixelAt(x, y)),
         ),
       );
     }
@@ -36,20 +31,26 @@ const discretizeImageColors = (input: Image, background: Image): Image => {
   return result;
 };
 
-const createLeafImage = (input: Image): Image => {
-  const result = new Image(input.width, input.height);
-  for (let y = 1; y < input.height + 1; y++) {
-    for (let x = 1; x < input.width + 1; x++) {
-      const pixel = fromImageMagicColor(input.getPixelAt(x, y));
-      const colorId = closestColor(pixel);
-      result.setPixelAt(
-        x,
-        y,
-        toImageMagicColor(getColorById(
-          // colorId,
-          colorId === "white" ? "white" : "lime",
-        )),
-      );
+const createMaskTemplateImage = (a: Image, b: Image): Image => {
+  const result = new Image(size, size);
+  for (let y = 1; y < size + 1; y++) {
+    for (let x = 1; x < size + 1; x++) {
+      const isLight = ((x + 4) % 8) === 0 && ((y + 4) % 8) === 0;
+      const aColorId = colorIdFromImageMagicColor(a.getPixelAt(x, y));
+      const bColorId = colorIdFromImageMagicColor(b.getPixelAt(x, y));
+      if (aColorId === bColorId) {
+        result.setPixelAt(
+          x,
+          y,
+          colorIdToImageMagicColor(isLight ? "yellow" : "orange"),
+        );
+      } else {
+        result.setPixelAt(
+          x,
+          y,
+          colorIdToImageMagicColor(isLight ? "gray" : "black"),
+        );
+      }
     }
   }
   return result;
@@ -100,11 +101,9 @@ const oppositeDirection = (direction: Direction): Direction => {
 };
 
 const createCommands = (
-  background: Image,
   lower: Image,
   upper: Image,
 ): string => {
-  const size = 16 * 8;
   const commands: string[] = [];
   /** コンクリートパウダーのY座標を格納するテーブル */
   const heightTable: (number | undefined)[][] = Array.from(
@@ -121,37 +120,20 @@ const createCommands = (
     height: number,
     direction: Direction,
   ): void => {
-    const backgroundColor = fromImageMagicColor(
-      background.getPixelAt(1 + position.x, 1 + position.z),
+    const lowerColorId = colorIdFromImageMagicColor(
+      lower.getPixelAt(1 + position.x, 1 + position.z),
     );
-    if (backgroundColor === "transparent") {
-      throw new Error(
-        `background color is transparent x=${position.x} z=${position.z}`,
-      );
-    }
-    const lowerColor = transparentFallback(
-      fromImageMagicColor(
-        lower.getPixelAt(1 + position.x, 1 + position.z),
-      ),
-      backgroundColor,
-    );
-    const upperColor = transparentFallback(
-      fromImageMagicColor(
-        upper.getPixelAt(1 + position.x, 1 + position.z),
-      ),
-      backgroundColor,
+    const upperColorId = colorIdFromImageMagicColor(
+      upper.getPixelAt(1 + position.x, 1 + position.z),
     );
     const light = (position.x % 8) === 0 && (position.z % 8) === 0;
-    if (!light && lowerColor !== upperColor) {
+    if (!light && lowerColorId !== upperColorId) {
       heightTable[position.x]![position.z] = height;
     }
     blankPositions.splice(
       blankPositions.findIndex((p) => p.x === position.x && p.z === position.z),
       1,
     );
-
-    const lowerColorId = closestColor(lowerColor);
-    const upperColorId = closestColor(upperColor);
 
     if (light) {
       commands.push(
@@ -219,17 +201,6 @@ const createCommands = (
   }
 };
 
-const leafImage = discretizeImageColors(
-  await readImageFromFile(
-    new URL(import.meta.resolve("./img/leaf.png")),
-  ),
-);
-
-await Deno.writeFile(
-  new URL(import.meta.resolve("./img/leaf-out.png")),
-  await leafImage.encode(),
-);
-
 const img2024 = discretizeImageColors(
   await readImageFromFile(
     new URL(import.meta.resolve("./img/2024.png")),
@@ -252,17 +223,23 @@ await Deno.writeFile(
   await img2025.encode(),
 );
 
+const imageMaskTemplate = createMaskTemplateImage(img2024, img2025);
+
+await Deno.writeFile(
+  new URL(import.meta.resolve("./img/maskTemplate.png")),
+  await imageMaskTemplate.encode(),
+);
+
 const functionPath = (name: string): URL =>
   new URL(import.meta.resolve(`./art/data/art/function/${name}.mcfunction`));
 
-await Deno.writeTextFile(
-  functionPath("m"),
-  createCommands(
-    leafImage,
-    img2025,
-    img2024,
-  ),
-);
+// await Deno.writeTextFile(
+//   functionPath("m"),
+//   createCommands(
+//     img2025,
+//     img2024,
+//   ),
+// );
 
 await Deno.writeTextFile(
   functionPath("c"),

@@ -133,7 +133,7 @@ const colorMapRaw = new Map<ColorId, ColorDataRaw>([["white", {
   id: "pink",
   type: "powderAndCarpet",
   rgbFunction: "rgb(208, 109, 142)",
-}]// ["sand", {
+}] // ["sand", {
   //   name: "Sand",
   //   id: "sand",
   //   type: "sand",
@@ -153,7 +153,7 @@ export const colorMap = new Map<ColorId, ColorData>(
   ]),
 );
 
-export const getColorById = (id: ColorId): Color => {
+const getColorById = (id: ColorId): Color => {
   const color = colorMap.get(id);
   if (color) {
     return color.color;
@@ -170,7 +170,7 @@ export const randomColor = (
 /**
  * https://github.com/gd-codes/mc-pixelart-maker/blob/main/scripts/data.js
  */
-export const darkPixel = (
+const darkPixel = (
   rgb: Color,
 ): Color => {
   return {
@@ -184,7 +184,7 @@ export const darkPixel = (
 /**
  * https://github.com/gd-codes/mc-pixelart-maker/blob/main/scripts/data.js
  */
-export function lightPixel(
+function lightPixel(
   rgb: Color,
 ): Color {
   return {
@@ -198,7 +198,7 @@ export function lightPixel(
 /**
  * https://github.com/gd-codes/mc-pixelart-maker/blob/main/scripts/imageProcessor.js
  */
-export const closestColor = (
+const closestColorId = (
   color: Color,
   type?: ColorType,
 ): ColorId => {
@@ -232,27 +232,18 @@ export const closestColor = (
   return clr!;
 };
 
-export const fromImageMagicColor = (color: number): Color | "transparent" => {
-  if ((color & 0xff) === 0) {
-    return "transparent";
-  }
+export const colorFromImageMagicColor = (color: number): Color => {
   const r = (color >> 24) & 0xff;
   const g = (color >> 16) & 0xff;
   const b = (color >> 8) & 0xff;
   return { r, g, b };
 };
 
-export const toImageMagicColor = (color: Color | "transparent"): number =>
-  color === "transparent"
-    ? 0
-    : ((color.r << 24) | (color.g << 16) | (color.b << 8) | 0xff) >>> 0;
+export const colorIdFromImageMagicColor = (color: number): ColorId =>
+  closestColorId(colorFromImageMagicColor(color));
 
-export const transparentFallback = (
-  color: Color | "transparent",
-  defaultColor: Color,
-): Color => {
-  if (color === "transparent") {
-    return defaultColor;
-  }
-  return color;
-};
+export const colorToImageMagicColor = (color: Color): number =>
+  ((color.r << 24) | (color.g << 16) | (color.b << 8) | 0xff) >>> 0;
+
+export const colorIdToImageMagicColor = (colorId: ColorId): number =>
+  colorToImageMagicColor(getColorById(colorId));
