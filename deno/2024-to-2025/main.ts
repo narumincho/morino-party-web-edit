@@ -113,39 +113,70 @@ const createCommands = (lower: Image, upper: Image): string => {
     height: number,
     direction: Direction,
   ): void => {
-    heightTable[position.x]![position.z] = height;
+    const light = (position.x % 8) === 0 && (position.z % 8) === 0;
+    if (!light) {
+      heightTable[position.x]![position.z] = height;
+    }
     blankPositions.splice(
       blankPositions.findIndex((p) => p.x === position.x && p.z === position.z),
       1,
     );
-    commands.push(
-      `setblock ~${position.x} ~${
-        height - 1
-      } ~${position.z} wall_torch[facing=${oppositeDirection(direction)}]`,
-    );
+
     const lowerColorId = closestColor(
       fromImageMagicColor(
         lower.getPixelAt(1 + position.x, 1 + position.z),
       ),
-    );
-    commands.push(
-      `setblock ~${position.x} ~${height} ~${position.z} ${
-        lowerColorId === "sand" ? `sand` : `${lowerColorId}_concrete_powder`
-      }`,
     );
     const upperColorId = closestColor(
       fromImageMagicColor(
         upper.getPixelAt(1 + position.x, 1 + position.z),
       ),
     );
-    if (lowerColorId === upperColorId) {
-      return;
+
+    if (light) {
+      if (lowerColorId === "sand" || upperColorId === "sand") {
+        throw new Error("sand is not allowed in light");
+      }
+      commands.push(
+        `setblock ~${position.x} ~${startY} ~${position.z} ${lowerColorId}_stained_glass`,
+      );
+      commands.push(
+        `setblock ~${position.x} ~${
+          startY - 1
+        } ~${position.z} verdant_froglight`,
+      );
+      if (lowerColorId === upperColorId) {
+        return;
+      }
+      commands.push(
+        `setblock ~${position.x} ~${
+          height - 1
+        } ~${position.z} wall_torch[facing=${oppositeDirection(direction)}]`,
+      );
+      commands.push(
+        `setblock ~${position.x} ~${height} ~${position.z} ${upperColorId}_carpet`,
+      );
+    } else {
+      commands.push(
+        `setblock ~${position.x} ~${
+          height - 1
+        } ~${position.z} wall_torch[facing=${oppositeDirection(direction)}]`,
+      );
+      commands.push(
+        `setblock ~${position.x} ~${height} ~${position.z} ${
+          lowerColorId === "sand" ? `sand` : `${lowerColorId}_concrete_powder`
+        }`,
+      );
+
+      if (lowerColorId === upperColorId) {
+        return;
+      }
+      commands.push(
+        `setblock ~${position.x} ~${height + 1} ~${position.z} ${
+          upperColorId === "sand" ? `sand` : `${upperColorId}_carpet`
+        }`,
+      );
     }
-    commands.push(
-      `setblock ~${position.x} ~${height + 1} ~${position.z} ${
-        upperColorId === "sand" ? `sand` : `${upperColorId}_carpet`
-      }`,
-    );
   };
 
   const startPosition = { x: Math.floor(size / 2), z: size - 1 };
