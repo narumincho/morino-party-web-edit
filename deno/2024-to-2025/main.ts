@@ -108,36 +108,53 @@ const createCommands = (lower: Image, upper: Image): string => {
     { length: size },
   ).flatMap((_, x) => Array.from({ length: size }, (_, z) => ({ x, z })));
 
-  const setHeight = (position: Position, height: number): void => {
+  const setHeight = (
+    position: Position,
+    height: number,
+    direction: Direction,
+  ): void => {
     heightTable[position.x]![position.z] = height;
     blankPositions.splice(
       blankPositions.findIndex((p) => p.x === position.x && p.z === position.z),
       1,
     );
-  };
-
-  const getLowerImageColorId = (position: Position): ColorId => {
-    return closestColor(
+    commands.push(
+      `setblock ~${position.x} ~${
+        height - 1
+      } ~${position.z} wall_torch[facing=${oppositeDirection(direction)}]`,
+    );
+    const lowerColorId = closestColor(
       fromImageMagicColor(
         lower.getPixelAt(1 + position.x, 1 + position.z),
       ),
     );
+    commands.push(
+      `setblock ~${position.x} ~${height} ~${position.z} ${
+        lowerColorId === "sand" ? `sand` : `${lowerColorId}_concrete_powder`
+      }`,
+    );
+    const upperColorId = closestColor(
+      fromImageMagicColor(
+        upper.getPixelAt(1 + position.x, 1 + position.z),
+      ),
+    );
+    if (lowerColorId === upperColorId) {
+      return;
+    }
+    commands.push(
+      `setblock ~${position.x} ~${height + 1} ~${position.z} ${
+        upperColorId === "sand" ? `sand` : `${upperColorId}_carpet`
+      }`,
+    );
   };
 
   const startPosition = { x: Math.floor(size / 2), z: size - 1 };
-  setHeight(startPosition, 65);
-  const startColorId = getLowerImageColorId(startPosition);
+  const startY = 1;
+  // const startY = 64;
   commands.push(
-    `setblock ~${startPosition.x} ~64 ~${startPosition.z + 1} stone`,
+    `setblock ~${startPosition.x} ~${startY} ~${startPosition.z + 1} stone`,
   );
-  commands.push(
-    `setblock ~${startPosition.x} ~64 ~${startPosition.z} wall_torch[facing=north]`,
-  );
-  commands.push(
-    `setblock ~${startPosition.x} ~65 ~${startPosition.z} ${
-      startColorId === "sand" ? `sand` : `${startColorId}_concrete_powder`
-    }`,
-  );
+  setHeight({ x: Math.floor(size / 2), z: size - 1 }, startY + 1, "south");
 
   while (true) {
     if (blankPositions.length === 0) {
@@ -152,18 +169,7 @@ const createCommands = (lower: Image, upper: Image): string => {
       console.log("skip", blankPositions.length);
       continue;
     }
-    setHeight(targetPosition, baseHeight + 1);
-    const colorId = getLowerImageColorId(targetPosition);
-    commands.push(
-      `setblock ~${targetPosition.x} ~${baseHeight} ~${targetPosition.z} wall_torch[facing=${
-        oppositeDirection(direction)
-      }]`,
-    );
-    commands.push(
-      `setblock ~${targetPosition.x} ~${baseHeight + 1} ~${targetPosition.z} ${
-        colorId === "sand" ? `sand` : `${colorId}_concrete_powder`
-      }`,
-    );
+    setHeight(targetPosition, baseHeight + 1, direction);
   }
 };
 
