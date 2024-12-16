@@ -1,7 +1,6 @@
 import { decode, Image } from "https://deno.land/x/imagescript@1.3.0/mod.ts";
 import {
   closestColor,
-  ColorId,
   fromImageMagicColor,
   getColorById,
   toImageMagicColor,
@@ -16,7 +15,7 @@ const readImageFromFile = async (url: URL): Promise<Image> => {
   }
 };
 
-const create2024Image = (input: Image): Image => {
+const discretizeImageColors = (input: Image): Image => {
   const result = new Image(input.width, input.height);
   for (let y = 1; y < input.height + 1; y++) {
     for (let x = 1; x < input.width + 1; x++) {
@@ -36,15 +35,19 @@ const create2024Image = (input: Image): Image => {
   return result;
 };
 
-const create2025Image = (input: Image): Image => {
+const createLeafImage = (input: Image): Image => {
   const result = new Image(input.width, input.height);
   for (let y = 1; y < input.height + 1; y++) {
     for (let x = 1; x < input.width + 1; x++) {
       const pixel = fromImageMagicColor(input.getPixelAt(x, y));
+      const colorId = closestColor(pixel);
       result.setPixelAt(
         x,
         y,
-        toImageMagicColor(getColorById(closestColor(pixel))),
+        toImageMagicColor(getColorById(
+          // colorId,
+          colorId === "white" ? "white" : "lime",
+        )),
       );
     }
   }
@@ -204,7 +207,16 @@ const createCommands = (lower: Image, upper: Image): string => {
   }
 };
 
-const carpetImage = create2024Image(
+await Deno.writeFile(
+  new URL(import.meta.resolve("./img/leaf-out.png")),
+  await (createLeafImage(
+    await readImageFromFile(
+      new URL(import.meta.resolve("./img/leaf.png")),
+    ),
+  ).encode()),
+);
+
+const carpetImage = discretizeImageColors(
   await readImageFromFile(
     new URL(import.meta.resolve("./img/2024.png")),
   ),
@@ -215,7 +227,7 @@ await Deno.writeFile(
   await carpetImage.encode(),
 );
 
-const concretePowderImage = create2025Image(
+const concretePowderImage = discretizeImageColors(
   await readImageFromFile(
     new URL(import.meta.resolve("./img/2025.png")),
   ),
@@ -229,13 +241,13 @@ await Deno.writeFile(
 const functionPath = (name: string): URL =>
   new URL(import.meta.resolve(`./art/data/art/function/${name}.mcfunction`));
 
-await Deno.writeTextFile(
-  functionPath("m"),
-  createCommands(
-    concretePowderImage,
-    carpetImage,
-  ),
-);
+// await Deno.writeTextFile(
+//   functionPath("m"),
+//   createCommands(
+//     concretePowderImage,
+//     carpetImage,
+//   ),
+// );
 
 await Deno.writeTextFile(
   functionPath("c"),
