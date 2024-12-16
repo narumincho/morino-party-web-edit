@@ -25,16 +25,16 @@ type ColorDataRaw = {
   readonly type: ColorType;
 };
 
-type ColorData = {
+export type ColorData = {
   readonly name: string;
   readonly id: string;
   readonly color: Color;
   readonly type: ColorType;
 };
 
-type ColorType = "grayScale" | "powderAndCarpet" | "sand";
+export type ColorType = "grayScale" | "powderAndCarpet" | "sand";
 
-type ColorId =
+export type ColorId =
   | "white"
   | "light_gray"
   | "gray"

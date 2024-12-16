@@ -1,6 +1,7 @@
 import { decode, Image } from "https://deno.land/x/imagescript@1.3.0/mod.ts";
 import {
   closestColor,
+  ColorId,
   fromImageMagicColor,
   getColorById,
   toImageMagicColor,
@@ -50,21 +51,116 @@ const create2025Image = (input: Image): Image => {
   return result;
 };
 
-const createCommands = (concretePowder: Image, carpet: Image): string => {
-  const result: string[] = [];
-  for (let y = 1; y < concretePowder.height + 1; y++) {
-    for (let x = 1; x < concretePowder.width + 1; x++) {
-      const colorId = closestColor(
-        fromImageMagicColor(concretePowder.getPixelAt(x, y)),
-      );
-      result.push(
-        `setblock ~${x} ~ ~${y} ${
-          colorId === "sand" ? `sand` : `${colorId}_concrete_powder`
-        }`,
-      );
-    }
+type Position = { readonly x: number; readonly z: number };
+
+type Direction = typeof directions[number];
+
+const directions = ["north", "south", "west", "east"] as const;
+
+const randomDirection = (): Direction => {
+  return directions[Math.floor(Math.random() * directions.length)]!;
+};
+
+const moveDirection = (
+  position: Position,
+  direction: Direction,
+): Position => {
+  switch (direction) {
+    case "north":
+      return { x: position.x, z: position.z - 1 };
+    case "south":
+      return { x: position.x, z: position.z + 1 };
+    case "west":
+      return { x: position.x - 1, z: position.z };
+    case "east":
+      return { x: position.x + 1, z: position.z };
   }
-  return result.join("\n");
+};
+
+/** 反対の方向 */
+const oppositeDirection = (direction: Direction): Direction => {
+  switch (direction) {
+    case "north":
+      return "south";
+    case "south":
+      return "north";
+    case "west":
+      return "east";
+    case "east":
+      return "west";
+  }
+};
+
+const createCommands = (lower: Image, upper: Image): string => {
+  const size = 16 * 8;
+  const commands: string[] = [];
+  /** コンクリートパウダーのY座標を格納するテーブル */
+  const heightTable: (number | undefined)[][] = Array.from(
+    { length: size },
+    (_) => Array.from({ length: size }, (_) => undefined),
+  );
+  /** まだ埋めていない座標 */
+  const blankPositions: Array<Position> = Array.from(
+    { length: size },
+  ).flatMap((_, x) => Array.from({ length: size }, (_, z) => ({ x, z })));
+
+  const setHeight = (position: Position, height: number): void => {
+    heightTable[position.x]![position.z] = height;
+    blankPositions.splice(
+      blankPositions.findIndex((p) => p.x === position.x && p.z === position.z),
+      1,
+    );
+  };
+
+  const getLowerImageColorId = (position: Position): ColorId => {
+    return closestColor(
+      fromImageMagicColor(
+        lower.getPixelAt(1 + position.x, 1 + position.z),
+      ),
+    );
+  };
+
+  const startPosition = { x: Math.floor(size / 2), z: size - 1 };
+  setHeight(startPosition, 65);
+  const startColorId = getLowerImageColorId(startPosition);
+  commands.push(
+    `setblock ~${startPosition.x} ~64 ~${startPosition.z + 1} stone`,
+  );
+  commands.push(
+    `setblock ~${startPosition.x} ~64 ~${startPosition.z} wall_torch[facing=north]`,
+  );
+  commands.push(
+    `setblock ~${startPosition.x} ~65 ~${startPosition.z} ${
+      startColorId === "sand" ? `sand` : `${startColorId}_concrete_powder`
+    }`,
+  );
+
+  while (true) {
+    if (blankPositions.length === 0) {
+      return commands.join("\n");
+    }
+    const targetPosition =
+      blankPositions[Math.floor(Math.random() * blankPositions.length)]!;
+    const direction = randomDirection();
+    const basePosition = moveDirection(targetPosition, direction);
+    const baseHeight = heightTable[basePosition.x]?.[basePosition.z];
+    if (baseHeight === undefined || baseHeight > 318) {
+      console.log("skip", blankPositions.length);
+      continue;
+    }
+    setHeight(targetPosition, baseHeight + 1);
+    const colorId = getLowerImageColorId(targetPosition);
+    commands.push(
+      `setblock ~${targetPosition.x} ~${baseHeight} ~${targetPosition.z} wall_torch[facing=${
+        oppositeDirection(direction)
+      }]`,
+    );
+    commands.push(
+      `setblock ~${targetPosition.x} ~${baseHeight + 1} ~${targetPosition.z} ${
+        colorId === "sand" ? `sand` : `${colorId}_concrete_powder`
+      }`,
+    );
+  }
 };
 
 const carpetImage = create2024Image(
@@ -89,10 +185,21 @@ await Deno.writeFile(
   await concretePowderImage.encode(),
 );
 
+const functionPath = (name: string): URL =>
+  new URL(import.meta.resolve(`./art/data/art/function/${name}.mcfunction`));
+
 await Deno.writeTextFile(
-  new URL(import.meta.resolve("./art/data/art/function/m.mcfunction")),
+  functionPath("m"),
   createCommands(
     concretePowderImage,
     carpetImage,
   ),
+);
+
+await Deno.writeTextFile(
+  functionPath("c"),
+  Array.from(
+    { length: 320 },
+    (_, i) => `fill ~ ~${i} ~ ~128 ~${i} ~128 air`,
+  ).join("\n"),
 );
