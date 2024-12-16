@@ -4,6 +4,7 @@ import {
   fromImageMagicColor,
   getColorById,
   toImageMagicColor,
+  transparentFallback,
 } from "./color.ts";
 
 const readImageFromFile = async (url: URL): Promise<Image> => {
@@ -15,7 +16,7 @@ const readImageFromFile = async (url: URL): Promise<Image> => {
   }
 };
 
-const discretizeImageColors = (input: Image): Image => {
+const discretizeImageColors = (input: Image, background: Image): Image => {
   const result = new Image(input.width, input.height);
   for (let y = 1; y < input.height + 1; y++) {
     for (let x = 1; x < input.width + 1; x++) {
@@ -98,7 +99,11 @@ const oppositeDirection = (direction: Direction): Direction => {
   }
 };
 
-const createCommands = (lower: Image, upper: Image): string => {
+const createCommands = (
+  background: Image,
+  lower: Image,
+  upper: Image,
+): string => {
   const size = 16 * 8;
   const commands: string[] = [];
   /** コンクリートパウダーのY座標を格納するテーブル */
@@ -116,8 +121,28 @@ const createCommands = (lower: Image, upper: Image): string => {
     height: number,
     direction: Direction,
   ): void => {
+    const backgroundColor = fromImageMagicColor(
+      background.getPixelAt(1 + position.x, 1 + position.z),
+    );
+    if (backgroundColor === "transparent") {
+      throw new Error(
+        `background color is transparent x=${position.x} z=${position.z}`,
+      );
+    }
+    const lowerColor = transparentFallback(
+      fromImageMagicColor(
+        lower.getPixelAt(1 + position.x, 1 + position.z),
+      ),
+      backgroundColor,
+    );
+    const upperColor = transparentFallback(
+      fromImageMagicColor(
+        upper.getPixelAt(1 + position.x, 1 + position.z),
+      ),
+      backgroundColor,
+    );
     const light = (position.x % 8) === 0 && (position.z % 8) === 0;
-    if (!light) {
+    if (!light && lowerColor !== upperColor) {
       heightTable[position.x]![position.z] = height;
     }
     blankPositions.splice(
@@ -125,26 +150,15 @@ const createCommands = (lower: Image, upper: Image): string => {
       1,
     );
 
-    const lowerColorId = closestColor(
-      fromImageMagicColor(
-        lower.getPixelAt(1 + position.x, 1 + position.z),
-      ),
-    );
-    const upperColorId = closestColor(
-      fromImageMagicColor(
-        upper.getPixelAt(1 + position.x, 1 + position.z),
-      ),
-    );
+    const lowerColorId = closestColor(lowerColor);
+    const upperColorId = closestColor(upperColor);
 
     if (light) {
-      if (lowerColorId === "sand" || upperColorId === "sand") {
-        throw new Error("sand is not allowed in light");
-      }
       commands.push(
-        `setblock ~${position.x} ~${startY} ~${position.z} ${lowerColorId}_stained_glass`,
+        `setblock ~${position.x} ${startY} ~${position.z} ${lowerColorId}_stained_glass`,
       );
       commands.push(
-        `setblock ~${position.x} ~${
+        `setblock ~${position.x} ${
           startY - 1
         } ~${position.z} verdant_froglight`,
       );
@@ -152,43 +166,41 @@ const createCommands = (lower: Image, upper: Image): string => {
         return;
       }
       commands.push(
-        `setblock ~${position.x} ~${
+        `setblock ~${position.x} ${
           height - 1
         } ~${position.z} wall_torch[facing=${oppositeDirection(direction)}]`,
       );
       commands.push(
-        `setblock ~${position.x} ~${height} ~${position.z} ${upperColorId}_carpet`,
+        `setblock ~${position.x} ${height} ~${position.z} ${upperColorId}_carpet`,
       );
     } else {
       commands.push(
-        `setblock ~${position.x} ~${
+        `setblock ~${position.x} ${
           height - 1
         } ~${position.z} wall_torch[facing=${oppositeDirection(direction)}]`,
       );
       commands.push(
-        `setblock ~${position.x} ~${height} ~${position.z} ${
-          lowerColorId === "sand" ? `sand` : `${lowerColorId}_concrete_powder`
-        }`,
+        `setblock ~${position.x} ${height} ~${position.z} ${lowerColorId}_concrete_powder`,
       );
 
       if (lowerColorId === upperColorId) {
         return;
       }
       commands.push(
-        `setblock ~${position.x} ~${height + 1} ~${position.z} ${
-          upperColorId === "sand" ? `sand` : `${upperColorId}_carpet`
-        }`,
+        `setblock ~${position.x} ${
+          height + 1
+        } ~${position.z} ${`${upperColorId}_carpet`}`,
       );
     }
   };
 
-  const startPosition = { x: Math.floor(size / 2), z: size - 1 };
-  const startY = 1;
+  const startPosition: Position = { x: 63, z: 118 };
+  const startY = -60;
   // const startY = 64;
   commands.push(
-    `setblock ~${startPosition.x} ~${startY} ~${startPosition.z + 1} stone`,
+    `setblock ~${startPosition.x} ${startY} ~${startPosition.z + 1} stone`,
   );
-  setHeight({ x: Math.floor(size / 2), z: size - 1 }, startY + 1, "south");
+  setHeight(startPosition, startY + 1, "south");
 
   while (true) {
     if (blankPositions.length === 0) {
@@ -207,16 +219,18 @@ const createCommands = (lower: Image, upper: Image): string => {
   }
 };
 
-await Deno.writeFile(
-  new URL(import.meta.resolve("./img/leaf-out.png")),
-  await (createLeafImage(
-    await readImageFromFile(
-      new URL(import.meta.resolve("./img/leaf.png")),
-    ),
-  ).encode()),
+const leafImage = discretizeImageColors(
+  await readImageFromFile(
+    new URL(import.meta.resolve("./img/leaf.png")),
+  ),
 );
 
-const carpetImage = discretizeImageColors(
+await Deno.writeFile(
+  new URL(import.meta.resolve("./img/leaf-out.png")),
+  await leafImage.encode(),
+);
+
+const img2024 = discretizeImageColors(
   await readImageFromFile(
     new URL(import.meta.resolve("./img/2024.png")),
   ),
@@ -224,10 +238,10 @@ const carpetImage = discretizeImageColors(
 
 await Deno.writeFile(
   new URL(import.meta.resolve("./img/2024-out.png")),
-  await carpetImage.encode(),
+  await img2024.encode(),
 );
 
-const concretePowderImage = discretizeImageColors(
+const img2025 = discretizeImageColors(
   await readImageFromFile(
     new URL(import.meta.resolve("./img/2025.png")),
   ),
@@ -235,19 +249,20 @@ const concretePowderImage = discretizeImageColors(
 
 await Deno.writeFile(
   new URL(import.meta.resolve("./img/2025-out.png")),
-  await concretePowderImage.encode(),
+  await img2025.encode(),
 );
 
 const functionPath = (name: string): URL =>
   new URL(import.meta.resolve(`./art/data/art/function/${name}.mcfunction`));
 
-// await Deno.writeTextFile(
-//   functionPath("m"),
-//   createCommands(
-//     concretePowderImage,
-//     carpetImage,
-//   ),
-// );
+await Deno.writeTextFile(
+  functionPath("m"),
+  createCommands(
+    leafImage,
+    img2025,
+    img2024,
+  ),
+);
 
 await Deno.writeTextFile(
   functionPath("c"),

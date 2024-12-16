@@ -32,7 +32,7 @@ export type ColorData = {
   readonly type: ColorType;
 };
 
-export type ColorType = "grayScale" | "powderAndCarpet" | "sand";
+export type ColorType = "grayScale" | "powderAndCarpet";
 
 export type ColorId =
   | "white"
@@ -50,8 +50,7 @@ export type ColorId =
   | "blue"
   | "purple"
   | "magenta"
-  | "pink"
-  | "sand";
+  | "pink";
 
 // https://github.com/gd-codes/mc-pixelart-maker/blob/main/scripts/data.js
 const colorMapRaw = new Map<ColorId, ColorDataRaw>([["white", {
@@ -134,12 +133,13 @@ const colorMapRaw = new Map<ColorId, ColorDataRaw>([["white", {
   id: "pink",
   type: "powderAndCarpet",
   rgbFunction: "rgb(208, 109, 142)",
-}], ["sand", {
-  name: "Sand",
-  id: "sand",
-  type: "sand",
-  rgbFunction: "rgb(213, 201, 140)",
-}]]);
+}]// ["sand", {
+  //   name: "Sand",
+  //   id: "sand",
+  //   type: "sand",
+  //   rgbFunction: "rgb(213, 201, 140)",
+  // }]
+]);
 
 export const colorMap = new Map<ColorId, ColorData>(
   [...colorMapRaw].map(([id, data]): [ColorId, ColorData] => [
@@ -232,12 +232,27 @@ export const closestColor = (
   return clr!;
 };
 
-export const fromImageMagicColor = (color: number): Color => {
+export const fromImageMagicColor = (color: number): Color | "transparent" => {
+  if ((color & 0xff) === 0) {
+    return "transparent";
+  }
   const r = (color >> 24) & 0xff;
   const g = (color >> 16) & 0xff;
   const b = (color >> 8) & 0xff;
   return { r, g, b };
 };
 
-export const toImageMagicColor = (color: Color): number =>
-  ((color.r << 24) | (color.g << 16) | (color.b << 8) | 0xff) >>> 0;
+export const toImageMagicColor = (color: Color | "transparent"): number =>
+  color === "transparent"
+    ? 0
+    : ((color.r << 24) | (color.g << 16) | (color.b << 8) | 0xff) >>> 0;
+
+export const transparentFallback = (
+  color: Color | "transparent",
+  defaultColor: Color,
+): Color => {
+  if (color === "transparent") {
+    return defaultColor;
+  }
+  return color;
+};
