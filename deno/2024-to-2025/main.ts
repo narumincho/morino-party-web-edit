@@ -58,7 +58,9 @@ const createCommands = (concretePowder: Image, carpet: Image): string => {
         fromImageMagicColor(concretePowder.getPixelAt(x, y)),
       );
       result.push(
-        `setblock ~${x} ~ ~${y} minecraft:${colorId}_concrete_powder`,
+        `setblock ~${x} ~ ~${y} ${
+          colorId === "sand" ? `sand` : `${colorId}_concrete_powder`
+        }`,
       );
     }
   }
