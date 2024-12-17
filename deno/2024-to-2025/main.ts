@@ -268,7 +268,7 @@ const createCommands = (
   const startPosition: Position = { x: 63, z: 118 };
 
   commands.push(
-    `setblock ~${startPosition.x - 1} ${startY + 1} ~${startPosition.z} stone`,
+    `setblock ~${startPosition.x} ${startY + 1} ~${startPosition.z + 1} stone`,
   );
   commands.push(
     createCellCommand(startPosition, {
@@ -454,7 +454,10 @@ await Deno.writeTextFile(
   `kill @e[type=!minecraft:player]
 ` +
     Array.from(
-      { length: 62 },
+      { length: 63 },
       (_, i) => `fill ~-2 ${i} ~-2 ~130 ${i} ~130 water`,
+    ).join("\n") + "\n" + Array.from(
+      { length: 10 },
+      (_, i) => `fill ~-2 ${63 + i} ~-2 ~130 ${63 + i} ~130 air`,
     ).join("\n"),
 );
