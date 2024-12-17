@@ -311,7 +311,7 @@ const createCommands = (
     }
   }
 
-  commands.push("# ===== main");
+  commands.push(`# ===== main ${blankPositions.length}`);
 
   let skipCount = 0;
   while (true) {
