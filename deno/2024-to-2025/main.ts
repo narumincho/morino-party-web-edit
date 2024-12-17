@@ -279,7 +279,7 @@ const createCommands = (
       height: startY + 2,
     }),
   );
-  setCell(startPosition, startY + 1);
+  setCell(startPosition, startY + 2);
 
   for (let x = 0; x < size; x++) {
     for (let z = 0; z < size; z++) {
@@ -315,6 +315,7 @@ const createCommands = (
       skipCount++;
       if (skipCount > 100000) {
         console.log("Too many skip");
+        console.log(blankPositions);
         return commands.join("\n");
       }
       console.log("skip", blankPositions.length);
