@@ -161,6 +161,15 @@ const createCellCommand = (
   position: Position,
   cellType: CellType,
 ) => {
+  return `# ${position.x},${position.z}
+${createCellCommandRaw(position, cellType)}
+`;
+};
+
+const createCellCommandRaw = (
+  position: Position,
+  cellType: CellType,
+) => {
   switch (cellType.type) {
     case "singleFallen":
       return setBlock(position, startY, `${cellType.colorId}_wool`);
@@ -265,22 +274,23 @@ const createCommands = (
     );
   };
 
-  const startPosition: Position = { x: 63, z: 118 };
+  const startPosition: Position = { x: 37, z: 55 };
 
   commands.push(
-    `setblock ~${startPosition.x} ${startY + 1} ~${startPosition.z + 1} stone`,
+    `setblock ~${startPosition.x - 1} ${startY + 1} ~${startPosition.z} stone`,
   );
   commands.push(
     createCellCommand(startPosition, {
       type: "dualNormal",
       lowerColorId: getImageColorId(lower, startPosition),
       upperColorId: getImageColorId(upper, startPosition),
-      direction: "south",
+      direction: "west",
       height: startY + 2,
     }),
   );
   setCell(startPosition, startY + 2);
 
+  commands.push("# ===== singleFallen singleLight");
   for (let x = 0; x < size; x++) {
     for (let z = 0; z < size; z++) {
       const cellTypeTag = maskColorIdToCellTypeTag(
@@ -300,6 +310,8 @@ const createCommands = (
       }
     }
   }
+
+  commands.push("# ===== main");
 
   let skipCount = 0;
   while (true) {
