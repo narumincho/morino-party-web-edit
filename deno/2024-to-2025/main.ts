@@ -7,8 +7,8 @@ import {
 
 const size = 16 * 8;
 
-const startY = -60;
-// const startY = 64;
+// const startY = -60;
+const startY = 62;
 
 const readImageFromFile = async (url: URL): Promise<Image> => {
   const image = await decode(await (await fetch(url)).arrayBuffer());
@@ -70,7 +70,7 @@ const directions = ["north", "south", "west", "east"] as const;
  * ランダムな方向
  */
 const randomDirection = (): Direction => {
-  const table = ["north", "north", "north", "south", "west", "east"] as const;
+  const table = ["north", "north", "south", "west", "east"] as const;
   return table[Math.floor(Math.random() * table.length)]!;
 };
 
@@ -268,14 +268,14 @@ const createCommands = (
   const startPosition: Position = { x: 63, z: 118 };
 
   commands.push(
-    `setblock ~${startPosition.x} ${startY + 1} ~${startPosition.z + 1} stone`,
+    `setblock ~${startPosition.x - 1} ${startY + 1} ~${startPosition.z} stone`,
   );
   commands.push(
     createCellCommand(startPosition, {
       type: "dualNormal",
       lowerColorId: getImageColorId(lower, startPosition),
       upperColorId: getImageColorId(upper, startPosition),
-      direction: "north",
+      direction: "south",
       height: startY + 2,
     }),
   );
@@ -419,12 +419,12 @@ await Deno.writeFile(
   await img2025.encode(),
 );
 
-// const imageMaskTemplate = createMaskTemplateImage(img2024, img2025);
+const imageMaskTemplate = createMaskTemplateImage(img2024, img2025);
 
-// await Deno.writeFile(
-//   new URL(import.meta.resolve("./img/maskTemplate.png")),
-//   await imageMaskTemplate.encode(),
-// );
+await Deno.writeFile(
+  new URL(import.meta.resolve("./img/maskTemplate.png")),
+  await imageMaskTemplate.encode(),
+);
 
 const mask = discretizeImageColors(
   await readImageFromFile(
@@ -451,8 +451,10 @@ await Deno.writeTextFile(
 
 await Deno.writeTextFile(
   functionPath("c"),
-  Array.from(
-    { length: 320 },
-    (_, i) => `fill ~ ~${i} ~ ~128 ~${i} ~128 air`,
-  ).join("\n"),
+  `kill @e[type=!minecraft:player]
+` +
+    Array.from(
+      { length: 62 },
+      (_, i) => `fill ~-2 ${i} ~-2 ~130 ${i} ~130 water`,
+    ).join("\n"),
 );
