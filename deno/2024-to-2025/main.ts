@@ -8,7 +8,7 @@ import {
 const size = 16 * 8;
 
 // const startY = -60;
-const startY = 62;
+const startY = 63;
 
 const readImageFromFile = async (url: URL): Promise<Image> => {
   const image = await decode(await (await fetch(url)).arrayBuffer());
@@ -183,7 +183,7 @@ const createCellCommandRaw = (
       }
 ${setBlock(position, cellType.height, `${cellType.colorId}_concrete_powder`)}`;
     case "singleLight":
-      return `${setBlock(position, startY - 1, "verdant_froglight")}
+      return `${setBlock(position, startY - 1, "verdant_froglight[axis=z]")}
 ${setBlock(position, startY, `${cellType.colorId}_stained_glass`)}`;
     case "dualFallen":
       return `${
@@ -218,7 +218,7 @@ ${
       }
 ${setBlock(position, cellType.height + 1, `${cellType.upperColorId}_carpet`)}`;
     case "dualLight":
-      return `${setBlock(position, startY - 1, "verdant_froglight")}
+      return `${setBlock(position, startY - 1, "verdant_froglight[axis=z]")}
 ${
         setBlock(
           position,
@@ -274,17 +274,17 @@ const createCommands = (
     );
   };
 
-  const startPosition: Position = { x: 53, z: 61 };
+  const startPosition: Position = { x: 41, z: 59 };
 
   commands.push(
-    `setblock ~${startPosition.x - 1} ${startY + 1} ~${startPosition.z} stone`,
+    `setblock ~${startPosition.x} ${startY + 1} ~${startPosition.z + 1} stone`,
   );
   commands.push(
     createCellCommand(startPosition, {
       type: "dualNormal",
       lowerColorId: getImageColorId(lower, startPosition),
       upperColorId: getImageColorId(upper, startPosition),
-      direction: "west",
+      direction: "south",
       height: startY + 2,
     }),
   );
@@ -326,7 +326,7 @@ const createCommands = (
     const baseHeight = heightTable[basePosition.x]?.[basePosition.z];
     if (baseHeight === undefined) {
       skipCount++;
-      if (skipCount > 100000) {
+      if (skipCount > 1000000) {
         console.log("Too many skip");
         commands.concat(`# ==== skip ${blankPositions.length}`);
         console.log(blankPositions);
@@ -469,7 +469,7 @@ await Deno.writeTextFile(
 ` +
     Array.from(
       { length: 63 },
-      (_, i) => `fill ~-2 ${i} ~-2 ~130 ${i} ~130 water`,
+      (_, i) => `fill ~-2 ${i} ~-2 ~130 ${i} ~130 smooth_stone`,
     ).join("\n") + "\n" + Array.from(
       { length: 10 },
       (_, i) => `fill ~-2 ${63 + i} ~-2 ~130 ${63 + i} ~130 air`,
