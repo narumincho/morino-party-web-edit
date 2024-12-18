@@ -249,7 +249,7 @@ const createCommands = (
     readonly lower: Image;
     readonly upper: Image;
   },
-): string => {
+): { commands: string; highest: number | undefined } => {
   const commands: string[] = [];
   /** コンクリートパウダーのY座標を格納するテーブル */
   const heightTable: (number | undefined)[][] = Array.from(
@@ -324,7 +324,7 @@ const createCommands = (
     if (blankPositions.length === 0) {
       commands.push(`# ==== complete! highest=${highest}`);
       console.log("complete!", highest);
-      return commands.join("\n");
+      return { commands: commands.join("\n"), highest };
     }
     const targetPosition =
       blankPositions[Math.floor(Math.random() * blankPositions.length)]!;
@@ -337,7 +337,7 @@ const createCommands = (
         console.log("Too many skip");
         commands.concat(`# ==== skip ${blankPositions.length}`);
         console.log(blankPositions);
-        return commands.join("\n");
+        return { commands: commands.join("\n"), highest };
       }
       console.log("skip", blankPositions.length);
       continue;
@@ -461,14 +461,20 @@ await Deno.writeFile(
 const functionPath = (name: string): URL =>
   new URL(import.meta.resolve(`./art/data/art/function/${name}.mcfunction`));
 
-await Deno.writeTextFile(
-  functionPath("m"),
-  createCommands({
+while (true) {
+  const { commands, highest } = createCommands({
     mask,
     lower: img2025,
     upper: img2024,
-  }),
-);
+  });
+  if (typeof highest === "number" && highest > 315) {
+    await Deno.writeTextFile(
+      functionPath("m"),
+      commands,
+    );
+    break;
+  }
+}
 
 await Deno.writeTextFile(
   functionPath("c"),
