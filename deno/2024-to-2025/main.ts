@@ -70,7 +70,7 @@ const directions = ["north", "south", "west", "east"] as const;
  * ランダムな方向
  */
 const randomDirection = (): Direction => {
-  const table = ["north", "north", "south", "west", "east"] as const;
+  const table = ["north", "south", "west", "east"] as const;
   return table[Math.floor(Math.random() * table.length)]!;
 };
 
@@ -322,7 +322,7 @@ const createCommands = (
   let skipCount = 0;
   while (true) {
     if (blankPositions.length === 0) {
-      commands.concat(`# ==== complete! ${highest}`);
+      commands.push(`# ==== complete! highest=${highest}`);
       console.log("complete!", highest);
       return commands.join("\n");
     }
