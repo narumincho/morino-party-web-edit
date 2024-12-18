@@ -261,12 +261,18 @@ const createCommands = (
     { length: size },
   ).flatMap((_, x) => Array.from({ length: size }, (_, z) => ({ x, z })));
 
+  /**
+   * 1番高い高さ
+   */
+  let highest = 0;
+
   const setCell = (
     position: Position,
     height: number | undefined,
   ): void => {
     if (typeof height === "number") {
       heightTable[position.x]![position.z] = height;
+      highest = Math.max(highest, height);
     }
     blankPositions.splice(
       blankPositions.findIndex((p) => p.x === position.x && p.z === position.z),
@@ -316,7 +322,8 @@ const createCommands = (
   let skipCount = 0;
   while (true) {
     if (blankPositions.length === 0) {
-      commands.concat(`# ==== complete!`);
+      commands.concat(`# ==== complete! ${highest}`);
+      console.log("complete!", highest);
       return commands.join("\n");
     }
     const targetPosition =
@@ -335,7 +342,7 @@ const createCommands = (
       console.log("skip", blankPositions.length);
       continue;
     }
-    if (baseHeight > 318) {
+    if (baseHeight > 317) {
       console.log("skip too height", blankPositions.length);
       continue;
     }
