@@ -274,7 +274,7 @@ const createCommands = (
     );
   };
 
-  const startPosition: Position = { x: 37, z: 55 };
+  const startPosition: Position = { x: 53, z: 61 };
 
   commands.push(
     `setblock ~${startPosition.x - 1} ${startY + 1} ~${startPosition.z} stone`,
@@ -316,6 +316,7 @@ const createCommands = (
   let skipCount = 0;
   while (true) {
     if (blankPositions.length === 0) {
+      commands.concat(`# ==== complete!`);
       return commands.join("\n");
     }
     const targetPosition =
@@ -327,6 +328,7 @@ const createCommands = (
       skipCount++;
       if (skipCount > 100000) {
         console.log("Too many skip");
+        commands.concat(`# ==== skip ${blankPositions.length}`);
         console.log(blankPositions);
         return commands.join("\n");
       }
