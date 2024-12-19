@@ -323,8 +323,13 @@ const createCommands = (
   while (true) {
     if (blankPositions.length === 0) {
       commands.push(`# ==== complete! highest=${highest}`);
-      console.log("complete!", highest);
-      return { commands: commands.join("\n"), highest };
+      const target = heightTable[6]?.[118] ?? 0;
+      console.log("complete!", highest, target);
+      if (target > 316) {
+        return { commands: commands.join("\n"), highest };
+      } else {
+        return { commands: commands.join("\n"), highest: 0 };
+      }
     }
     const targetPosition =
       blankPositions[Math.floor(Math.random() * blankPositions.length)]!;
@@ -336,10 +341,10 @@ const createCommands = (
       if (skipCount > 1000000) {
         console.log("Too many skip");
         commands.concat(`# ==== skip ${blankPositions.length}`);
-        console.log(blankPositions);
-        return { commands: commands.join("\n"), highest };
+        // console.log(blankPositions);
+        return { commands: commands.join("\n"), highest: undefined };
       }
-      console.log("skip", blankPositions.length);
+      // console.log("skip", blankPositions.length);
       continue;
     }
     if (baseHeight > 317) {
@@ -467,7 +472,7 @@ while (true) {
     lower: img2025,
     upper: img2024,
   });
-  if (typeof highest === "number" && highest > 315) {
+  if (typeof highest === "number" && highest > 316) {
     await Deno.writeTextFile(
       functionPath("m"),
       commands,
