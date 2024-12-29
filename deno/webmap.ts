@@ -39,38 +39,52 @@ export const handleWebmap = async (request: Request): Promise<Response> => {
   if (urlInput.pathname === "/tiles/minecraft_overworld/markers.json") {
     console.log("status", response.status);
     const markerGroups: ReadonlyArray<MarkerGroup> = JSON.parse(
-      // 不正なJSONを返す?ので await response.json() は使えない
+      // response.json() では解釈できない? 不正なJSONを返す? ので response.json() を使わず JSON.parse() を使う
       await response.text(),
     );
     const newMarkerGroups = markerGroups.flatMap(
       (markerGroup): ReadonlyArray<MarkerGroup> => {
-        if (markerGroup.id === "Railway") {
-          return [{
-            ...markerGroup,
-            hide: false,
-            id: "station",
-            name: "駅",
-            markers: markerGroup.markers.flatMap((marker) =>
-              marker.type === "circle"
-                ? [
-                  {
-                    ...marker,
-                    tooltip: marker.popup?.trim().replace("名前 : ", " ") ?? "",
-                  } satisfies Marker,
-                ]
-                : []
-            ),
-          }, {
-            ...markerGroup,
-            hide: false,
-            id: "Railway",
-            name: "路線",
-            markers: markerGroup.markers.filter((marker) =>
-              marker.type === "polyline"
-            ).map(railwayOverwrite),
-          }];
+        switch (markerGroup.id) {
+          case "griefprevention":
+            return [{
+              ...markerGroup,
+              markers: markerGroup.markers.map((marker) => ({
+                ...marker,
+                tooltip: `${
+                  marker.popup?.match(/Claim Owner: <span.+?>(.+?)<\/span>/)
+                    ?.[1]
+                } さんの土地`,
+              })),
+            }];
+          case "Railway":
+            return [{
+              ...markerGroup,
+              hide: false,
+              id: "station",
+              name: "駅",
+              markers: markerGroup.markers.flatMap((marker) =>
+                marker.type === "circle"
+                  ? [
+                    {
+                      ...marker,
+                      tooltip: marker.popup?.trim().replace("名前 : ", " ") ??
+                        "",
+                    } satisfies Marker,
+                  ]
+                  : []
+              ),
+            }, {
+              ...markerGroup,
+              hide: false,
+              id: "Railway",
+              name: "路線",
+              markers: markerGroup.markers.filter((marker) =>
+                marker.type === "polyline"
+              ).map(railwayOverwrite),
+            }];
+          default:
+            return [markerGroup];
         }
-        return [markerGroup];
       },
     );
     return new Response(JSON.stringify(newMarkerGroups), {
