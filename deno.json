@@ -11,6 +11,10 @@
     "start-2024-to-2025": {
       "command": "deno run --check -A ./deno/2024-to-2025/main.ts",
       "description": "年越しイベントの処理を実行"
+    },
+    "start-hide-and-seek-timeline": {
+      "command": "deno run --check --watch -A ./deno/hide-and-seek-timeline/main.tsx",
+      "description": "隠れ鬼のタイムライン表を出力"
     }
   }
 }
