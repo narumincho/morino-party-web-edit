@@ -82,7 +82,7 @@ async function main() {
   const playerAndSkinImages = await getPlayersSkin(players);
 
   await Deno.writeTextFile(
-    join(outPath, ".2025-03-08.svg"),
+    join(outPath, "./2025-03-08.svg"),
     renderToString(
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -143,6 +143,40 @@ async function main() {
             />
           ),
         )}
+        {items.map((item, index) => {
+          switch (item.type) {
+            case "oniChange": {
+              const nextChange = items.slice(index).find((e) =>
+                e.type === "oniChange" && e.from === item.to
+              );
+              const strokeWidth = 20;
+              return (
+                <g key={index}>
+                  {item.to
+                    ? (
+                      <rect
+                        x={nameWidth + parseTime(item.time)}
+                        y={rowHeight + players.indexOf(item.to) * rowHeight +
+                          rowHeight * 0.5 - strokeWidth * 0.5}
+                        height={strokeWidth}
+                        width={(nextChange
+                          ? parseTime(nextChange.time)
+                          : endTime) - parseTime(item.time)}
+                        fill="red"
+                      />
+                    )
+                    : undefined}
+                </g>
+              );
+            }
+            case "touch":
+              return <g></g>;
+            case "exit":
+              return <g></g>;
+            case "enter":
+              return <g></g>;
+          }
+        })}
       </svg>,
     ),
   );
