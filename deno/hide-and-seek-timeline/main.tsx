@@ -6,30 +6,21 @@ import { ensureDir } from "jsr:@std/fs";
 import { join } from "jsr:@std/path";
 import { getSkinImage, usernameToUuid } from "../skin.ts";
 import { decodePNG } from "jsr:@img/png";
-import { Item, parseTime } from "./type.ts";
-import { items, players } from "./data/2025-03-08.ts";
+import { Result, resultInputToResult } from "./type.ts";
+import { result } from "./data/2025-03-08.ts";
 
 const outPath = "./deno/hide-and-seek-timeline/out";
 
 async function main<Player extends string>(
-  { players, items }: {
-    readonly players: ReadonlyArray<Player>;
-    readonly items: ReadonlyArray<Item<Player>>;
-  },
+  { players, items, endTime }: Result<Player>,
 ) {
-  const sortedItems = items.toSorted((a, b) =>
-    parseTime(a.time) - parseTime(b.time)
-  );
-  /**
-   * 開催時間
-   */
-  const endTime = 20 * 60;
-
   const nameWidth = 190;
 
-  const moneyWidth = 200;
+  const moneyWidth = 48;
 
   const rowHeight = 32;
+
+  const imageWidth = nameWidth + endTime + moneyWidth + 8;
 
   await ensureDir(outPath);
 
@@ -38,20 +29,18 @@ async function main<Player extends string>(
   const svg = (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      viewBox={`0 0 ${nameWidth + endTime + moneyWidth} ${
-        rowHeight + players.length * rowHeight
-      }`}
+      viewBox={`0 0 ${imageWidth} ${rowHeight + players.length * rowHeight}`}
     >
       <g>
         <rect
           x={0}
           y={0}
-          width={nameWidth + endTime + moneyWidth}
+          width={imageWidth}
           height={rowHeight}
           fill="#fff"
         />
         {Array.from(
-          { length: endTime / 60 + 1 },
+          { length: endTime / 60 },
           (_, i) => (
             <text
               key={i}
@@ -64,13 +53,21 @@ async function main<Player extends string>(
           ),
         )}
       </g>
+      <text
+        x={nameWidth + endTime + moneyWidth}
+        y={rowHeight * 0.5}
+        dominantBaseline="middle"
+        textAnchor="end"
+      >
+        賞金
+      </text>
       {playerAndSkinImages.map(({ username, skinImage }, index) => (
         <g key={username}>
           <rect
             x={0}
             y={rowHeight + rowHeight * index}
-            width={nameWidth + endTime + moneyWidth}
-            height={rowHeight}
+            width={imageWidth}
+            height={rowHeight + 1}
             fill={["#ace38f", "#00e851", "#cae8ba"][index % 3]}
           />
           <g
@@ -78,55 +75,115 @@ async function main<Player extends string>(
           >
             <UserLabel username={username} skinImage={skinImage} />
           </g>
+          <text
+            x={nameWidth + endTime + moneyWidth}
+            y={rowHeight + rowHeight * (index + 0.5)}
+            dominantBaseline="middle"
+            textAnchor="end"
+          >
+            {calcMoney({ items, endTime }, username)}
+          </text>
         </g>
       ))}
-      {Array.from(
-        { length: endTime / 60 + 1 },
-        (_, i) => (
-          <line
-            key={i}
-            x1={nameWidth + i * 60}
-            y1={0}
-            x2={nameWidth + i * 60}
-            y2={rowHeight + players.length * rowHeight}
-            stroke="gray"
-          />
-        ),
-      )}
-      {sortedItems.map((item, index) => {
-        switch (item.type) {
-          case "oniChange": {
-            const nextChange = sortedItems.slice(index).find((e) =>
-              e.type === "oniChange" && e.from === item.to
-            );
-            const strokeWidth = 20;
-            return (
-              <g key={index}>
-                {item.to
-                  ? (
-                    <rect
-                      x={nameWidth + parseTime(item.time)}
-                      y={rowHeight + players.indexOf(item.to) * rowHeight +
-                        rowHeight * 0.5 - strokeWidth * 0.5}
-                      height={strokeWidth}
-                      width={(nextChange
-                        ? parseTime(nextChange.time)
-                        : endTime) - parseTime(item.time)}
-                      fill="red"
-                    />
-                  )
-                  : undefined}
-              </g>
-            );
+      <g>
+        {Array.from(
+          { length: endTime / 60 + 1 },
+          (_, i) => (
+            <line
+              key={i}
+              x1={nameWidth + i * 60}
+              y1={rowHeight - 8}
+              x2={nameWidth + i * 60}
+              y2={rowHeight + players.length * rowHeight}
+              stroke="gray"
+            />
+          ),
+        )}
+      </g>
+      <g>
+        {items.map((item, index) => {
+          switch (item.type) {
+            case "oniChange": {
+              const nextChange = items.slice(index).find((e) =>
+                e.type === "oniChange" && e.from === item.to
+              );
+              const strokeWidth = 10;
+              return (
+                <g key={index}>
+                  {item.to && item.from
+                    ? (
+                      <line
+                        x1={nameWidth + item.time}
+                        y1={rowHeight + players.indexOf(item.from) * rowHeight +
+                          rowHeight * 0.5 - strokeWidth * 0.5}
+                        x2={nameWidth + item.time}
+                        y2={rowHeight + players.indexOf(item.to) * rowHeight +
+                          rowHeight * 0.5 - strokeWidth * 0.5}
+                        stroke="red"
+                        strokeDasharray="5,5"
+                      />
+                    )
+                    : undefined}
+                  {item.to
+                    ? (
+                      <rect
+                        x={nameWidth + item.time}
+                        y={rowHeight + players.indexOf(item.to) * rowHeight +
+                          rowHeight * 0.5 - strokeWidth * 0.5}
+                        height={strokeWidth}
+                        width={(nextChange ? nextChange.time : endTime) -
+                          (item.time)}
+                        fill="red"
+                      />
+                    )
+                    : undefined}
+                </g>
+              );
+            }
+            case "touch": {
+              const nextChange = items.slice(index).find((e) =>
+                e.type === "touch" && e.from === item.to
+              );
+              const strokeWidth = 30;
+              return (
+                <g key={index}>
+                  {item.to && item.from
+                    ? (
+                      <line
+                        x1={nameWidth + item.time}
+                        y1={rowHeight + players.indexOf(item.from) * rowHeight +
+                          rowHeight * 0.5 - strokeWidth * 0.5}
+                        x2={nameWidth + item.time}
+                        y2={rowHeight + players.indexOf(item.to) * rowHeight +
+                          rowHeight * 0.5 - strokeWidth * 0.5}
+                        stroke="orange"
+                        strokeDasharray="5,5"
+                      />
+                    )
+                    : undefined}
+                  {item.to
+                    ? (
+                      <rect
+                        x={nameWidth + item.time}
+                        y={rowHeight + players.indexOf(item.to) * rowHeight +
+                          rowHeight * 0.5 - strokeWidth * 0.5}
+                        height={strokeWidth}
+                        width={(nextChange ? nextChange.time : endTime) -
+                          (item.time)}
+                        fill="orange"
+                      />
+                    )
+                    : undefined}
+                </g>
+              );
+            }
+            case "exit":
+              return <g></g>;
+            case "enter":
+              return <g></g>;
           }
-          case "touch":
-            return <g></g>;
-          case "exit":
-            return <g></g>;
-          case "enter":
-            return <g></g>;
-        }
-      })}
+        })}
+      </g>
     </svg>
   );
 
@@ -229,10 +286,7 @@ async function getPlayersSkin(
   return result;
 }
 
-await main({
-  items,
-  players,
-});
+await main(resultInputToResult(result));
 console.log("done");
 
 function getPixelAt(
@@ -251,4 +305,52 @@ function getPixelAt(
 
 function createArray(length: number): ReadonlyArray<number> {
   return Array.from({ length }, (_, i) => i);
+}
+
+function calcMoney<Player extends string>(
+  { items, endTime }: Pick<Result<Player>, "items" | "endTime">,
+  player: Player,
+): number {
+  let money = 0;
+  /**
+   * 前回の捕まっていない状態時刻
+   * null は前回鬼もしくは退出状態だったということ
+   */
+  let prevState: number | "oni" | "escaped" | "escapedOni" = 0;
+  for (const item of items) {
+    switch (item.type) {
+      case "touch":
+        if (item.to === player) {
+          if (typeof prevState === "number") {
+            money += item.time - prevState;
+          }
+          prevState = "oni";
+        }
+        if (item.from === player) {
+          prevState = item.time;
+        }
+        break;
+      case "oniChange":
+        break;
+      case "exit":
+        if (typeof prevState === "number") {
+          money += item.time - prevState;
+          prevState = "escaped";
+        } else {
+          prevState = "escapedOni";
+        }
+        break;
+      case "enter":
+        if (prevState === "escaped") {
+          prevState = item.time;
+        }
+        if (prevState === "escapedOni") {
+          prevState = "oni";
+        }
+    }
+  }
+  if (typeof prevState === "number") {
+    return money + endTime - prevState;
+  }
+  return money;
 }
