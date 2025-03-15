@@ -1,3 +1,5 @@
+import { calcMoney } from "./calcMoney.ts";
+
 export type Item<Player extends string, Time = StrTime> = {
   /**
    * タッチし鬼が移るはずだが, タッチされた側が気づいていない
@@ -76,12 +78,16 @@ export type Result<Player extends string> = {
 export function resultInputToResult<Player extends string>(
   resultInput: ResultInput<Player>,
 ): Result<Player> {
+  const items = resultInput.items.map((item) => ({
+    ...item,
+    time: parseTime(item.time) - parseTime(resultInput.offset),
+  })).sort((a, b) => a.time - b.time);
+  const endTime = parseTime(resultInput.endTime);
   return {
-    players: resultInput.players,
-    items: resultInput.items.map((item) => ({
-      ...item,
-      time: parseTime(item.time) - parseTime(resultInput.offset),
-    })).sort((a, b) => a.time - b.time),
-    endTime: parseTime(resultInput.endTime),
+    players: resultInput.players.toSorted((a, b) =>
+      calcMoney({ items, endTime }, a) - calcMoney({ items, endTime }, b)
+    ),
+    items,
+    endTime,
   };
 }

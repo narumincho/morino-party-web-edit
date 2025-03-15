@@ -8,6 +8,7 @@ import { getSkinImage, usernameToUuid } from "../skin.ts";
 import { decodePNG } from "jsr:@img/png";
 import { Result, resultInputToResult } from "./type.ts";
 import { result } from "./data/2025-03-08.ts";
+import { calcMoney } from "./calcMoney.ts";
 
 const outPath = "./deno/hide-and-seek-timeline/out";
 
@@ -305,52 +306,4 @@ function getPixelAt(
 
 function createArray(length: number): ReadonlyArray<number> {
   return Array.from({ length }, (_, i) => i);
-}
-
-function calcMoney<Player extends string>(
-  { items, endTime }: Pick<Result<Player>, "items" | "endTime">,
-  player: Player,
-): number {
-  let money = 0;
-  /**
-   * 前回の捕まっていない状態時刻
-   * null は前回鬼もしくは退出状態だったということ
-   */
-  let prevState: number | "oni" | "escaped" | "escapedOni" = 0;
-  for (const item of items) {
-    switch (item.type) {
-      case "touch":
-        if (item.to === player) {
-          if (typeof prevState === "number") {
-            money += item.time - prevState;
-          }
-          prevState = "oni";
-        }
-        if (item.from === player) {
-          prevState = item.time;
-        }
-        break;
-      case "oniChange":
-        break;
-      case "exit":
-        if (typeof prevState === "number") {
-          money += item.time - prevState;
-          prevState = "escaped";
-        } else {
-          prevState = "escapedOni";
-        }
-        break;
-      case "enter":
-        if (prevState === "escaped") {
-          prevState = item.time;
-        }
-        if (prevState === "escapedOni") {
-          prevState = "oni";
-        }
-    }
-  }
-  if (typeof prevState === "number") {
-    return money + endTime - prevState;
-  }
-  return money;
 }
