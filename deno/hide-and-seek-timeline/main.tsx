@@ -6,68 +6,20 @@ import { ensureDir } from "jsr:@std/fs";
 import { join } from "jsr:@std/path";
 import { getSkinImage, usernameToUuid } from "../skin.ts";
 import { decodePNG } from "jsr:@img/png";
-
-const players = [
-  "Falp06",
-  "yuzuki0061600",
-  "sabineko_427",
-  "rokuharatandai3",
-  "keybooo865",
-  "coddlfish",
-  "Uboot_Samon",
-  "PandaDash334",
-  "_hunisuke_monkey",
-] as const;
-
-type Player = typeof players[number];
-
-type Item = {
-  readonly type: "touch";
-  readonly from: Player;
-  readonly time: Time;
-} | {
-  /**
-   * 実際に鬼が移った
-   */
-  readonly type: "oniChange";
-  readonly from: Player | undefined;
-  readonly to: Player | undefined;
-  readonly time: Time;
-} | {
-  /**
-   * 死亡したり抜けた
-   */
-  readonly type: "exit";
-  readonly player: Player;
-  readonly time: Time;
-} | {
-  readonly type: "enter";
-  readonly player: Player;
-  readonly time: Time;
-};
-
-type Time = `${number}:${number}`;
-
-function parseTime(time: Time): number {
-  const result = /^(\d+):(\d+)$/.exec(time)!;
-  return Number.parseInt(result[1]!) * 60 + Number.parseInt(result[2]!);
-}
+import { Item, parseTime } from "./type.ts";
+import { items, players } from "./data/2025-03-08.ts";
 
 const outPath = "./deno/hide-and-seek-timeline/out";
 
-async function main() {
-  const items: ReadonlyArray<Item> = [{
-    type: "oniChange",
-    from: undefined,
-    to: "_hunisuke_monkey",
-    time: "0:0",
-  }, {
-    type: "oniChange",
-    from: undefined,
-    to: "PandaDash334",
-    time: "0:0",
-  }];
-
+async function main<Player extends string>(
+  { players, items }: {
+    readonly players: ReadonlyArray<Player>;
+    readonly items: ReadonlyArray<Item<Player>>;
+  },
+) {
+  const sortedItems = items.toSorted((a, b) =>
+    parseTime(a.time) - parseTime(b.time)
+  );
   /**
    * 開催時間
    */
@@ -75,110 +27,112 @@ async function main() {
 
   const nameWidth = 190;
 
+  const moneyWidth = 200;
+
   const rowHeight = 32;
 
   await ensureDir(outPath);
 
   const playerAndSkinImages = await getPlayersSkin(players);
 
-  await Deno.writeTextFile(
-    join(outPath, "./2025-03-08.svg"),
-    renderToString(
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox={`0 0 ${nameWidth + endTime} ${
-          rowHeight + players.length * rowHeight
-        }`}
-      >
-        <g>
-          <rect
-            x={0}
-            y={0}
-            width={nameWidth + endTime}
-            height={rowHeight}
-            fill="#fff"
-          />
-          {Array.from(
-            { length: endTime / 60 },
-            (_, i) => (
-              <text
-                key={i}
-                x={nameWidth + i * 60}
-                y={rowHeight * 0.5}
-                dominantBaseline="middle"
-              >
-                {i}:00
-              </text>
-            ),
-          )}
-        </g>
-        {playerAndSkinImages.map(({ username, skinImage }, index) => (
-          <g key={username}>
-            <rect
-              x={0}
-              y={rowHeight + rowHeight * index}
-              width={nameWidth + endTime}
-              height={rowHeight}
-              fill={["#ace38f", "#00e851", "#cae8ba"][index % 3]}
-            />
-            <g
-              transform={`translate(0, ${
-                rowHeight + rowHeight * (index + 0.5)
-              })`}
-            >
-              <UserLabel username={username} skinImage={skinImage} />
-            </g>
-          </g>
-        ))}
+  const svg = (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox={`0 0 ${nameWidth + endTime + moneyWidth} ${
+        rowHeight + players.length * rowHeight
+      }`}
+    >
+      <g>
+        <rect
+          x={0}
+          y={0}
+          width={nameWidth + endTime + moneyWidth}
+          height={rowHeight}
+          fill="#fff"
+        />
         {Array.from(
-          { length: endTime / 60 },
+          { length: endTime / 60 + 1 },
           (_, i) => (
-            <line
+            <text
               key={i}
-              x1={nameWidth + i * 60}
-              y1={0}
-              x2={nameWidth + i * 60}
-              y2={rowHeight + players.length * rowHeight}
-              stroke="gray"
-            />
+              x={nameWidth + i * 60}
+              y={rowHeight * 0.5}
+              dominantBaseline="middle"
+            >
+              {i}:00
+            </text>
           ),
         )}
-        {items.map((item, index) => {
-          switch (item.type) {
-            case "oniChange": {
-              const nextChange = items.slice(index).find((e) =>
-                e.type === "oniChange" && e.from === item.to
-              );
-              const strokeWidth = 20;
-              return (
-                <g key={index}>
-                  {item.to
-                    ? (
-                      <rect
-                        x={nameWidth + parseTime(item.time)}
-                        y={rowHeight + players.indexOf(item.to) * rowHeight +
-                          rowHeight * 0.5 - strokeWidth * 0.5}
-                        height={strokeWidth}
-                        width={(nextChange
-                          ? parseTime(nextChange.time)
-                          : endTime) - parseTime(item.time)}
-                        fill="red"
-                      />
-                    )
-                    : undefined}
-                </g>
-              );
-            }
-            case "touch":
-              return <g></g>;
-            case "exit":
-              return <g></g>;
-            case "enter":
-              return <g></g>;
+      </g>
+      {playerAndSkinImages.map(({ username, skinImage }, index) => (
+        <g key={username}>
+          <rect
+            x={0}
+            y={rowHeight + rowHeight * index}
+            width={nameWidth + endTime + moneyWidth}
+            height={rowHeight}
+            fill={["#ace38f", "#00e851", "#cae8ba"][index % 3]}
+          />
+          <g
+            transform={`translate(0, ${rowHeight + rowHeight * (index + 0.5)})`}
+          >
+            <UserLabel username={username} skinImage={skinImage} />
+          </g>
+        </g>
+      ))}
+      {Array.from(
+        { length: endTime / 60 + 1 },
+        (_, i) => (
+          <line
+            key={i}
+            x1={nameWidth + i * 60}
+            y1={0}
+            x2={nameWidth + i * 60}
+            y2={rowHeight + players.length * rowHeight}
+            stroke="gray"
+          />
+        ),
+      )}
+      {sortedItems.map((item, index) => {
+        switch (item.type) {
+          case "oniChange": {
+            const nextChange = sortedItems.slice(index).find((e) =>
+              e.type === "oniChange" && e.from === item.to
+            );
+            const strokeWidth = 20;
+            return (
+              <g key={index}>
+                {item.to
+                  ? (
+                    <rect
+                      x={nameWidth + parseTime(item.time)}
+                      y={rowHeight + players.indexOf(item.to) * rowHeight +
+                        rowHeight * 0.5 - strokeWidth * 0.5}
+                      height={strokeWidth}
+                      width={(nextChange
+                        ? parseTime(nextChange.time)
+                        : endTime) - parseTime(item.time)}
+                      fill="red"
+                    />
+                  )
+                  : undefined}
+              </g>
+            );
           }
-        })}
-      </svg>,
-    ),
+          case "touch":
+            return <g></g>;
+          case "exit":
+            return <g></g>;
+          case "enter":
+            return <g></g>;
+        }
+      })}
+    </svg>
+  );
+
+  await Deno.writeTextFile(
+    join(outPath, "./2025-03-08.svg"),
+    renderToString(svg),
   );
 }
 
@@ -275,7 +229,10 @@ async function getPlayersSkin(
   return result;
 }
 
-await main();
+await main({
+  items,
+  players,
+});
 console.log("done");
 
 function getPixelAt(
