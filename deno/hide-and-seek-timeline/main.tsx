@@ -27,6 +27,14 @@ async function main<Player extends string>(
 
   const playerAndSkinImages = await getPlayersSkin(players);
 
+  await Deno.writeTextFile(
+    join(outPath, "2025-03-08.txt"),
+    players.map((player) =>
+      `/pay ${player} ${calcMoney({ items, endTime }, player)}
+`
+    ).join(""),
+  );
+
   const svg = (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -178,10 +186,27 @@ async function main<Player extends string>(
                 </g>
               );
             }
-            case "exit":
-              return <g></g>;
+            case "exit": {
+              const strokeWidth = rowHeight;
+              const nextEnter = items.slice(index).find((e) =>
+                e.type === "enter" && e.player === item.player
+              );
+              return (
+                <g>
+                  <rect
+                    x={nameWidth + item.time}
+                    y={rowHeight + players.indexOf(item.player) * rowHeight +
+                      rowHeight * 0.5 - strokeWidth * 0.5}
+                    height={strokeWidth}
+                    width={(nextEnter ? nextEnter.time : endTime) -
+                      (item.time)}
+                    fill="gray"
+                  />
+                </g>
+              );
+            }
             case "enter":
-              return <g></g>;
+              return undefined;
           }
         })}
       </g>
@@ -213,11 +238,12 @@ const UserLabel = (
                 return (
                   <rect
                     key={`${x},${y}`}
-                    x={x - 0.01}
-                    y={y - 0.01}
-                    width={1.01}
-                    height={1.01}
-                    stroke="none"
+                    x={x}
+                    y={y}
+                    width={1}
+                    height={1}
+                    stroke={`rgba(${r}, ${g}, ${b}, ${a})`}
+                    strokeWidth={0.03}
                     fill={`rgba(${r}, ${g}, ${b}, ${a})`}
                   />
                 );
@@ -236,11 +262,12 @@ const UserLabel = (
                 return (
                   <rect
                     key={`${x},${y}`}
-                    x={x - 0.01}
-                    y={y - 0.01}
-                    width={1.01}
-                    height={1.01}
-                    stroke="none"
+                    x={x}
+                    y={y}
+                    width={1}
+                    height={1}
+                    stroke={`rgba(${r}, ${g}, ${b}, ${a})`}
+                    strokeWidth={0.03}
                     fill={`rgba(${r}, ${g}, ${b}, ${a})`}
                   />
                 );

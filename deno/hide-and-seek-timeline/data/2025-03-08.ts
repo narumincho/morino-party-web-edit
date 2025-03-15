@@ -181,5 +181,25 @@ export const result: ResultInput<Player> = {
       to: "coddlfish",
       time: "19:10",
     }),
+    {
+      type: "exit",
+      player: "PandaDash334",
+      time: "10:50",
+    },
+    {
+      type: "enter",
+      player: "PandaDash334",
+      time: "12:37",
+    },
+    {
+      type: "exit",
+      player: "coddlfish",
+      time: "6:17",
+    },
+    {
+      type: "enter",
+      player: "coddlfish",
+      time: "6:36",
+    },
   ],
 };
