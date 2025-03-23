@@ -7,7 +7,7 @@ import { join } from "jsr:@std/path";
 import { getSkinImage, usernameToUuid } from "../skin.ts";
 import { decodePNG } from "jsr:@img/png";
 import { Result, resultInputToResult } from "./type.ts";
-import { result } from "./data/2025-03-08.ts";
+import { result } from "./data/2025-03-22.ts";
 import { calcMoney } from "./calcMoney.ts";
 
 const outPath = "./deno/hide-and-seek-timeline/out";

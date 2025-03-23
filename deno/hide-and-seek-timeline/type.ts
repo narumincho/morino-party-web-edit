@@ -6,7 +6,7 @@ export type Item<Player extends string, Time = StrTime> = {
    */
   readonly type: "touch";
   readonly from: Player | undefined;
-  readonly to: Player;
+  readonly to: Player | undefined;
   readonly time: Time;
 } | {
   /**
