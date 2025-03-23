@@ -85,12 +85,11 @@ export const result: ResultInput<Player> = {
       to: "takoyaki_ooo",
       time: "14:20",
     },
-    {
-      type: "touch",
+    ...touchAndOniChange<Player>({
       from: "PandaDash334",
       to: "rokuharatandai3",
       time: "14:30",
-    },
+    }),
     {
       type: "touch",
       from: "takoyaki_ooo",
