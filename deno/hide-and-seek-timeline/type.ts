@@ -57,6 +57,7 @@ export function parseTime(time: StrTime): number {
 }
 
 export type ResultInput<Player extends string> = {
+  readonly title: string;
   readonly players: ReadonlyArray<Player>;
   readonly items: ReadonlyArray<Item<Player>>;
   readonly offset: StrTime;
@@ -67,6 +68,7 @@ export type ResultInput<Player extends string> = {
 };
 
 export type Result<Player extends string> = {
+  readonly title: string;
   readonly players: ReadonlyArray<Player>;
   readonly items: ReadonlyArray<Item<Player, number>>;
   /**
@@ -84,6 +86,7 @@ export function resultInputToResult<Player extends string>(
   })).sort((a, b) => a.time - b.time);
   const endTime = parseTime(resultInput.endTime);
   return {
+    title: resultInput.title,
     players: resultInput.players.toSorted((a, b) =>
       calcMoney({ items, endTime }, a) - calcMoney({ items, endTime }, b)
     ),

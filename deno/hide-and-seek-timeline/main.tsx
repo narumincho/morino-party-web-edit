@@ -13,7 +13,7 @@ import { calcMoney } from "./calcMoney.ts";
 const outPath = "./deno/hide-and-seek-timeline/out";
 
 async function main<Player extends string>(
-  { players, items, endTime }: Result<Player>,
+  { title, players, items, endTime }: Result<Player>,
 ) {
   const nameWidth = 190;
 
@@ -28,7 +28,7 @@ async function main<Player extends string>(
   const playerAndSkinImages = await getPlayersSkin(players);
 
   await Deno.writeTextFile(
-    join(outPath, "2025-03-08.txt"),
+    join(outPath, `./${title}.txt`),
     players.map((player) =>
       `/pay ${player} ${calcMoney({ items, endTime }, player)}
 `
@@ -214,7 +214,7 @@ async function main<Player extends string>(
   );
 
   await Deno.writeTextFile(
-    join(outPath, "./2025-03-08.svg"),
+    join(outPath, `./${title}.svg`),
     renderToString(svg),
   );
 }

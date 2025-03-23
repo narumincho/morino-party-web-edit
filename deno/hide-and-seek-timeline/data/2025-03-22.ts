@@ -10,6 +10,7 @@ const players = [
 type Player = typeof players[number];
 
 export const result: ResultInput<Player> = {
+  title: "2025-03-22",
   offset: "0:00",
   endTime: "15:00",
   players,
