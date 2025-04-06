@@ -7,7 +7,7 @@ import { join } from "jsr:@std/path";
 import { getSkinImage, usernameToUuid } from "../skin.ts";
 import { decodePNG } from "jsr:@img/png";
 import { Result, resultInputToResult } from "./type.ts";
-import { result } from "./data/2025-03-22.ts";
+import { result } from "./data/2025-04-05.ts";
 import { calcMoney } from "./calcMoney.ts";
 
 const outPath = "./deno/hide-and-seek-timeline/out";
@@ -27,12 +27,21 @@ async function main<Player extends string>(
 
   const playerAndSkinImages = await getPlayersSkin(players);
 
+  const playerMoneys = players.map((player) => ({
+    player,
+    money: calcMoney({ items, endTime }, player),
+  }));
+
   await Deno.writeTextFile(
     join(outPath, `./${title}.txt`),
-    players.map((player) =>
-      `/pay ${player} ${calcMoney({ items, endTime }, player)}
+    [
+      ...playerMoneys.map(({ player, money }) =>
+        `/pay ${player} ${money}
 `
-    ).join(""),
+      ),
+      `# sum: ${playerMoneys.reduce((v, { money: a }) => a + v, 0)}
+`,
+    ].join(""),
   );
 
   const svg = (
