@@ -9,6 +9,7 @@ import { decodePNG } from "jsr:@img/png";
 import { Result, resultInputToResult } from "./type.ts";
 import { result } from "./data/2025-04-05.ts";
 import { calcMoney } from "./calcMoney.ts";
+import { format } from "npm:prettier";
 
 const outPath = "./deno/hide-and-seek-timeline/out";
 
@@ -201,7 +202,7 @@ async function main<Player extends string>(
                 e.type === "enter" && e.player === item.player
               );
               return (
-                <g>
+                <g key={index}>
                   <rect
                     x={nameWidth + item.time}
                     y={rowHeight + players.indexOf(item.player) * rowHeight +
@@ -222,9 +223,11 @@ async function main<Player extends string>(
     </svg>
   );
 
+  const svgPath = join(outPath, `./${title}.svg`);
+
   await Deno.writeTextFile(
-    join(outPath, `./${title}.svg`),
-    renderToString(svg),
+    svgPath,
+    await format(renderToString(svg), { parser: "html" }),
   );
 }
 
