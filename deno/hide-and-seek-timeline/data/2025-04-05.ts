@@ -24,7 +24,7 @@ export const result: ResultInput<Player> = {
     ...touchAndOniChange<Player>({
       from: undefined,
       to: "narumincho",
-      time: "0:00",
+      time: "0:05",
     }),
     ...touchAndOniChange<Player>({
       from: "narumincho",

@@ -3,8 +3,8 @@
 /pay PandaDash334 436
 /pay sabineko_427 576
 /pay akito67 709
-/pay narumincho 748
+/pay narumincho 753
 /pay rokuharatandai3 867
 /pay MG42_ 900
 /pay Falp06 900
-# sum: 5675
+# sum: 5680
