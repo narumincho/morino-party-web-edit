@@ -1,0 +1,11 @@
+/pay shsw00 170
+/pay yuzuki0061600 581
+/pay MG42_ 678
+/pay tacosuke1205 709
+/pay Uboot_Samon 795
+/pay akito67 802
+/pay Falp06 831
+/pay narumincho 834
+/pay PandaDash334 900
+/pay sabineko_427 900
+# sum: 7200

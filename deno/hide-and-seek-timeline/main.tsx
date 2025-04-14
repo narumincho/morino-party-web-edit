@@ -7,7 +7,7 @@ import { join } from "jsr:@std/path";
 import { getSkinImage, usernameToUuid } from "../skin.ts";
 import { decodePNG } from "jsr:@img/png";
 import { Result, resultInputToResult } from "./type.ts";
-import { result } from "./data/2025-04-05.ts";
+import { result } from "./data/2025-04-12.ts";
 import { calcMoney } from "./calcMoney.ts";
 import { format } from "npm:prettier";
 
@@ -307,6 +307,7 @@ async function getPlayersSkin(
   for (const username of players) {
     const cachePath = join(outPath, `./skin/${username}.png`);
     try {
+      // throw new Error("get new Image");
       result.push({
         username,
         skinImage: await decodePNG(await Deno.readFile(cachePath)),
