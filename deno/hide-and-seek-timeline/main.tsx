@@ -7,7 +7,7 @@ import { join } from "jsr:@std/path";
 import { getSkinImage, usernameToUuid } from "../skin.ts";
 import { decodePNG } from "jsr:@img/png";
 import { Result, resultInputToResult } from "./type.ts";
-import { result } from "./data/2025-04-12.ts";
+import { result } from "./data/2025-04-19.ts";
 import { calcMoney } from "./calcMoney.ts";
 import { format } from "npm:prettier";
 
@@ -87,7 +87,8 @@ async function main<Player extends string>(
             y={rowHeight + rowHeight * index}
             width={imageWidth}
             height={rowHeight + 1}
-            fill={["#ace38f", "#00e851", "#cae8ba"][index % 3]}
+            fill={["#3ccfcf", "#8bc5cb", "#8ff0e7"][index % 3]}
+            // fill={["#ace38f", "#00e851", "#cae8ba"][index % 3]}
           />
           <g
             transform={`translate(0, ${rowHeight + rowHeight * (index + 0.5)})`}
