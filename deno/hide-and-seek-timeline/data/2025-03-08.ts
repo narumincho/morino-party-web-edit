@@ -19,6 +19,7 @@ export const result: ResultInput<Player> = {
   offset: "0:22",
   endTime: "20:00",
   players,
+  colors: ["#ace38f", "#00e851", "#cae8ba"],
   items: [
     ...touchAndOniChange<Player>({
       from: undefined,

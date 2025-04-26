@@ -65,6 +65,7 @@ export type ResultInput<Player extends string> = {
    * 開催時間 オフセット分の時間は含めない
    */
   readonly endTime: StrTime;
+  readonly colors: ReadonlyArray<string>;
 };
 
 export type Result<Player extends string> = {
@@ -75,6 +76,7 @@ export type Result<Player extends string> = {
    * 開催時間
    */
   readonly endTime: number;
+  readonly colors: ReadonlyArray<string>;
 };
 
 export function resultInputToResult<Player extends string>(
@@ -92,5 +94,6 @@ export function resultInputToResult<Player extends string>(
     ),
     items,
     endTime,
+    colors: resultInput.colors,
   };
 }

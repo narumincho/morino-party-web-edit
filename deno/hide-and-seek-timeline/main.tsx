@@ -14,7 +14,7 @@ import { format } from "npm:prettier";
 const outPath = "./deno/hide-and-seek-timeline/out";
 
 async function main<Player extends string>(
-  { title, players, items, endTime }: Result<Player>,
+  { title, players, items, endTime, colors }: Result<Player>,
 ) {
   const nameWidth = 190;
 
@@ -87,8 +87,7 @@ async function main<Player extends string>(
             y={rowHeight + rowHeight * index}
             width={imageWidth}
             height={rowHeight + 1}
-            fill={["#3ccfcf", "#8bc5cb", "#8ff0e7"][index % 3]}
-            // fill={["#ace38f", "#00e851", "#cae8ba"][index % 3]}
+            fill={colors[index % colors.length]}
           />
           <g
             transform={`translate(0, ${rowHeight + rowHeight * (index + 0.5)})`}
