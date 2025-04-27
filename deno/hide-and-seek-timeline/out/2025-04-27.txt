@@ -1,0 +1,8 @@
+/pay akito67 402
+/pay sirasukundayo 475
+/pay yuzuki0061600 603
+/pay narumincho 661
+/pay omochintyo 760
+/pay MG42_ 773
+/pay Falp06 826
+# sum: 4500

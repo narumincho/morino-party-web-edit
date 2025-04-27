@@ -7,7 +7,7 @@ import { join } from "jsr:@std/path";
 import { getSkinImage, usernameToUuid } from "../skin.ts";
 import { decodePNG } from "jsr:@img/png";
 import { Result, resultInputToResult } from "./type.ts";
-import { result } from "./data/2025-04-19.ts";
+import { result } from "./data/2025-04-27.ts";
 import { calcMoney } from "./calcMoney.ts";
 import { format } from "npm:prettier";
 
