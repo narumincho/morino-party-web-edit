@@ -220,6 +220,19 @@ async function main<Player extends string>(
           }
         })}
       </g>
+      <defs>
+        <linearGradient
+          id="task-gradient"
+          x1="0%"
+          y1="0%"
+          x2="100%"
+          y2="0%"
+        >
+          <stop offset="0%" stopColor="skyblue" />
+          <stop offset="100%" stopColor="blue" />
+        </linearGradient>
+      </defs>
+
       <g>
         {tasks?.map((task) => (
           <g key={`task-${task.player}`}>
@@ -231,7 +244,8 @@ async function main<Player extends string>(
                     rowHeight * 0.7}
                   height={rowHeight * 0.2}
                   width={task.time.end - task.time.start}
-                  fill="skyblue"
+                  fill="url(#task-gradient)"
+                  stroke="black"
                 />
               )
               : undefined}

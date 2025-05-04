@@ -7356,20 +7356,63 @@
       <rect x="1011" y="43" height="10" width="79" fill="red"></rect>
     </g>
   </g>
+  <defs>
+    <linearGradient id="task-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="skyblue"></stop>
+      <stop offset="100%" stop-color="blue"></stop>
+    </linearGradient>
+  </defs>
   <g>
     <g></g>
     <g>
-      <rect x="417" y="182.4" height="6.4" width="13" fill="skyblue"></rect>
+      <rect
+        x="417"
+        y="182.4"
+        height="6.4"
+        width="13"
+        fill="url(#task-gradient)"
+        stroke="black"
+      ></rect>
     </g>
     <g>
-      <rect x="196" y="118.4" height="6.4" width="13" fill="skyblue"></rect>
+      <rect
+        x="196"
+        y="118.4"
+        height="6.4"
+        width="13"
+        fill="url(#task-gradient)"
+        stroke="black"
+      ></rect>
     </g>
     <g>
-      <rect x="281" y="150.4" height="6.4" width="15" fill="skyblue"></rect>
+      <rect
+        x="281"
+        y="150.4"
+        height="6.4"
+        width="15"
+        fill="url(#task-gradient)"
+        stroke="black"
+      ></rect>
     </g>
-    <g><rect x="195" y="86.4" height="6.4" width="18" fill="skyblue"></rect></g>
     <g>
-      <rect x="509" y="214.4" height="6.4" width="15" fill="skyblue"></rect>
+      <rect
+        x="195"
+        y="86.4"
+        height="6.4"
+        width="18"
+        fill="url(#task-gradient)"
+        stroke="black"
+      ></rect>
+    </g>
+    <g>
+      <rect
+        x="509"
+        y="214.4"
+        height="6.4"
+        width="15"
+        fill="url(#task-gradient)"
+        stroke="black"
+      ></rect>
     </g>
   </g>
 </svg>
