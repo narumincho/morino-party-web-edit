@@ -14,7 +14,7 @@ import { format } from "npm:prettier";
 const outPath = "./deno/hide-and-seek-timeline/out";
 
 async function main<Player extends string>(
-  { title, players, items, endTime, colors }: Result<Player>,
+  { title, players, items, endTime, colors, tasks }: Result<Player>,
 ) {
   const nameWidth = 190;
 
@@ -30,7 +30,7 @@ async function main<Player extends string>(
 
   const playerMoneys = players.map((player) => ({
     player,
-    money: calcMoney({ items, endTime }, player),
+    money: calcMoney({ items, endTime, tasks }, player),
   }));
 
   await Deno.writeTextFile(
@@ -100,7 +100,7 @@ async function main<Player extends string>(
             dominantBaseline="middle"
             textAnchor="end"
           >
-            {calcMoney({ items, endTime }, username)}
+            {calcMoney({ items, endTime, tasks }, username)}
           </text>
         </g>
       ))}
@@ -219,6 +219,24 @@ async function main<Player extends string>(
               return undefined;
           }
         })}
+      </g>
+      <g>
+        {tasks?.map((task) => (
+          <g key={`task-${task.player}`}>
+            {task.time
+              ? (
+                <rect
+                  x={nameWidth + task.time.start}
+                  y={rowHeight + players.indexOf(task.player) * rowHeight +
+                    rowHeight * 0.7}
+                  height={rowHeight * 0.2}
+                  width={task.time.end - task.time.start}
+                  fill="skyblue"
+                />
+              )
+              : undefined}
+          </g>
+        ))}
       </g>
     </svg>
   );

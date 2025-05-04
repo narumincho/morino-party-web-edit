@@ -1,12 +1,12 @@
 import { ResultInput, touchAndOniChange } from "../type.ts";
 
 const players = [
-  "narumincho", // check
-  "MG42_", //
-  "yuzuki0061600",
-  "Falp06",
-  "Uboot_Samon",
-  "_hunisuke_monkey",
+  "narumincho", // ok
+  "MG42_", // ok
+  "yuzuki0061600", // ok
+  "Falp06", // ok
+  "Uboot_Samon", // ok
+  "_hunisuke_monkey", // ok
 ] as const;
 
 type Player = typeof players[number];
@@ -101,4 +101,12 @@ export const result: ResultInput<Player> = {
       time: "13:26",
     }),
   ],
+  tasks: {
+    narumincho: undefined,
+    MG42_: { start: "4:27", end: "4:40" },
+    yuzuki0061600: { start: "0:46", end: "0:59" },
+    Falp06: { start: "2:11", end: "2:26" },
+    Uboot_Samon: { start: "0:45", end: "1:03" },
+    _hunisuke_monkey: { start: "5:59", end: "6:14" },
+  },
 };

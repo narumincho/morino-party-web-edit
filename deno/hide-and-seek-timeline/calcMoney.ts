@@ -1,9 +1,16 @@
 import type { Result } from "./type.ts";
 
 export function calcMoney<Player extends string>(
-  { items, endTime }: Pick<Result<Player>, "items" | "endTime">,
+  { items, endTime, tasks }: Pick<
+    Result<Player>,
+    "items" | "endTime" | "tasks"
+  >,
   player: Player,
 ): number {
+  if (tasks && !tasks.find((task) => task.player === player)?.time) {
+    return 0;
+  }
+
   let money = 0;
   /**
    * 前回の捕まっていない状態時刻
