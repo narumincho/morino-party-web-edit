@@ -1,0 +1,7 @@
+/pay narumincho 789
+/pay Uboot_Samon 839
+/pay yuzuki0061600 929
+/pay Falp06 998
+/pay MG42_ 1269
+/pay _hunisuke_monkey 1556
+# sum: 6380

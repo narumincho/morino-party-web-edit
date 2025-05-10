@@ -7,14 +7,14 @@ import { join } from "jsr:@std/path";
 import { getSkinImage, usernameToUuid } from "../skin.ts";
 import { decodePNG } from "jsr:@img/png";
 import { Result, resultInputToResult } from "./type.ts";
-import { result } from "./data/2025-05-03.ts";
+import { result } from "./data/2025-05-17.ts";
 import { calcMoney } from "./calcMoney.ts";
 import { format } from "npm:prettier";
 
 const outPath = "./deno/hide-and-seek-timeline/out";
 
 async function main<Player extends string>(
-  { title, players, items, endTime, colors, tasks }: Result<Player>,
+  { title, players, items, endTime, colors, tasks, eggs }: Result<Player>,
 ) {
   const nameWidth = 190;
 
@@ -30,7 +30,7 @@ async function main<Player extends string>(
 
   const playerMoneys = players.map((player) => ({
     player,
-    money: calcMoney({ items, endTime, tasks }, player),
+    money: calcMoney({ items, endTime, tasks, eggs }, player),
   }));
 
   await Deno.writeTextFile(
@@ -100,7 +100,7 @@ async function main<Player extends string>(
             dominantBaseline="middle"
             textAnchor="end"
           >
-            {calcMoney({ items, endTime, tasks }, username)}
+            {calcMoney({ items, endTime, tasks, eggs }, username)}
           </text>
         </g>
       ))}
@@ -249,6 +249,31 @@ async function main<Player extends string>(
                 />
               )
               : undefined}
+          </g>
+        ))}
+      </g>
+
+      <g>
+        {eggs?.map(({ egg, player, time }) => (
+          <g
+            key={`egg-${player}-${egg}`}
+            transform={`translate(${nameWidth + time}, ${
+              rowHeight + players.indexOf(player) * rowHeight
+            })`}
+          >
+            <rect
+              height={rowHeight * 0.2}
+              width={1}
+              stroke="none"
+              fill="#02be63"
+            />
+            <text
+              y={rowHeight * 0.5}
+              textAnchor="middle"
+              fontSize={12}
+            >
+              {egg.at(0)}
+            </text>
           </g>
         ))}
       </g>

@@ -1,15 +1,16 @@
 import type { Result } from "./type.ts";
 
 export function calcMoney<Player extends string>(
-  { items, endTime, tasks }: Pick<
+  { items, endTime, tasks, eggs }: Pick<
     Result<Player>,
-    "items" | "endTime" | "tasks"
+    "items" | "endTime" | "tasks" | "eggs"
   >,
   player: Player,
 ): number {
   if (tasks && !tasks.find((task) => task.player === player)?.time) {
     return 0;
   }
+  const eggCount = eggs.filter((egg) => egg.player === player).length;
 
   let money = 0;
   /**
@@ -53,8 +54,10 @@ export function calcMoney<Player extends string>(
         }
     }
   }
+
+  const eggMultiple = 1 + eggCount * 0.1;
   if (typeof prevState === "number") {
-    return money + endTime - prevState;
+    return Math.ceil((money + endTime - prevState) * eggMultiple);
   }
-  return money;
+  return Math.ceil(money * eggMultiple);
 }

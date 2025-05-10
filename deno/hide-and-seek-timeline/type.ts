@@ -67,7 +67,28 @@ export type ResultInput<Player extends string> = {
   readonly endTime: StrTime;
   readonly colors: ReadonlyArray<string>;
   readonly tasks?: Record<Player, { start: StrTime; end: StrTime } | undefined>;
+  readonly eggs?: Record<Player, Record<Egg, StrTime | undefined>>;
 };
+
+type Egg = typeof allEgg[number];
+
+export const allEgg = [
+  "大木の中には空洞がある",
+  "赤、緑、黄色といえば",
+  "屋根の下で目を凝らせ",
+  "小さな木を見上げてお花見をしよう",
+  "それはドーナッツ？",
+  "3匹の大豚",
+  "HOT or COLD",
+  "運命の分かれ道",
+  "ホームシアターの部屋",
+  "絵画の世界に飛び込もう",
+  "さて、どう料理してやろうか",
+  "ケーキが見つめる先に",
+  "二角獣の腹の中は煙たい",
+  "群れない茶色",
+  "4つならんだ…",
+] as const;
 
 export type Result<Player extends string> = {
   readonly title: string;
@@ -80,9 +101,19 @@ export type Result<Player extends string> = {
   readonly colors: ReadonlyArray<string>;
   readonly tasks:
     | ReadonlyArray<
-      { player: Player; time: { start: number; end: number } | undefined }
+      {
+        readonly player: Player;
+        readonly time:
+          | { readonly start: number; readonly end: number }
+          | undefined;
+      }
     >
     | undefined;
+  readonly eggs: ReadonlyArray<{
+    readonly player: Player;
+    readonly egg: Egg;
+    readonly time: number;
+  }>;
 };
 
 export function resultInputToResult<Player extends string>(
@@ -103,6 +134,21 @@ export function resultInputToResult<Player extends string>(
       },
     }))
     : undefined;
+  const eggs = resultInput.eggs
+    ? Object.entries<
+      Record<Egg, StrTime | undefined>
+    >(resultInput.eggs).flatMap(([player, eggs]) =>
+      Object.entries<StrTime | undefined>(eggs).flatMap(([egg, time]) =>
+        time
+          ? [{
+            player: player as Player,
+            egg: egg as Egg,
+            time: parseTime(time) - offset,
+          }]
+          : []
+      )
+    )
+    : [];
   const items = resultInput.items.map((item) => ({
     ...item,
     time: parseTime(item.time) - offset,
@@ -111,12 +157,13 @@ export function resultInputToResult<Player extends string>(
   return {
     title: resultInput.title,
     players: resultInput.players.toSorted((a, b) =>
-      calcMoney({ items, endTime, tasks }, a) -
-      calcMoney({ items, endTime, tasks }, b)
+      calcMoney({ items, endTime, tasks, eggs }, a) -
+      calcMoney({ items, endTime, tasks, eggs }, b)
     ),
     items,
     endTime,
     colors: resultInput.colors,
     tasks,
+    eggs,
   };
 }
