@@ -272,7 +272,7 @@ async function main<Player extends string>(
               textAnchor="middle"
               fontSize={12}
             >
-              {egg.at(0)}
+              {egg}
             </text>
           </g>
         ))}
