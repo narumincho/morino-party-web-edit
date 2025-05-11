@@ -1,0 +1,7 @@
+/pay kasuku33 333
+/pay MG42_ 668
+/pay Kafiristan 0
+/pay Falp06 686
+/pay narumincho 728
+/pay yuzuki0061600 760
+# sum: 3856

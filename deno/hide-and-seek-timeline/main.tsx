@@ -7,14 +7,16 @@ import { join } from "jsr:@std/path";
 import { getSkinImage, usernameToUuid } from "../skin.ts";
 import { decodePNG } from "jsr:@img/png";
 import { Result, resultInputToResult } from "./type.ts";
-import { result } from "./data/2025-05-17.ts";
+import { result } from "./data/2025-05-10.ts";
 import { calcMoney } from "./calcMoney.ts";
 import { format } from "npm:prettier";
 
 const outPath = "./deno/hide-and-seek-timeline/out";
 
 async function main<Player extends string>(
-  { title, players, items, endTime, colors, tasks, eggs }: Result<Player>,
+  { title, players, items, endTime, colors, textColor, tasks, eggs }: Result<
+    Player
+  >,
 ) {
   const nameWidth = 190;
 
@@ -37,7 +39,7 @@ async function main<Player extends string>(
     join(outPath, `./${title}.txt`),
     [
       ...playerMoneys.map(({ player, money }) =>
-        `/pay ${player} ${money}
+        `/pay ${player} ${player === "Kafiristan" ? "0" : money}
 `
       ),
       `# sum: ${playerMoneys.reduce((v, { money: a }) => a + v, 0)}
@@ -92,11 +94,16 @@ async function main<Player extends string>(
           <g
             transform={`translate(0, ${rowHeight + rowHeight * (index + 0.5)})`}
           >
-            <UserLabel username={username} skinImage={skinImage} />
+            <UserLabel
+              username={username}
+              skinImage={skinImage}
+              textColor={textColor}
+            />
           </g>
           <text
             x={nameWidth + endTime + moneyWidth}
             y={rowHeight + rowHeight * (index + 0.5)}
+            fill={textColor}
             dominantBaseline="middle"
             textAnchor="end"
           >
@@ -289,7 +296,11 @@ async function main<Player extends string>(
 }
 
 const UserLabel = (
-  { username, skinImage }: { username: string; skinImage: Image },
+  { username, skinImage, textColor }: {
+    readonly username: string;
+    readonly skinImage: Image;
+    readonly textColor: string;
+  },
 ) => {
   return (
     <>
@@ -347,6 +358,7 @@ const UserLabel = (
       <text
         x={36}
         y={0}
+        fill={textColor}
         dominantBaseline="middle"
       >
         {username}
