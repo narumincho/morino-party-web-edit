@@ -66,7 +66,7 @@ export type ResultInput<Player extends string> = {
    */
   readonly endTime: StrTime;
   readonly colors: ReadonlyArray<string>;
-  readonly textColor?: string;
+  readonly textColors?: ReadonlyArray<string>;
   readonly tasks?: Record<Player, { start: StrTime; end: StrTime } | undefined>;
   readonly eggs?: Record<Player, Record<Egg, StrTime | undefined>>;
 };
@@ -100,7 +100,7 @@ export type Result<Player extends string> = {
    */
   readonly endTime: number;
   readonly colors: ReadonlyArray<string>;
-  readonly textColor: string;
+  readonly textColors: ReadonlyArray<string>;
   readonly tasks:
     | ReadonlyArray<
       {
@@ -165,7 +165,7 @@ export function resultInputToResult<Player extends string>(
     items,
     endTime,
     colors: resultInput.colors,
-    textColor: resultInput.textColor ?? "black",
+    textColors: resultInput.textColors ?? ["black"],
     tasks,
     eggs,
   };

@@ -17,7 +17,7 @@ export const result: ResultInput<Player> = {
   endTime: "15:00",
   players,
   colors: ["#4d4d5d", "#6b6b7d"],
-  textColor: "white",
+  textColors: ["white"],
   items: [
     // MG42_
     ...touchAndOniChange<Player>({

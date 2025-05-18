@@ -7,14 +7,14 @@ import { join } from "jsr:@std/path";
 import { getSkinImage, usernameToUuid } from "../skin.ts";
 import { decodePNG } from "jsr:@img/png";
 import { Result, resultInputToResult } from "./type.ts";
-import { result } from "./data/2025-05-10.ts";
+import { result } from "./data/2025-05-17.ts";
 import { calcMoney } from "./calcMoney.ts";
 import { format } from "npm:prettier";
 
 const outPath = "./deno/hide-and-seek-timeline/out";
 
 async function main<Player extends string>(
-  { title, players, items, endTime, colors, textColor, tasks, eggs }: Result<
+  { title, players, items, endTime, colors, textColors, tasks, eggs }: Result<
     Player
   >,
 ) {
@@ -97,13 +97,13 @@ async function main<Player extends string>(
             <UserLabel
               username={username}
               skinImage={skinImage}
-              textColor={textColor}
+              textColor={textColors[index % textColors.length]!}
             />
           </g>
           <text
             x={nameWidth + endTime + moneyWidth}
             y={rowHeight + rowHeight * (index + 0.5)}
-            fill={textColor}
+            fill={textColors[index % textColors.length]!}
             dominantBaseline="middle"
             textAnchor="end"
           >
