@@ -1,6 +1,6 @@
-/pay akito67 451
-/pay osyaberisyounen 467
-/pay narumincho 567
-/pay _hunisuke_monkey 583
-/pay Igyman_42 632
-# sum: 2700
+/pay osyaberisyounen 514
+/pay akito67 812
+/pay narumincho 851
+/pay _hunisuke_monkey 1225
+/pay Igyman_42 1328
+# sum: 4730
