@@ -7,16 +7,17 @@ import { join } from "jsr:@std/path";
 import { getSkinImage, usernameToUuid } from "../skin.ts";
 import { decodePNG } from "jsr:@img/png";
 import { Result, resultInputToResult } from "./type.ts";
-import { result } from "./data/2025-05-17.ts";
+import { result } from "./data/2025-05-24.ts";
 import { calcMoney } from "./calcMoney.ts";
 import { format } from "npm:prettier";
 
 const outPath = "./deno/hide-and-seek-timeline/out";
 
 async function main<Player extends string>(
-  { title, players, items, endTime, colors, textColors, tasks, eggs }: Result<
-    Player
-  >,
+  { title, players, items, endTime, colors, textColors, tasks, eggs, bonus }:
+    Result<
+      Player
+    >,
 ) {
   const nameWidth = 190;
 
@@ -32,7 +33,7 @@ async function main<Player extends string>(
 
   const playerMoneys = players.map((player) => ({
     player,
-    money: calcMoney({ items, endTime, tasks, eggs }, player),
+    money: calcMoney({ items, endTime, tasks, eggs, bonus }, player),
   }));
 
   await Deno.writeTextFile(
@@ -107,7 +108,7 @@ async function main<Player extends string>(
             dominantBaseline="middle"
             textAnchor="end"
           >
-            {calcMoney({ items, endTime, tasks, eggs }, username)}
+            {calcMoney({ items, endTime, tasks, eggs, bonus }, username)}
           </text>
         </g>
       ))}

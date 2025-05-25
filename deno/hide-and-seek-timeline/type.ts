@@ -52,8 +52,9 @@ export function touchAndOniChange<Player extends string>(
 export type StrTime = `${number}:${number}`;
 
 export function parseTime(time: StrTime): number {
-  const result = /^(\d+):(\d+)$/.exec(time)!;
-  return Number.parseInt(result[1]!) * 60 + Number.parseInt(result[2]!);
+  const result = /^-?(\d+):(\d+)$/.exec(time)!;
+  return Number.parseInt(result[1]!) * 60 +
+    Number.parseInt(result[2]!) * (time.startsWith("-") ? -1 : 1);
 }
 
 export type ResultInput<Player extends string> = {
@@ -69,6 +70,11 @@ export type ResultInput<Player extends string> = {
   readonly textColors?: ReadonlyArray<string>;
   readonly tasks?: Record<Player, { start: StrTime; end: StrTime } | undefined>;
   readonly eggs?: Record<Player, Record<Egg, StrTime | undefined>>;
+  /**
+   * 賞金を2倍にするか
+   * @default {false}
+   */
+  readonly bonus?: boolean;
 };
 
 type Egg = typeof allEgg[number];
@@ -116,6 +122,7 @@ export type Result<Player extends string> = {
     readonly egg: Egg;
     readonly time: number;
   }>;
+  readonly bonus: boolean;
 };
 
 export function resultInputToResult<Player extends string>(
@@ -156,11 +163,14 @@ export function resultInputToResult<Player extends string>(
     time: parseTime(item.time) - offset,
   })).sort((a, b) => a.time - b.time);
   const endTime = parseTime(resultInput.endTime);
+
+  const bonus = resultInput.bonus ?? false;
+
   return {
     title: resultInput.title,
     players: resultInput.players.toSorted((a, b) =>
-      calcMoney({ items, endTime, tasks, eggs }, a) -
-      calcMoney({ items, endTime, tasks, eggs }, b)
+      calcMoney({ items, endTime, tasks, eggs, bonus }, a) -
+      calcMoney({ items, endTime, tasks, eggs, bonus }, b)
     ),
     items,
     endTime,
@@ -168,5 +178,6 @@ export function resultInputToResult<Player extends string>(
     textColors: resultInput.textColors ?? ["black"],
     tasks,
     eggs,
+    bonus,
   };
 }
