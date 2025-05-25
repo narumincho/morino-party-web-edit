@@ -53,7 +53,7 @@ export const startServer = (
         JSON.stringify({
           url: await s3.getPresignedUrl(
             "PUT",
-            `minecraft-360/${crypto.randomUUID()}`,
+            `minecraft-360/${crypto.randomUUID()}.png`,
           ),
         }),
         {
