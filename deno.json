@@ -5,8 +5,8 @@
   },
   "tasks": {
     "start-http-server": {
-      "command": "deno run --check --watch --allow-net ./deno/main.ts",
-      "description": "スキン画像を生成するサーバーを起動 (開発用)"
+      "command": "deno run --check --watch --allow-net ./deno/startInLocal.ts",
+      "description": "いろんなことをするHTTPサーバーを起動 (開発用)"
     },
     "start-2024-to-2025": {
       "command": "deno run --check -A ./deno/2024-to-2025/main.ts",
@@ -16,5 +16,9 @@
       "command": "deno run --check --watch -A ./deno/hide-and-seek-timeline/main.tsx",
       "description": "隠れ鬼のタイムライン表を出力"
     }
+  },
+  "imports": {
+    "@bradenmacdonald/s3-lite-client": "jsr:@bradenmacdonald/s3-lite-client@^0.9.0",
+    "@cliffy/command": "jsr:@cliffy/command@1.0.0-rc.7"
   }
 }

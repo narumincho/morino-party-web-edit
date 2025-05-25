@@ -1,6 +1,7 @@
 {
-  "version": "4",
+  "version": "5",
   "specifiers": {
+    "jsr:@bradenmacdonald/s3-lite-client@0.9": "0.9.0",
     "jsr:@img/png@*": "0.1.1",
     "jsr:@std/async@*": "1.0.11",
     "jsr:@std/encoding@*": "1.0.6",
@@ -13,6 +14,9 @@
     "npm:react@*": "19.0.0"
   },
   "jsr": {
+    "@bradenmacdonald/s3-lite-client@0.9.0": {
+      "integrity": "76e6f0e61b801b193b82a25a6d5aeac8e407e71a6549da0df539f4642eb15924"
+    },
     "@img/png@0.1.1": {
       "integrity": "baf66835e2dbfe069d23992b361cb5e5b003fb665366c13fbd0045597d5961d3"
     },
@@ -43,7 +47,8 @@
       "integrity": "sha512-M1uQkMl8rQK/szD0LNhtqxIPLpimGm8sOBwU7lLnCpSbTyY3yeU1Vc7l4KT5zT4s/yOxHH5O7tIuuLOCnLADRw=="
     },
     "prettier@3.5.3": {
-      "integrity": "sha512-QQtaxnoDJeAkDvDKWCLiwIXkTgRhwYDEQCghU9Z6q03iyek/rxRh/2lC3HB7P8sWT2xC/y5JDctPLBIGzHKbhw=="
+      "integrity": "sha512-QQtaxnoDJeAkDvDKWCLiwIXkTgRhwYDEQCghU9Z6q03iyek/rxRh/2lC3HB7P8sWT2xC/y5JDctPLBIGzHKbhw==",
+      "bin": true
     },
     "react-dom@19.0.0_react@19.0.0": {
       "integrity": "sha512-4GV5sHFG0e/0AD4X+ySy6UJd3jVl1iNsNHdpad0qhABJ11twS3TTBnseqsKurKcsNqCEFeGL3uLpVChpIO3QfQ==",
@@ -88,5 +93,11 @@
     "https://deno.land/x/imagescript@1.3.0/v2/ops/resize.mjs": "814e78ebce8eaf8f1f918688db7b52a141405e06a36ed4b25d04413d69e7d17b",
     "https://deno.land/x/imagescript@1.3.0/v2/ops/rotate.mjs": "a1b65616717bd2eed8db406affea3263b4674dada46b56441ef38167a187455d",
     "https://deno.land/x/imagescript@1.3.0/v2/util/mem.mjs": "4968d400dae069b4bf0ef4767c1802fd2cc7d15d90eda4cfadf5b4cd19b96c6d"
+  },
+  "workspace": {
+    "dependencies": [
+      "jsr:@bradenmacdonald/s3-lite-client@0.9",
+      "jsr:@cliffy/command@1.0.0-rc.7"
+    ]
   }
 }
