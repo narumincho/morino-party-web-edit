@@ -49,6 +49,11 @@ export const startServer = (
       if (request.method !== "POST") {
         return new Response("Method Not Allowed", { status: 405 });
       }
+      const headers = new Headers();
+      cors.headers.forEach((value, key) => {
+        headers.set(key, value);
+      });
+      headers.set("content-type", "application/json");
       return new Response(
         JSON.stringify({
           url: await s3.getPresignedUrl(
@@ -56,12 +61,7 @@ export const startServer = (
             `minecraft-360/${crypto.randomUUID()}.png`,
           ),
         }),
-        {
-          headers: {
-            ...cors.headers,
-            "Content-Type": "application/json",
-          },
-        },
+        { headers },
       );
     }
     const response = await handleWebmap(request);
