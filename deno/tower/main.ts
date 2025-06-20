@@ -73,22 +73,35 @@ function lineBresenham3D(a: Vec3, b: Vec3): ReadonlyArray<Vec3> {
   return points;
 }
 
-const outsideA = { x: 42, y: -41, z: 9 };
+const outsideA = { x: 41, y: -41, z: 9 };
 const outsideG = { x: 26, y: -26, z: 40 };
 const outsideH = { x: 21, y: -21, z: 54 };
 const outsideI = { x: 17, y: -17, z: 66 };
-const outsideJ = { x: 15, y: -14, z: 77 };
+const outsideJ = { x: 14, y: -14, z: 77 };
 const outsideK = { x: 13, y: -13, z: 87 };
-const outsideL = { x: 11, y: -12, z: 97 };
-const outsideM = { x: 10, y: -11, z: 105 };
+const outsideL = { x: 11, y: -11, z: 97 };
+const outsideM = { x: 10, y: -10, z: 105 };
 const outsideN = { x: 10, y: -10, z: 115 };
-const outsideO = { x: 9, y: -10, z: 120 };
+const outsideO = { x: 9, y: -9, z: 120 };
 
 const toCenter = (position: Vec3): Vec3 => ({
   x: position.x,
   y: 0,
   z: position.z,
 });
+
+const toSymmetry = (position: Vec3): ReadonlyArray<Vec3> => {
+  return [
+    { x: position.x, y: position.y, z: position.z },
+    { x: position.x, y: -position.y, z: position.z },
+    { x: -position.x, y: position.y, z: position.z },
+    { x: -position.x, y: -position.y, z: position.z },
+    { x: position.y, y: position.x, z: position.z },
+    { x: position.y, y: -position.x, z: position.z },
+    { x: -position.y, y: position.x, z: position.z },
+    { x: -position.y, y: -position.x, z: position.z },
+  ];
+};
 
 // position-check.blend グローバル
 const pointPairList: ReadonlyArray<readonly [Vec3, Vec3]> = [
@@ -111,9 +124,19 @@ const pointPairList: ReadonlyArray<readonly [Vec3, Vec3]> = [
   [outsideL, toCenter(outsideL)],
   [outsideM, toCenter(outsideM)],
   [outsideN, toCenter(outsideN)],
+  // ｜
+  [toCenter(outsideG), toCenter(outsideH)],
+  [toCenter(outsideH), toCenter(outsideI)],
+  [toCenter(outsideI), toCenter(outsideJ)],
+  [toCenter(outsideJ), toCenter(outsideK)],
+  [toCenter(outsideK), toCenter(outsideL)],
+  [toCenter(outsideL), toCenter(outsideM)],
+  [toCenter(outsideM), toCenter(outsideN)],
 ];
 
-const positions = pointPairList.flatMap(([a, b]) => lineBresenham3D(a, b));
+const positions: ReadonlyArray<Vec3> = pointPairList.flatMap(([a, b]) =>
+  lineBresenham3D(a, b)
+).flatMap(toSymmetry);
 const maximumPosition: Vec3 = positions.reduce((min, p) => ({
   x: Math.max(min.x, p.x),
   y: Math.max(min.y, p.y),
@@ -136,3 +159,12 @@ await Deno.writeTextFile(
   movedPositions.map((vec3) => setBlock(vec3, "minecraft:air"))
     .join("\n"),
 );
+
+/*
+
+paste で 500, -125 で
+
+/tp 500 240 -125
+/function tower:a
+
+*/
