@@ -9,6 +9,10 @@ const setY = (position: Vec3, y: number) => ({
 const toCenter = (position: Vec3): Vec3 => setY(position, 0);
 
 const outerA: Vec3 = { x: 41, y: -41, z: 9 };
+const outerB: Vec3 = { x: 38, y: -38, z: 14 };
+const outerC: Vec3 = { x: 36, y: -36, z: 20 };
+const outerD: Vec3 = { x: 34, y: -34, z: 26 };
+const outerE: Vec3 = { x: 30, y: -30, z: 33 };
 const outerG: Vec3 = { x: 26, y: -26, z: 40 };
 const outerH: Vec3 = { x: 21, y: -21, z: 54 };
 const outerI: Vec3 = { x: 17, y: -17, z: 66 };
@@ -19,15 +23,20 @@ const outerM: Vec3 = { x: 10, y: -10, z: 105 };
 const outerN: Vec3 = { x: 10, y: -10, z: 115 };
 const outerO: Vec3 = { x: 9, y: -9, z: 120 };
 
-const innerG: Vec3 = setY(outerG, -12);
-const innerH: Vec3 = setY(outerH, -10);
-const innerI: Vec3 = setY(outerI, -7);
-const innerJ: Vec3 = setY(outerJ, -7);
-const innerK: Vec3 = setY(outerK, -6);
-const innerL: Vec3 = setY(outerL, -5);
-const innerM: Vec3 = setY(outerM, -5);
-const innerN: Vec3 = setY(outerN, -5);
-const innerO: Vec3 = setY(outerO, -4);
+const innerA = setY(outerA, -34);
+const innerB = setY(outerB, -31);
+const innerC = setY(outerC, -27);
+const innerD = setY(outerD, -25);
+const innerE = setY(outerE, -18);
+const innerG = setY(outerG, -12);
+const innerH = setY(outerH, -10);
+const innerI = setY(outerI, -7);
+const innerJ = setY(outerJ, -7);
+const innerK = setY(outerK, -6);
+const innerL = setY(outerL, -5);
+const innerM = setY(outerM, -5);
+const innerN = setY(outerN, -5);
+const innerO = setY(outerO, -4);
 
 const centerG = toCenter(outerG);
 const centerH = toCenter(outerH);
@@ -54,6 +63,18 @@ const toSymmetry = (position: Vec3): ReadonlyArray<Vec3> => {
 
 // position-check.blend グローバル
 const pointPairList: ReadonlyArray<readonly [Vec3, Vec3]> = [
+  [innerA, innerG],
+  [outerA, innerA],
+  [innerA, outerB],
+  [outerB, innerC],
+  [innerC, outerD],
+  [outerD, innerE],
+  [innerE, outerG],
+  [outerA, innerA],
+  [outerB, innerB],
+  [outerC, innerC],
+  [outerD, innerD],
+  [outerE, innerE],
   // ノ
   [outerA, outerG],
   [outerG, outerH],
