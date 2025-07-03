@@ -1,4 +1,10 @@
-import { lineBresenham3D, setBlock, uniqPositions, Vec3 } from "./lib.ts";
+import {
+  lineBresenham3D,
+  setBlock,
+  toSymmetry,
+  uniqPositions,
+  Vec3,
+} from "./lib.ts";
 
 const setY = (position: Vec3, y: number) => ({
   x: position.x,
@@ -48,18 +54,19 @@ const centerM = toCenter(outerM);
 const centerN = toCenter(outerN);
 const centerO = toCenter(outerO);
 
-const toSymmetry = (position: Vec3): ReadonlyArray<Vec3> => {
-  return [
-    { x: position.x, y: position.y, z: position.z },
-    { x: position.x, y: -position.y, z: position.z },
-    { x: -position.x, y: position.y, z: position.z },
-    { x: -position.x, y: -position.y, z: position.z },
-    { x: position.y, y: position.x, z: position.z },
-    { x: position.y, y: -position.x, z: position.z },
-    { x: -position.y, y: position.x, z: position.z },
-    { x: -position.y, y: -position.x, z: position.z },
-  ];
-};
+const mainDeckBottomOuter: Vec3 = { x: 10, y: 14, z: 120 };
+const mainDeckBottomInner: Vec3 = { x: 14, y: 10, z: 120 };
+const mainDeckBottomCenter = toCenter(mainDeckBottomInner);
+const mainDeckTopOuter: Vec3 = { x: 12, y: 15, z: 131 };
+const mainDeckTopInner: Vec3 = { x: 15, y: 12, z: 131 };
+const mainDeckTopCenter = toCenter(mainDeckTopInner);
+const h13Outer: Vec3 = { x: 10, y: 10, z: 132 };
+const h13Center = toCenter(h13Outer);
+const h23h: Vec3 = { x: 3, y: 3, z: 226 };
+const h27: Vec3 = { x: 3, y: 3, z: 247 };
+const h27Inner: Vec3 = { x: 2, y: 2, z: 247 };
+const topSquare: Vec3 = { x: 1, y: 1, z: 313 };
+const top: Vec3 = { x: 0, y: 0, z: 333 };
 
 // position-check.blend グローバル
 const pointPairList: ReadonlyArray<readonly [Vec3, Vec3]> = [
@@ -131,6 +138,18 @@ const pointPairList: ReadonlyArray<readonly [Vec3, Vec3]> = [
   [centerM, innerN],
   [innerN, outerO],
   [innerN, centerO],
+  // mainDeck
+  [mainDeckBottomOuter, mainDeckBottomInner],
+  [mainDeckBottomInner, mainDeckBottomCenter],
+  [mainDeckBottomInner, mainDeckTopInner],
+  [mainDeckTopOuter, mainDeckTopInner],
+  [mainDeckTopInner, mainDeckTopCenter],
+  // top
+  [h13Outer, h13Center],
+  [h13Outer, h23h],
+  [h23h, h27],
+  [h27Inner, topSquare],
+  [topSquare, top],
 ];
 
 const positions: ReadonlyArray<Vec3> = pointPairList.flatMap(([a, b]) =>
@@ -141,9 +160,10 @@ const maximumPosition: Vec3 = positions.reduce((min, p) => ({
   y: Math.max(min.y, p.y),
   z: Math.max(min.z, p.z),
 }), positions[0]!);
+console.log(maximumPosition.z);
 const movedPositions = positions.map((p) => ({
-  x: p.x - maximumPosition.x,
-  y: p.y - maximumPosition.y,
+  x: p.x,
+  y: p.y,
   z: 319 + (p.z - maximumPosition.z),
 }));
 

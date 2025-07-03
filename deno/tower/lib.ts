@@ -104,3 +104,16 @@ export function lineBresenham3D(a: Vec3, b: Vec3): ReadonlyArray<Vec3> {
       throw new Error("最大値計算エラー");
   }
 }
+
+export const toSymmetry = (position: Vec3): ReadonlyArray<Vec3> => {
+  return [
+    { x: position.x, y: position.y, z: position.z },
+    { x: position.x, y: -position.y, z: position.z },
+    { x: -position.x, y: position.y, z: position.z },
+    { x: -position.x, y: -position.y, z: position.z },
+    { x: position.y, y: position.x, z: position.z },
+    { x: position.y, y: -position.x, z: position.z },
+    { x: -position.y, y: position.x, z: position.z },
+    { x: -position.y, y: -position.x, z: position.z },
+  ];
+};
