@@ -117,3 +117,50 @@ export const toSymmetry = (position: Vec3): ReadonlyArray<Vec3> => {
     { x: -position.y, y: -position.x, z: position.z },
   ];
 };
+
+export const doubleZ = (vec3: Vec3) => ({
+  x: vec3.x,
+  y: vec3.y,
+  z: vec3.z * 2,
+});
+
+type Vec3AsString = `${number},${number},${number}`;
+
+const vec3AsStringToVec3 = (vec3AsString: Vec3AsString): Vec3 => {
+  const [x, y, z] = vec3AsString.split(",");
+  return {
+    x: Number.parseInt(x!),
+    y: Number.parseInt(y!),
+    z: Number.parseInt(z!),
+  };
+};
+
+const vec3ToVec3AsString = (vec3: Vec3): Vec3AsString => {
+  return `${vec3.x},${vec3.y},${vec3.z}`;
+};
+
+export const toHalf = (
+  positions: ReadonlyArray<Vec3>,
+): ReadonlyArray<
+  { readonly vec3: Vec3; readonly type: "top" | "bottom" | "full" }
+> => {
+  const map = new Map<Vec3AsString, "top" | "bottom" | "full">();
+  for (const position of positions) {
+    const key = vec3ToVec3AsString({
+      x: position.x,
+      y: position.y,
+      z: Math.floor(position.z / 2),
+    });
+    const type = map.get(key);
+    const isTop = position.z % 2 === 1;
+    if (isTop) {
+      map.set(key, type === "bottom" ? "full" : "top");
+    } else {
+      map.set(key, type === "top" ? "full" : "bottom");
+    }
+  }
+  return [...map].map(([vec3AsString, type]) => ({
+    vec3: vec3AsStringToVec3(vec3AsString),
+    type,
+  }));
+};

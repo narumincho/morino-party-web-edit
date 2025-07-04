@@ -1,6 +1,8 @@
 import {
+  doubleZ,
   lineBresenham3D,
   setBlock,
+  toHalf,
   toSymmetry,
   uniqPositions,
   Vec3,
@@ -139,46 +141,54 @@ const pointPairList: ReadonlyArray<readonly [Vec3, Vec3]> = [
   [innerN, outerO],
   [innerN, centerO],
   // mainDeck
-  [mainDeckBottomOuter, mainDeckBottomInner],
-  [mainDeckBottomInner, mainDeckBottomCenter],
-  [mainDeckBottomInner, mainDeckTopInner],
-  [mainDeckTopOuter, mainDeckTopInner],
-  [mainDeckTopInner, mainDeckTopCenter],
+  // [mainDeckBottomOuter, mainDeckBottomInner],
+  // [mainDeckBottomInner, mainDeckBottomCenter],
+  // [mainDeckBottomInner, mainDeckTopInner],
+  // [mainDeckTopOuter, mainDeckTopInner],
+  // [mainDeckTopInner, mainDeckTopCenter],
   // top
-  [h13Outer, h13Center],
-  [h13Outer, h23h],
-  [h23h, h27],
-  [h27Inner, topSquare],
-  [topSquare, top],
+  // [h13Outer, h13Center],
+  // [h13Outer, h23h],
+  // [h23h, h27],
+  // [h27Inner, topSquare],
+  // [topSquare, top],
 ];
 
-const positions: ReadonlyArray<Vec3> = pointPairList.flatMap(([a, b]) =>
-  lineBresenham3D(a, b)
-).flatMap(toSymmetry);
+const positions = toHalf(
+  pointPairList.flatMap(([a, b]) => lineBresenham3D(doubleZ(a), doubleZ(b))),
+);
 const maximumPosition: Vec3 = positions.reduce((min, p) => ({
-  x: Math.max(min.x, p.x),
-  y: Math.max(min.y, p.y),
-  z: Math.max(min.z, p.z),
-}), positions[0]!);
-console.log(maximumPosition.z);
+  x: Math.max(min.x, p.vec3.x),
+  y: Math.max(min.y, p.vec3.y),
+  z: Math.max(min.z, p.vec3.z),
+}), positions[0]?.vec3!);
 const movedPositions = positions.map((p) => ({
-  x: p.x,
-  y: p.y,
-  z: 319 + (p.z - maximumPosition.z),
+  type: p.type,
+  vec3: {
+    x: p.vec3.x,
+    y: p.vec3.y,
+    z: 319 + (p.vec3.z - maximumPosition.z),
+  },
 }));
-
-const uniqedPostions = uniqPositions(movedPositions);
-console.log(uniqedPostions.length);
 
 await Deno.writeTextFile(
   new URL(import.meta.resolve("./tower/data/tower/function/a.mcfunction")),
-  uniqedPostions.map((vec3) => setBlock(vec3, "minecraft:resin_bricks"))
+  movedPositions.map(({ vec3, type }) =>
+    setBlock(
+      vec3,
+      type === "full"
+        ? "minecraft:resin_bricks"
+        : type === "top"
+        ? "minecraft:resin_brick_slab[type=top]"
+        : "minecraft:resin_brick_slab[type=bottom]",
+    )
+  )
     .join("\n"),
 );
 
 await Deno.writeTextFile(
   new URL(import.meta.resolve("./tower/data/tower/function/c.mcfunction")),
-  uniqedPostions.map((vec3) => setBlock(vec3, "minecraft:air"))
+  movedPositions.map(({ vec3 }) => setBlock(vec3, "minecraft:air"))
     .join("\n"),
 );
 
