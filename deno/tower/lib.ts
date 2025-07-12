@@ -118,6 +118,14 @@ export const toSymmetry = (position: Vec3): ReadonlyArray<Vec3> => {
   ];
 };
 
+export const xYLineSymmetry = (position: Vec3): Vec3 => {
+  return { x: position.y, y: position.x, z: position.z };
+};
+
+export const xLineSymmetry = (position: Vec3): Vec3 => {
+  return { x: position.x, y: -position.y, z: position.z };
+};
+
 export const doubleZ = (vec3: Vec3) => ({
   x: vec3.x,
   y: vec3.y,
