@@ -17,7 +17,7 @@
       "description": "隠れ鬼のタイムライン表を出力"
     },
     "tower": "deno run --check --watch -A ./deno/tower/main.ts",
-    "rta": "deno run --check -A ./deno/rta/calc.ts"
+    "rta": "deno run --check -A ./deno/rta/main.ts"
   },
   "imports": {
     "@bradenmacdonald/s3-lite-client": "jsr:@bradenmacdonald/s3-lite-client@^0.9.0",

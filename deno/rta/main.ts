@@ -2,9 +2,11 @@ import scoreListJson from "./scoreList.json" with { type: "json" };
 import { distinctBy } from "@std/collections";
 
 const formatScoreValue = (scoreValue: number): string => {
-  const minute = Math.floor(scoreValue / (60 * 1000));
-  return `${Math.floor(scoreValue / (60 * 1000))}分${
-    (Math.floor(scoreValue / 1000) - minute * 60).toString().padStart(2, "0")
+  const hour = Math.floor(scoreValue / (60 * 60 * 1000));
+  const minute = Math.floor((scoreValue % (60 * 60 * 1000)) / (60 * 1000));
+  const seconds = Math.floor((scoreValue % (60 * 1000)) / (1000));
+  return `${hour > 0 ? `${hour}時間` : ""}${minute}分${
+    seconds.toString().padStart(2, "0")
   }秒`;
 };
 
@@ -33,7 +35,7 @@ const calcScoreValue = (
 
 const messages: ReadonlyArray<
   {
-    readonly embeds: ReadonlyArray<
+    readonly embeds?: ReadonlyArray<
       {
         readonly fields: ReadonlyArray<
           { readonly name: string; readonly value: string }
@@ -60,7 +62,7 @@ type Score = {
 
 const pickedMessages = messages.flatMap(
   (message): readonly [] | readonly [PickedMessage] => {
-    const embed = message.embeds.at(0);
+    const embed = message.embeds?.at(0);
     if (!embed) {
       return [];
     }
@@ -157,7 +159,7 @@ await Deno.writeTextFile(
       return `# ${rankToString(rankBase1)} ${score.player} ${
         formatScoreValue(scoreValue)
       }
-${Math.ceil(10000 / rankBase1)}:donguri:
+${Math.round(10000 / rankBase1)}:donguri:
 ${
         allScoreList.filter((e) => e.player === score.player).map((e, i) =>
           `- ${
