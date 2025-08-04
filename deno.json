@@ -16,10 +16,12 @@
       "command": "deno run --check --watch -A ./deno/hide-and-seek-timeline/main.tsx",
       "description": "隠れ鬼のタイムライン表を出力"
     },
-    "tower": "deno run --check --watch -A ./deno/tower/main.ts"
+    "tower": "deno run --check --watch -A ./deno/tower/main.ts",
+    "rta": "deno run --check -A ./deno/rta/calc.ts"
   },
   "imports": {
     "@bradenmacdonald/s3-lite-client": "jsr:@bradenmacdonald/s3-lite-client@^0.9.0",
-    "@cliffy/command": "jsr:@cliffy/command@1.0.0-rc.7"
+    "@cliffy/command": "jsr:@cliffy/command@1.0.0-rc.7",
+    "@std/collections": "jsr:@std/collections@^1.1.2"
   }
 }

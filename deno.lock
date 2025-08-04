@@ -2,12 +2,19 @@
   "version": "5",
   "specifiers": {
     "jsr:@bradenmacdonald/s3-lite-client@0.9": "0.9.0",
+    "jsr:@cliffy/command@1.0.0-rc.7": "1.0.0-rc.7",
+    "jsr:@cliffy/flags@1.0.0-rc.7": "1.0.0-rc.7",
+    "jsr:@cliffy/internal@1.0.0-rc.7": "1.0.0-rc.7",
+    "jsr:@cliffy/table@1.0.0-rc.7": "1.0.0-rc.7",
     "jsr:@img/png@*": "0.1.1",
     "jsr:@std/async@*": "1.0.11",
+    "jsr:@std/collections@^1.1.2": "1.1.2",
     "jsr:@std/encoding@*": "1.0.6",
+    "jsr:@std/fmt@~1.0.2": "1.0.8",
     "jsr:@std/fs@*": "1.0.14",
     "jsr:@std/path@*": "1.0.8",
     "jsr:@std/path@^1.0.8": "1.0.8",
+    "jsr:@std/text@~1.0.7": "1.0.15",
     "npm:@types/react@*": "19.0.10",
     "npm:prettier@*": "3.5.3",
     "npm:react-dom@*": "19.0.0_react@19.0.0",
@@ -17,14 +24,45 @@
     "@bradenmacdonald/s3-lite-client@0.9.0": {
       "integrity": "76e6f0e61b801b193b82a25a6d5aeac8e407e71a6549da0df539f4642eb15924"
     },
+    "@cliffy/command@1.0.0-rc.7": {
+      "integrity": "1288808d7a3cd18b86c24c2f920e47a6d954b7e23cadc35c8cbd78f8be41f0cd",
+      "dependencies": [
+        "jsr:@cliffy/flags",
+        "jsr:@cliffy/internal",
+        "jsr:@cliffy/table",
+        "jsr:@std/fmt",
+        "jsr:@std/text"
+      ]
+    },
+    "@cliffy/flags@1.0.0-rc.7": {
+      "integrity": "318d9be98f6a6417b108e03dec427dea96cdd41a15beb21d2554ae6da450a781",
+      "dependencies": [
+        "jsr:@std/text"
+      ]
+    },
+    "@cliffy/internal@1.0.0-rc.7": {
+      "integrity": "10412636ab3e67517d448be9eaab1b70c88eba9be22617b5d146257a11cc9b17"
+    },
+    "@cliffy/table@1.0.0-rc.7": {
+      "integrity": "9fdd9776eda28a0b397981c400eeb1aa36da2371b43eefe12e6ff555290e3180",
+      "dependencies": [
+        "jsr:@std/fmt"
+      ]
+    },
     "@img/png@0.1.1": {
       "integrity": "baf66835e2dbfe069d23992b361cb5e5b003fb665366c13fbd0045597d5961d3"
     },
     "@std/async@1.0.11": {
       "integrity": "eee0d3405275506638a9c8efaa849cf0d35873120c69b7caa1309c9a9e5b6f85"
     },
+    "@std/collections@1.1.2": {
+      "integrity": "f1685dd45c3ec27c39d0e8a642ccf810f391ec8a6cb5e7355926e6dacc64c43e"
+    },
     "@std/encoding@1.0.6": {
       "integrity": "ca87122c196e8831737d9547acf001766618e78cd8c33920776c7f5885546069"
+    },
+    "@std/fmt@1.0.8": {
+      "integrity": "71e1fc498787e4434d213647a6e43e794af4fd393ef8f52062246e06f7e372b7"
     },
     "@std/fs@1.0.14": {
       "integrity": "1e84bf0b95fe08f41f1f4aea9717bbf29f45408a56ce073b0114474ce1c9fccf",
@@ -34,6 +72,9 @@
     },
     "@std/path@1.0.8": {
       "integrity": "548fa456bb6a04d3c1a1e7477986b6cffbce95102d0bb447c67c4ee70e0364be"
+    },
+    "@std/text@1.0.15": {
+      "integrity": "91f5cc1e12779a3d95f1be34e763f9c28a75a078b7360e6fcaef0d8d9b1e3e7f"
     }
   },
   "npm": {
@@ -97,7 +138,8 @@
   "workspace": {
     "dependencies": [
       "jsr:@bradenmacdonald/s3-lite-client@0.9",
-      "jsr:@cliffy/command@1.0.0-rc.7"
+      "jsr:@cliffy/command@1.0.0-rc.7",
+      "jsr:@std/collections@^1.1.2"
     ]
   }
 }
