@@ -157,7 +157,7 @@ await Deno.writeTextFile(
       return `# ${rankToString(rankBase1)} ${score.player} ${
         formatScoreValue(scoreValue)
       }
-${Math.ceil(1000 / rankBase1)}:donguri:
+${Math.ceil(10000 / rankBase1)}:donguri:
 ${
         allScoreList.filter((e) => e.player === score.player).map((e, i) =>
           `- ${
