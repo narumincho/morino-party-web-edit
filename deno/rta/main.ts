@@ -72,6 +72,13 @@ const pickedMessages = messages.flatMap(
     if (!seller) {
       return [];
     }
+    if (
+      seller === "T_rex192" &&
+      new Date(message.timestamp).getTime() <
+        new Date("2025-08-06T21:00:00+09:00").getTime()
+    ) {
+      return [];
+    }
     switch (shop) {
       case "world -9589, 219, -1567":
         return [{ type: "goal", player: seller, timestamp: message.timestamp }];

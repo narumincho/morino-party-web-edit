@@ -1,1 +1,3952 @@
-[]
+[
+  {
+    "type": 0,
+    "content": "",
+    "mentions": [],
+    "mention_roles": [],
+    "attachments": [],
+    "embeds": [
+      {
+        "type": "rich",
+        "title": ":inbox_tray: 誰かがあなたのショップで商品を売却しました",
+        "description": "プレイヤー 0829k4ito があなたのショップで Written Book x1  を売却しました。",
+        "color": 52084,
+        "timestamp": "2025-08-09T04:40:25.794000+00:00",
+        "fields": [
+          {
+            "name": "ショップ",
+            "value": "world -9589, 219, -1567",
+            "inline": false
+          },
+          {
+            "name": "売却者",
+            "value": "0829k4ito",
+            "inline": true
+          },
+          {
+            "name": "アイテム",
+            "value": "Written Book",
+            "inline": true
+          },
+          {
+            "name": "個数",
+            "value": "1 (x1)",
+            "inline": true
+          },
+          {
+            "name": "支払った金額",
+            "value": "1.00",
+            "inline": true
+          },
+          {
+            "name": "消費税",
+            "value": "0.00",
+            "inline": true
+          }
+        ],
+        "author": {
+          "name": "QuickShop-Hikari"
+        },
+        "footer": {
+          "text": "QuickShop-Hikari Discord通知"
+        },
+        "content_scan_version": 2
+      }
+    ],
+    "timestamp": "2025-08-09T04:40:26.133000+00:00",
+    "edited_timestamp": null,
+    "flags": 0,
+    "components": [],
+    "id": "1403598777385750622",
+    "channel_id": "1115614629662572564",
+    "author": {
+      "id": "576415368550023178",
+      "username": "めいんさばのはかせ",
+      "avatar": "9b12715f64401ac2ae83888293d466a8",
+      "discriminator": "1346",
+      "public_flags": 0,
+      "flags": 0,
+      "bot": true,
+      "banner": null,
+      "accent_color": null,
+      "global_name": null,
+      "avatar_decoration_data": null,
+      "collectibles": null,
+      "display_name_styles": null,
+      "banner_color": null,
+      "clan": null,
+      "primary_guild": null
+    },
+    "pinned": false,
+    "mention_everyone": false,
+    "tts": false
+  },
+  {
+    "type": 0,
+    "content": "",
+    "mentions": [],
+    "mention_roles": [],
+    "attachments": [],
+    "embeds": [
+      {
+        "type": "rich",
+        "title": ":outbox_tray: 誰かがあなたのショップで商品を購入しました",
+        "description": "プレイヤー 0829k4ito があなたのショップで Written Book x1  を購入しました。",
+        "color": 52084,
+        "timestamp": "2025-08-09T04:40:24.346000+00:00",
+        "fields": [
+          {
+            "name": "ショップ",
+            "value": "world -9589, 219, -1566",
+            "inline": false
+          },
+          {
+            "name": "購入者",
+            "value": "0829k4ito",
+            "inline": true
+          },
+          {
+            "name": "アイテム",
+            "value": "Written Book",
+            "inline": true
+          },
+          {
+            "name": "個数",
+            "value": "1(x1)",
+            "inline": true
+          },
+          {
+            "name": "獲得した金額",
+            "value": "1.00",
+            "inline": true
+          },
+          {
+            "name": "消費税",
+            "value": "0.00",
+            "inline": true
+          }
+        ],
+        "author": {
+          "name": "QuickShop-Hikari"
+        },
+        "footer": {
+          "text": "QuickShop-Hikari Discord通知"
+        },
+        "content_scan_version": 2
+      }
+    ],
+    "timestamp": "2025-08-09T04:40:24.531000+00:00",
+    "edited_timestamp": null,
+    "flags": 0,
+    "components": [],
+    "id": "1403598770666602500",
+    "channel_id": "1115614629662572564",
+    "author": {
+      "id": "576415368550023178",
+      "username": "めいんさばのはかせ",
+      "avatar": "9b12715f64401ac2ae83888293d466a8",
+      "discriminator": "1346",
+      "public_flags": 0,
+      "flags": 0,
+      "bot": true,
+      "banner": null,
+      "accent_color": null,
+      "global_name": null,
+      "avatar_decoration_data": null,
+      "collectibles": null,
+      "display_name_styles": null,
+      "banner_color": null,
+      "clan": null,
+      "primary_guild": null
+    },
+    "pinned": false,
+    "mention_everyone": false,
+    "tts": false
+  },
+  {
+    "type": 0,
+    "content": "",
+    "mentions": [],
+    "mention_roles": [],
+    "attachments": [],
+    "embeds": [
+      {
+        "type": "rich",
+        "title": ":inbox_tray: 誰かがあなたのショップで商品を売却しました",
+        "description": "プレイヤー 0829k4ito があなたのショップで Written Book x1  を売却しました。",
+        "color": 52084,
+        "timestamp": "2025-08-09T04:32:43.635000+00:00",
+        "fields": [
+          {
+            "name": "ショップ",
+            "value": "world -9617, 63, -1568",
+            "inline": false
+          },
+          {
+            "name": "売却者",
+            "value": "0829k4ito",
+            "inline": true
+          },
+          {
+            "name": "アイテム",
+            "value": "Written Book",
+            "inline": true
+          },
+          {
+            "name": "個数",
+            "value": "1 (x1)",
+            "inline": true
+          },
+          {
+            "name": "支払った金額",
+            "value": "1.00",
+            "inline": true
+          },
+          {
+            "name": "消費税",
+            "value": "0.00",
+            "inline": true
+          }
+        ],
+        "author": {
+          "name": "QuickShop-Hikari"
+        },
+        "footer": {
+          "text": "QuickShop-Hikari Discord通知"
+        },
+        "content_scan_version": 2
+      }
+    ],
+    "timestamp": "2025-08-09T04:32:43.830000+00:00",
+    "edited_timestamp": null,
+    "flags": 0,
+    "components": [],
+    "id": "1403596838346690641",
+    "channel_id": "1115614629662572564",
+    "author": {
+      "id": "576415368550023178",
+      "username": "めいんさばのはかせ",
+      "avatar": "9b12715f64401ac2ae83888293d466a8",
+      "discriminator": "1346",
+      "public_flags": 0,
+      "flags": 0,
+      "bot": true,
+      "banner": null,
+      "accent_color": null,
+      "global_name": null,
+      "avatar_decoration_data": null,
+      "collectibles": null,
+      "display_name_styles": null,
+      "banner_color": null,
+      "clan": null,
+      "primary_guild": null
+    },
+    "pinned": false,
+    "mention_everyone": false,
+    "tts": false
+  },
+  {
+    "type": 0,
+    "content": "",
+    "mentions": [],
+    "mention_roles": [],
+    "attachments": [],
+    "embeds": [
+      {
+        "type": "rich",
+        "title": ":outbox_tray: 誰かがあなたのショップで商品を購入しました",
+        "description": "プレイヤー 0829k4ito があなたのショップで Written Book x1  を購入しました。",
+        "color": 52084,
+        "timestamp": "2025-08-09T04:32:41.937000+00:00",
+        "fields": [
+          {
+            "name": "ショップ",
+            "value": "world -9617, 63, -1569",
+            "inline": false
+          },
+          {
+            "name": "購入者",
+            "value": "0829k4ito",
+            "inline": true
+          },
+          {
+            "name": "アイテム",
+            "value": "Written Book",
+            "inline": true
+          },
+          {
+            "name": "個数",
+            "value": "1(x1)",
+            "inline": true
+          },
+          {
+            "name": "獲得した金額",
+            "value": "1.00",
+            "inline": true
+          },
+          {
+            "name": "消費税",
+            "value": "0.00",
+            "inline": true
+          }
+        ],
+        "author": {
+          "name": "QuickShop-Hikari"
+        },
+        "footer": {
+          "text": "QuickShop-Hikari Discord通知"
+        },
+        "content_scan_version": 2
+      }
+    ],
+    "timestamp": "2025-08-09T04:32:42.110000+00:00",
+    "edited_timestamp": null,
+    "flags": 0,
+    "components": [],
+    "id": "1403596831132221460",
+    "channel_id": "1115614629662572564",
+    "author": {
+      "id": "576415368550023178",
+      "username": "めいんさばのはかせ",
+      "avatar": "9b12715f64401ac2ae83888293d466a8",
+      "discriminator": "1346",
+      "public_flags": 0,
+      "flags": 0,
+      "bot": true,
+      "banner": null,
+      "accent_color": null,
+      "global_name": null,
+      "avatar_decoration_data": null,
+      "collectibles": null,
+      "display_name_styles": null,
+      "banner_color": null,
+      "clan": null,
+      "primary_guild": null
+    },
+    "pinned": false,
+    "mention_everyone": false,
+    "tts": false
+  },
+  {
+    "type": 0,
+    "content": "",
+    "mentions": [],
+    "mention_roles": [],
+    "attachments": [],
+    "embeds": [
+      {
+        "type": "rich",
+        "title": ":inbox_tray: 誰かがあなたのショップで商品を売却しました",
+        "description": "プレイヤー 0829k4ito があなたのショップで Written Book x1  を売却しました。",
+        "color": 52084,
+        "timestamp": "2025-08-09T04:29:24.098000+00:00",
+        "fields": [
+          {
+            "name": "ショップ",
+            "value": "world -9589, 219, -1567",
+            "inline": false
+          },
+          {
+            "name": "売却者",
+            "value": "0829k4ito",
+            "inline": true
+          },
+          {
+            "name": "アイテム",
+            "value": "Written Book",
+            "inline": true
+          },
+          {
+            "name": "個数",
+            "value": "1 (x1)",
+            "inline": true
+          },
+          {
+            "name": "支払った金額",
+            "value": "1.00",
+            "inline": true
+          },
+          {
+            "name": "消費税",
+            "value": "0.00",
+            "inline": true
+          }
+        ],
+        "author": {
+          "name": "QuickShop-Hikari"
+        },
+        "footer": {
+          "text": "QuickShop-Hikari Discord通知"
+        },
+        "content_scan_version": 2
+      }
+    ],
+    "timestamp": "2025-08-09T04:29:24.297000+00:00",
+    "edited_timestamp": null,
+    "flags": 0,
+    "components": [],
+    "id": "1403596001444364308",
+    "channel_id": "1115614629662572564",
+    "author": {
+      "id": "576415368550023178",
+      "username": "めいんさばのはかせ",
+      "avatar": "9b12715f64401ac2ae83888293d466a8",
+      "discriminator": "1346",
+      "public_flags": 0,
+      "flags": 0,
+      "bot": true,
+      "banner": null,
+      "accent_color": null,
+      "global_name": null,
+      "avatar_decoration_data": null,
+      "collectibles": null,
+      "display_name_styles": null,
+      "banner_color": null,
+      "clan": null,
+      "primary_guild": null
+    },
+    "pinned": false,
+    "mention_everyone": false,
+    "tts": false
+  },
+  {
+    "type": 0,
+    "content": "",
+    "mentions": [],
+    "mention_roles": [],
+    "attachments": [],
+    "embeds": [
+      {
+        "type": "rich",
+        "title": ":outbox_tray: 誰かがあなたのショップで商品を購入しました",
+        "description": "プレイヤー 0829k4ito があなたのショップで Written Book x1  を購入しました。",
+        "color": 52084,
+        "timestamp": "2025-08-09T04:29:22.579000+00:00",
+        "fields": [
+          {
+            "name": "ショップ",
+            "value": "world -9589, 219, -1566",
+            "inline": false
+          },
+          {
+            "name": "購入者",
+            "value": "0829k4ito",
+            "inline": true
+          },
+          {
+            "name": "アイテム",
+            "value": "Written Book",
+            "inline": true
+          },
+          {
+            "name": "個数",
+            "value": "1(x1)",
+            "inline": true
+          },
+          {
+            "name": "獲得した金額",
+            "value": "1.00",
+            "inline": true
+          },
+          {
+            "name": "消費税",
+            "value": "0.00",
+            "inline": true
+          }
+        ],
+        "author": {
+          "name": "QuickShop-Hikari"
+        },
+        "footer": {
+          "text": "QuickShop-Hikari Discord通知"
+        },
+        "content_scan_version": 2
+      }
+    ],
+    "timestamp": "2025-08-09T04:29:22.962000+00:00",
+    "edited_timestamp": null,
+    "flags": 0,
+    "components": [],
+    "id": "1403595995845103647",
+    "channel_id": "1115614629662572564",
+    "author": {
+      "id": "576415368550023178",
+      "username": "めいんさばのはかせ",
+      "avatar": "9b12715f64401ac2ae83888293d466a8",
+      "discriminator": "1346",
+      "public_flags": 0,
+      "flags": 0,
+      "bot": true,
+      "banner": null,
+      "accent_color": null,
+      "global_name": null,
+      "avatar_decoration_data": null,
+      "collectibles": null,
+      "display_name_styles": null,
+      "banner_color": null,
+      "clan": null,
+      "primary_guild": null
+    },
+    "pinned": false,
+    "mention_everyone": false,
+    "tts": false
+  },
+  {
+    "type": 0,
+    "content": "",
+    "mentions": [],
+    "mention_roles": [],
+    "attachments": [],
+    "embeds": [
+      {
+        "type": "rich",
+        "title": ":inbox_tray: 誰かがあなたのショップで商品を売却しました",
+        "description": "プレイヤー 0829k4ito があなたのショップで Written Book x1  を売却しました。",
+        "color": 52084,
+        "timestamp": "2025-08-09T03:43:09.334000+00:00",
+        "fields": [
+          {
+            "name": "ショップ",
+            "value": "world -9617, 63, -1568",
+            "inline": false
+          },
+          {
+            "name": "売却者",
+            "value": "0829k4ito",
+            "inline": true
+          },
+          {
+            "name": "アイテム",
+            "value": "Written Book",
+            "inline": true
+          },
+          {
+            "name": "個数",
+            "value": "1 (x1)",
+            "inline": true
+          },
+          {
+            "name": "支払った金額",
+            "value": "1.00",
+            "inline": true
+          },
+          {
+            "name": "消費税",
+            "value": "0.00",
+            "inline": true
+          }
+        ],
+        "author": {
+          "name": "QuickShop-Hikari"
+        },
+        "footer": {
+          "text": "QuickShop-Hikari Discord通知"
+        },
+        "content_scan_version": 2
+      }
+    ],
+    "timestamp": "2025-08-09T03:43:09.497000+00:00",
+    "edited_timestamp": null,
+    "flags": 0,
+    "components": [],
+    "id": "1403584363089760267",
+    "channel_id": "1115614629662572564",
+    "author": {
+      "id": "576415368550023178",
+      "username": "めいんさばのはかせ",
+      "avatar": "9b12715f64401ac2ae83888293d466a8",
+      "discriminator": "1346",
+      "public_flags": 0,
+      "flags": 0,
+      "bot": true,
+      "banner": null,
+      "accent_color": null,
+      "global_name": null,
+      "avatar_decoration_data": null,
+      "collectibles": null,
+      "display_name_styles": null,
+      "banner_color": null,
+      "clan": null,
+      "primary_guild": null
+    },
+    "pinned": false,
+    "mention_everyone": false,
+    "tts": false
+  },
+  {
+    "type": 0,
+    "content": "",
+    "mentions": [],
+    "mention_roles": [],
+    "attachments": [],
+    "embeds": [
+      {
+        "type": "rich",
+        "title": ":mailbox_with_no_mail: Your shop has run out of stock",
+        "description": "Your shop inventory is empty now!\nYou need to refill the shop container with items to continue selling items!",
+        "color": 16065893,
+        "timestamp": "2025-08-09T03:43:06.491000+00:00",
+        "fields": [
+          {
+            "name": "Shop",
+            "value": "world -9617, 63, -1569",
+            "inline": false
+          }
+        ],
+        "author": {
+          "name": "QuickShop-Hikari"
+        },
+        "footer": {
+          "text": "QuickShop-Hikari Discord Notification"
+        },
+        "content_scan_version": 2
+      }
+    ],
+    "timestamp": "2025-08-09T03:43:07.585000+00:00",
+    "edited_timestamp": null,
+    "flags": 0,
+    "components": [],
+    "id": "1403584355070378134",
+    "channel_id": "1115614629662572564",
+    "author": {
+      "id": "576415368550023178",
+      "username": "めいんさばのはかせ",
+      "avatar": "9b12715f64401ac2ae83888293d466a8",
+      "discriminator": "1346",
+      "public_flags": 0,
+      "flags": 0,
+      "bot": true,
+      "banner": null,
+      "accent_color": null,
+      "global_name": null,
+      "avatar_decoration_data": null,
+      "collectibles": null,
+      "display_name_styles": null,
+      "banner_color": null,
+      "clan": null,
+      "primary_guild": null
+    },
+    "pinned": false,
+    "mention_everyone": false,
+    "tts": false
+  },
+  {
+    "type": 0,
+    "content": "",
+    "mentions": [],
+    "mention_roles": [],
+    "attachments": [],
+    "embeds": [
+      {
+        "type": "rich",
+        "title": ":outbox_tray: 誰かがあなたのショップで商品を購入しました",
+        "description": "プレイヤー 0829k4ito があなたのショップで Written Book x1  を購入しました。",
+        "color": 52084,
+        "timestamp": "2025-08-09T03:43:06.489000+00:00",
+        "fields": [
+          {
+            "name": "ショップ",
+            "value": "world -9617, 63, -1569",
+            "inline": false
+          },
+          {
+            "name": "購入者",
+            "value": "0829k4ito",
+            "inline": true
+          },
+          {
+            "name": "アイテム",
+            "value": "Written Book",
+            "inline": true
+          },
+          {
+            "name": "個数",
+            "value": "1(x1)",
+            "inline": true
+          },
+          {
+            "name": "獲得した金額",
+            "value": "1.00",
+            "inline": true
+          },
+          {
+            "name": "消費税",
+            "value": "0.00",
+            "inline": true
+          }
+        ],
+        "author": {
+          "name": "QuickShop-Hikari"
+        },
+        "footer": {
+          "text": "QuickShop-Hikari Discord通知"
+        },
+        "content_scan_version": 2
+      }
+    ],
+    "timestamp": "2025-08-09T03:43:07.106000+00:00",
+    "edited_timestamp": null,
+    "flags": 0,
+    "components": [],
+    "id": "1403584353061048320",
+    "channel_id": "1115614629662572564",
+    "author": {
+      "id": "576415368550023178",
+      "username": "めいんさばのはかせ",
+      "avatar": "9b12715f64401ac2ae83888293d466a8",
+      "discriminator": "1346",
+      "public_flags": 0,
+      "flags": 0,
+      "bot": true,
+      "banner": null,
+      "accent_color": null,
+      "global_name": null,
+      "avatar_decoration_data": null,
+      "collectibles": null,
+      "display_name_styles": null,
+      "banner_color": null,
+      "clan": null,
+      "primary_guild": null
+    },
+    "pinned": false,
+    "mention_everyone": false,
+    "tts": false
+  },
+  {
+    "type": 0,
+    "content": "",
+    "mentions": [],
+    "mention_roles": [],
+    "attachments": [],
+    "embeds": [
+      {
+        "type": "rich",
+        "title": ":inbox_tray: 誰かがあなたのショップで商品を売却しました",
+        "description": "プレイヤー narumincho があなたのショップで Written Book x1  を売却しました。",
+        "color": 52084,
+        "timestamp": "2025-08-06T12:00:26.519000+00:00",
+        "fields": [
+          {
+            "name": "ショップ",
+            "value": "world -9617, 63, -1568",
+            "inline": false
+          },
+          {
+            "name": "売却者",
+            "value": "narumincho",
+            "inline": true
+          },
+          {
+            "name": "アイテム",
+            "value": "Written Book",
+            "inline": true
+          },
+          {
+            "name": "個数",
+            "value": "1 (x1)",
+            "inline": true
+          },
+          {
+            "name": "支払った金額",
+            "value": "1.00",
+            "inline": true
+          },
+          {
+            "name": "消費税",
+            "value": "0.00",
+            "inline": true
+          }
+        ],
+        "author": {
+          "name": "QuickShop-Hikari"
+        },
+        "footer": {
+          "text": "QuickShop-Hikari Discord通知"
+        },
+        "content_scan_version": 2
+      }
+    ],
+    "timestamp": "2025-08-06T12:00:27.006000+00:00",
+    "edited_timestamp": null,
+    "flags": 0,
+    "components": [],
+    "id": "1402622347076178043",
+    "channel_id": "1115614629662572564",
+    "author": {
+      "id": "576415368550023178",
+      "username": "めいんさばのはかせ",
+      "avatar": "9b12715f64401ac2ae83888293d466a8",
+      "discriminator": "1346",
+      "public_flags": 0,
+      "flags": 0,
+      "bot": true,
+      "banner": null,
+      "accent_color": null,
+      "global_name": null,
+      "avatar_decoration_data": null,
+      "collectibles": null,
+      "display_name_styles": null,
+      "banner_color": null,
+      "clan": null,
+      "primary_guild": null
+    },
+    "pinned": false,
+    "mention_everyone": false,
+    "tts": false
+  },
+  {
+    "type": 0,
+    "content": "",
+    "mentions": [],
+    "mention_roles": [],
+    "attachments": [],
+    "embeds": [
+      {
+        "type": "rich",
+        "title": ":outbox_tray: 誰かがあなたのショップで商品を購入しました",
+        "description": "プレイヤー narumincho があなたのショップで Written Book x1  を購入しました。",
+        "color": 52084,
+        "timestamp": "2025-08-06T12:00:23.994000+00:00",
+        "fields": [
+          {
+            "name": "ショップ",
+            "value": "world -9617, 63, -1569",
+            "inline": false
+          },
+          {
+            "name": "購入者",
+            "value": "narumincho",
+            "inline": true
+          },
+          {
+            "name": "アイテム",
+            "value": "Written Book",
+            "inline": true
+          },
+          {
+            "name": "個数",
+            "value": "1(x1)",
+            "inline": true
+          },
+          {
+            "name": "獲得した金額",
+            "value": "1.00",
+            "inline": true
+          },
+          {
+            "name": "消費税",
+            "value": "0.00",
+            "inline": true
+          }
+        ],
+        "author": {
+          "name": "QuickShop-Hikari"
+        },
+        "footer": {
+          "text": "QuickShop-Hikari Discord通知"
+        },
+        "content_scan_version": 2
+      }
+    ],
+    "timestamp": "2025-08-06T12:00:24.863000+00:00",
+    "edited_timestamp": null,
+    "flags": 0,
+    "components": [],
+    "id": "1402622338087915520",
+    "channel_id": "1115614629662572564",
+    "author": {
+      "id": "576415368550023178",
+      "username": "めいんさばのはかせ",
+      "avatar": "9b12715f64401ac2ae83888293d466a8",
+      "discriminator": "1346",
+      "public_flags": 0,
+      "flags": 0,
+      "bot": true,
+      "banner": null,
+      "accent_color": null,
+      "global_name": null,
+      "avatar_decoration_data": null,
+      "collectibles": null,
+      "display_name_styles": null,
+      "banner_color": null,
+      "clan": null,
+      "primary_guild": null
+    },
+    "pinned": false,
+    "mention_everyone": false,
+    "tts": false
+  },
+  {
+    "type": 0,
+    "content": "",
+    "mentions": [],
+    "mention_roles": [],
+    "attachments": [],
+    "embeds": [
+      {
+        "type": "rich",
+        "title": ":mailbox_with_no_mail: Your shop has run out of stock",
+        "description": "Your shop inventory is empty now!\nYou need to refill the shop container with items to continue selling items!",
+        "color": 16065893,
+        "timestamp": "2025-08-06T12:00:23.994000+00:00",
+        "fields": [
+          {
+            "name": "Shop",
+            "value": "world -9617, 63, -1569",
+            "inline": false
+          }
+        ],
+        "author": {
+          "name": "QuickShop-Hikari"
+        },
+        "footer": {
+          "text": "QuickShop-Hikari Discord Notification"
+        },
+        "content_scan_version": 2
+      }
+    ],
+    "timestamp": "2025-08-06T12:00:24.332000+00:00",
+    "edited_timestamp": null,
+    "flags": 0,
+    "components": [],
+    "id": "1402622335860871282",
+    "channel_id": "1115614629662572564",
+    "author": {
+      "id": "576415368550023178",
+      "username": "めいんさばのはかせ",
+      "avatar": "9b12715f64401ac2ae83888293d466a8",
+      "discriminator": "1346",
+      "public_flags": 0,
+      "flags": 0,
+      "bot": true,
+      "banner": null,
+      "accent_color": null,
+      "global_name": null,
+      "avatar_decoration_data": null,
+      "collectibles": null,
+      "display_name_styles": null,
+      "banner_color": null,
+      "clan": null,
+      "primary_guild": null
+    },
+    "pinned": false,
+    "mention_everyone": false,
+    "tts": false
+  },
+  {
+    "type": 0,
+    "content": "",
+    "mentions": [],
+    "mention_roles": [],
+    "attachments": [],
+    "embeds": [
+      {
+        "type": "rich",
+        "title": ":inbox_tray: 誰かがあなたのショップで商品を売却しました",
+        "description": "プレイヤー T_rex192 があなたのショップで Written Book x1  を売却しました。",
+        "color": 52084,
+        "timestamp": "2025-08-06T00:35:23.100000+00:00",
+        "fields": [
+          {
+            "name": "ショップ",
+            "value": "world -9589, 219, -1567",
+            "inline": false
+          },
+          {
+            "name": "売却者",
+            "value": "T_rex192",
+            "inline": true
+          },
+          {
+            "name": "アイテム",
+            "value": "Written Book",
+            "inline": true
+          },
+          {
+            "name": "個数",
+            "value": "1 (x1)",
+            "inline": true
+          },
+          {
+            "name": "支払った金額",
+            "value": "1.00",
+            "inline": true
+          },
+          {
+            "name": "消費税",
+            "value": "0.00",
+            "inline": true
+          }
+        ],
+        "author": {
+          "name": "QuickShop-Hikari"
+        },
+        "footer": {
+          "text": "QuickShop-Hikari Discord通知"
+        },
+        "content_scan_version": 2
+      }
+    ],
+    "timestamp": "2025-08-06T00:35:23.226000+00:00",
+    "edited_timestamp": null,
+    "flags": 0,
+    "components": [],
+    "id": "1402449945327304718",
+    "channel_id": "1115614629662572564",
+    "author": {
+      "id": "576415368550023178",
+      "username": "めいんさばのはかせ",
+      "avatar": "9b12715f64401ac2ae83888293d466a8",
+      "discriminator": "1346",
+      "public_flags": 0,
+      "flags": 0,
+      "bot": true,
+      "banner": null,
+      "accent_color": null,
+      "global_name": null,
+      "avatar_decoration_data": null,
+      "collectibles": null,
+      "display_name_styles": null,
+      "banner_color": null,
+      "clan": null,
+      "primary_guild": null
+    },
+    "pinned": false,
+    "mention_everyone": false,
+    "tts": false
+  },
+  {
+    "type": 0,
+    "content": "",
+    "mentions": [],
+    "mention_roles": [],
+    "attachments": [],
+    "embeds": [
+      {
+        "type": "rich",
+        "title": ":outbox_tray: 誰かがあなたのショップで商品を購入しました",
+        "description": "プレイヤー T_rex192 があなたのショップで Written Book x1  を購入しました。",
+        "color": 52084,
+        "timestamp": "2025-08-06T00:35:21.784000+00:00",
+        "fields": [
+          {
+            "name": "ショップ",
+            "value": "world -9589, 219, -1566",
+            "inline": false
+          },
+          {
+            "name": "購入者",
+            "value": "T_rex192",
+            "inline": true
+          },
+          {
+            "name": "アイテム",
+            "value": "Written Book",
+            "inline": true
+          },
+          {
+            "name": "個数",
+            "value": "1(x1)",
+            "inline": true
+          },
+          {
+            "name": "獲得した金額",
+            "value": "1.00",
+            "inline": true
+          },
+          {
+            "name": "消費税",
+            "value": "0.00",
+            "inline": true
+          }
+        ],
+        "author": {
+          "name": "QuickShop-Hikari"
+        },
+        "footer": {
+          "text": "QuickShop-Hikari Discord通知"
+        },
+        "content_scan_version": 2
+      }
+    ],
+    "timestamp": "2025-08-06T00:35:21.947000+00:00",
+    "edited_timestamp": null,
+    "flags": 0,
+    "components": [],
+    "id": "1402449939963056258",
+    "channel_id": "1115614629662572564",
+    "author": {
+      "id": "576415368550023178",
+      "username": "めいんさばのはかせ",
+      "avatar": "9b12715f64401ac2ae83888293d466a8",
+      "discriminator": "1346",
+      "public_flags": 0,
+      "flags": 0,
+      "bot": true,
+      "banner": null,
+      "accent_color": null,
+      "global_name": null,
+      "avatar_decoration_data": null,
+      "collectibles": null,
+      "display_name_styles": null,
+      "banner_color": null,
+      "clan": null,
+      "primary_guild": null
+    },
+    "pinned": false,
+    "mention_everyone": false,
+    "tts": false
+  },
+  {
+    "type": 0,
+    "content": "",
+    "mentions": [],
+    "mention_roles": [],
+    "attachments": [],
+    "embeds": [
+      {
+        "type": "rich",
+        "title": ":inbox_tray: 誰かがあなたのショップで商品を売却しました",
+        "description": "プレイヤー T_rex192 があなたのショップで Written Book x1  を売却しました。",
+        "color": 52084,
+        "timestamp": "2025-08-06T00:30:04.639000+00:00",
+        "fields": [
+          {
+            "name": "ショップ",
+            "value": "world -9617, 63, -1568",
+            "inline": false
+          },
+          {
+            "name": "売却者",
+            "value": "T_rex192",
+            "inline": true
+          },
+          {
+            "name": "アイテム",
+            "value": "Written Book",
+            "inline": true
+          },
+          {
+            "name": "個数",
+            "value": "1 (x1)",
+            "inline": true
+          },
+          {
+            "name": "支払った金額",
+            "value": "1.00",
+            "inline": true
+          },
+          {
+            "name": "消費税",
+            "value": "0.00",
+            "inline": true
+          }
+        ],
+        "author": {
+          "name": "QuickShop-Hikari"
+        },
+        "footer": {
+          "text": "QuickShop-Hikari Discord通知"
+        },
+        "content_scan_version": 2
+      }
+    ],
+    "timestamp": "2025-08-06T00:30:04.733000+00:00",
+    "edited_timestamp": null,
+    "flags": 0,
+    "components": [],
+    "id": "1402448609471103017",
+    "channel_id": "1115614629662572564",
+    "author": {
+      "id": "576415368550023178",
+      "username": "めいんさばのはかせ",
+      "avatar": "9b12715f64401ac2ae83888293d466a8",
+      "discriminator": "1346",
+      "public_flags": 0,
+      "flags": 0,
+      "bot": true,
+      "banner": null,
+      "accent_color": null,
+      "global_name": null,
+      "avatar_decoration_data": null,
+      "collectibles": null,
+      "display_name_styles": null,
+      "banner_color": null,
+      "clan": null,
+      "primary_guild": null
+    },
+    "pinned": false,
+    "mention_everyone": false,
+    "tts": false
+  },
+  {
+    "type": 0,
+    "content": "",
+    "mentions": [],
+    "mention_roles": [],
+    "attachments": [],
+    "embeds": [
+      {
+        "type": "rich",
+        "title": ":outbox_tray: 誰かがあなたのショップで商品を購入しました",
+        "description": "プレイヤー T_rex192 があなたのショップで Written Book x1  を購入しました。",
+        "color": 52084,
+        "timestamp": "2025-08-06T00:29:54.185000+00:00",
+        "fields": [
+          {
+            "name": "ショップ",
+            "value": "world -9617, 63, -1569",
+            "inline": false
+          },
+          {
+            "name": "購入者",
+            "value": "T_rex192",
+            "inline": true
+          },
+          {
+            "name": "アイテム",
+            "value": "Written Book",
+            "inline": true
+          },
+          {
+            "name": "個数",
+            "value": "1(x1)",
+            "inline": true
+          },
+          {
+            "name": "獲得した金額",
+            "value": "1.00",
+            "inline": true
+          },
+          {
+            "name": "消費税",
+            "value": "0.00",
+            "inline": true
+          }
+        ],
+        "author": {
+          "name": "QuickShop-Hikari"
+        },
+        "footer": {
+          "text": "QuickShop-Hikari Discord通知"
+        },
+        "content_scan_version": 2
+      }
+    ],
+    "timestamp": "2025-08-06T00:29:54.837000+00:00",
+    "edited_timestamp": null,
+    "flags": 0,
+    "components": [],
+    "id": "1402448567964008488",
+    "channel_id": "1115614629662572564",
+    "author": {
+      "id": "576415368550023178",
+      "username": "めいんさばのはかせ",
+      "avatar": "9b12715f64401ac2ae83888293d466a8",
+      "discriminator": "1346",
+      "public_flags": 0,
+      "flags": 0,
+      "bot": true,
+      "banner": null,
+      "accent_color": null,
+      "global_name": null,
+      "avatar_decoration_data": null,
+      "collectibles": null,
+      "display_name_styles": null,
+      "banner_color": null,
+      "clan": null,
+      "primary_guild": null
+    },
+    "pinned": false,
+    "mention_everyone": false,
+    "tts": false
+  },
+  {
+    "type": 0,
+    "content": "",
+    "mentions": [],
+    "mention_roles": [],
+    "attachments": [],
+    "embeds": [
+      {
+        "type": "rich",
+        "title": ":mailbox_with_no_mail: Your shop has run out of stock",
+        "description": "Your shop inventory is empty now!\nYou need to refill the shop container with items to continue selling items!",
+        "color": 16065893,
+        "timestamp": "2025-08-06T00:29:54.185000+00:00",
+        "fields": [
+          {
+            "name": "Shop",
+            "value": "world -9617, 63, -1569",
+            "inline": false
+          }
+        ],
+        "author": {
+          "name": "QuickShop-Hikari"
+        },
+        "footer": {
+          "text": "QuickShop-Hikari Discord Notification"
+        },
+        "content_scan_version": 2
+      }
+    ],
+    "timestamp": "2025-08-06T00:29:54.511000+00:00",
+    "edited_timestamp": null,
+    "flags": 0,
+    "components": [],
+    "id": "1402448566596927601",
+    "channel_id": "1115614629662572564",
+    "author": {
+      "id": "576415368550023178",
+      "username": "めいんさばのはかせ",
+      "avatar": "9b12715f64401ac2ae83888293d466a8",
+      "discriminator": "1346",
+      "public_flags": 0,
+      "flags": 0,
+      "bot": true,
+      "banner": null,
+      "accent_color": null,
+      "global_name": null,
+      "avatar_decoration_data": null,
+      "collectibles": null,
+      "display_name_styles": null,
+      "banner_color": null,
+      "clan": null,
+      "primary_guild": null
+    },
+    "pinned": false,
+    "mention_everyone": false,
+    "tts": false
+  },
+  {
+    "type": 0,
+    "content": "",
+    "mentions": [],
+    "mention_roles": [],
+    "attachments": [],
+    "embeds": [
+      {
+        "type": "rich",
+        "title": ":inbox_tray: 誰かがあなたのショップで商品を売却しました",
+        "description": "プレイヤー T_rex192 があなたのショップで Written Book x1  を売却しました。",
+        "color": 52084,
+        "timestamp": "2025-08-06T00:29:13.438000+00:00",
+        "fields": [
+          {
+            "name": "ショップ",
+            "value": "world -9589, 219, -1567",
+            "inline": false
+          },
+          {
+            "name": "売却者",
+            "value": "T_rex192",
+            "inline": true
+          },
+          {
+            "name": "アイテム",
+            "value": "Written Book",
+            "inline": true
+          },
+          {
+            "name": "個数",
+            "value": "1 (x1)",
+            "inline": true
+          },
+          {
+            "name": "支払った金額",
+            "value": "1.00",
+            "inline": true
+          },
+          {
+            "name": "消費税",
+            "value": "0.00",
+            "inline": true
+          }
+        ],
+        "author": {
+          "name": "QuickShop-Hikari"
+        },
+        "footer": {
+          "text": "QuickShop-Hikari Discord通知"
+        },
+        "content_scan_version": 2
+      }
+    ],
+    "timestamp": "2025-08-06T00:29:13.873000+00:00",
+    "edited_timestamp": null,
+    "flags": 0,
+    "components": [],
+    "id": "1402448396148674621",
+    "channel_id": "1115614629662572564",
+    "author": {
+      "id": "576415368550023178",
+      "username": "めいんさばのはかせ",
+      "avatar": "9b12715f64401ac2ae83888293d466a8",
+      "discriminator": "1346",
+      "public_flags": 0,
+      "flags": 0,
+      "bot": true,
+      "banner": null,
+      "accent_color": null,
+      "global_name": null,
+      "avatar_decoration_data": null,
+      "collectibles": null,
+      "display_name_styles": null,
+      "banner_color": null,
+      "clan": null,
+      "primary_guild": null
+    },
+    "pinned": false,
+    "mention_everyone": false,
+    "tts": false
+  },
+  {
+    "type": 0,
+    "content": "",
+    "mentions": [],
+    "mention_roles": [],
+    "attachments": [],
+    "embeds": [
+      {
+        "type": "rich",
+        "title": ":outbox_tray: 誰かがあなたのショップで商品を購入しました",
+        "description": "プレイヤー T_rex192 があなたのショップで Written Book x1  を購入しました。",
+        "color": 52084,
+        "timestamp": "2025-08-06T00:29:11.885000+00:00",
+        "fields": [
+          {
+            "name": "ショップ",
+            "value": "world -9589, 219, -1566",
+            "inline": false
+          },
+          {
+            "name": "購入者",
+            "value": "T_rex192",
+            "inline": true
+          },
+          {
+            "name": "アイテム",
+            "value": "Written Book",
+            "inline": true
+          },
+          {
+            "name": "個数",
+            "value": "1(x1)",
+            "inline": true
+          },
+          {
+            "name": "獲得した金額",
+            "value": "1.00",
+            "inline": true
+          },
+          {
+            "name": "消費税",
+            "value": "0.00",
+            "inline": true
+          }
+        ],
+        "author": {
+          "name": "QuickShop-Hikari"
+        },
+        "footer": {
+          "text": "QuickShop-Hikari Discord通知"
+        },
+        "content_scan_version": 2
+      }
+    ],
+    "timestamp": "2025-08-06T00:29:12.034000+00:00",
+    "edited_timestamp": null,
+    "flags": 0,
+    "components": [],
+    "id": "1402448388435214508",
+    "channel_id": "1115614629662572564",
+    "author": {
+      "id": "576415368550023178",
+      "username": "めいんさばのはかせ",
+      "avatar": "9b12715f64401ac2ae83888293d466a8",
+      "discriminator": "1346",
+      "public_flags": 0,
+      "flags": 0,
+      "bot": true,
+      "banner": null,
+      "accent_color": null,
+      "global_name": null,
+      "avatar_decoration_data": null,
+      "collectibles": null,
+      "display_name_styles": null,
+      "banner_color": null,
+      "clan": null,
+      "primary_guild": null
+    },
+    "pinned": false,
+    "mention_everyone": false,
+    "tts": false
+  },
+  {
+    "type": 0,
+    "content": "",
+    "mentions": [],
+    "mention_roles": [],
+    "attachments": [],
+    "embeds": [
+      {
+        "type": "rich",
+        "title": ":inbox_tray: 誰かがあなたのショップで商品を売却しました",
+        "description": "プレイヤー T_rex192 があなたのショップで Written Book x1  を売却しました。",
+        "color": 52084,
+        "timestamp": "2025-08-06T00:20:45.688000+00:00",
+        "fields": [
+          {
+            "name": "ショップ",
+            "value": "world -9617, 63, -1568",
+            "inline": false
+          },
+          {
+            "name": "売却者",
+            "value": "T_rex192",
+            "inline": true
+          },
+          {
+            "name": "アイテム",
+            "value": "Written Book",
+            "inline": true
+          },
+          {
+            "name": "個数",
+            "value": "1 (x1)",
+            "inline": true
+          },
+          {
+            "name": "支払った金額",
+            "value": "1.00",
+            "inline": true
+          },
+          {
+            "name": "消費税",
+            "value": "0.00",
+            "inline": true
+          }
+        ],
+        "author": {
+          "name": "QuickShop-Hikari"
+        },
+        "footer": {
+          "text": "QuickShop-Hikari Discord通知"
+        },
+        "content_scan_version": 2
+      }
+    ],
+    "timestamp": "2025-08-06T00:20:45.791000+00:00",
+    "edited_timestamp": null,
+    "flags": 0,
+    "components": [],
+    "id": "1402446265098305608",
+    "channel_id": "1115614629662572564",
+    "author": {
+      "id": "576415368550023178",
+      "username": "めいんさばのはかせ",
+      "avatar": "9b12715f64401ac2ae83888293d466a8",
+      "discriminator": "1346",
+      "public_flags": 0,
+      "flags": 0,
+      "bot": true,
+      "banner": null,
+      "accent_color": null,
+      "global_name": null,
+      "avatar_decoration_data": null,
+      "collectibles": null,
+      "display_name_styles": null,
+      "banner_color": null,
+      "clan": null,
+      "primary_guild": null
+    },
+    "pinned": false,
+    "mention_everyone": false,
+    "tts": false
+  },
+  {
+    "type": 0,
+    "content": "",
+    "mentions": [],
+    "mention_roles": [],
+    "attachments": [],
+    "embeds": [
+      {
+        "type": "rich",
+        "title": ":mailbox_with_no_mail: Your shop has run out of stock",
+        "description": "Your shop inventory is empty now!\nYou need to refill the shop container with items to continue selling items!",
+        "color": 16065893,
+        "timestamp": "2025-08-06T00:20:40.037000+00:00",
+        "fields": [
+          {
+            "name": "Shop",
+            "value": "world -9617, 63, -1569",
+            "inline": false
+          }
+        ],
+        "author": {
+          "name": "QuickShop-Hikari"
+        },
+        "footer": {
+          "text": "QuickShop-Hikari Discord Notification"
+        },
+        "content_scan_version": 2
+      }
+    ],
+    "timestamp": "2025-08-06T00:20:40.707000+00:00",
+    "edited_timestamp": null,
+    "flags": 0,
+    "components": [],
+    "id": "1402446243774595173",
+    "channel_id": "1115614629662572564",
+    "author": {
+      "id": "576415368550023178",
+      "username": "めいんさばのはかせ",
+      "avatar": "9b12715f64401ac2ae83888293d466a8",
+      "discriminator": "1346",
+      "public_flags": 0,
+      "flags": 0,
+      "bot": true,
+      "banner": null,
+      "accent_color": null,
+      "global_name": null,
+      "avatar_decoration_data": null,
+      "collectibles": null,
+      "display_name_styles": null,
+      "banner_color": null,
+      "clan": null,
+      "primary_guild": null
+    },
+    "pinned": false,
+    "mention_everyone": false,
+    "tts": false
+  },
+  {
+    "type": 0,
+    "content": "",
+    "mentions": [],
+    "mention_roles": [],
+    "attachments": [],
+    "embeds": [
+      {
+        "type": "rich",
+        "title": ":outbox_tray: 誰かがあなたのショップで商品を購入しました",
+        "description": "プレイヤー T_rex192 があなたのショップで Written Book x1  を購入しました。",
+        "color": 52084,
+        "timestamp": "2025-08-06T00:20:40.036000+00:00",
+        "fields": [
+          {
+            "name": "ショップ",
+            "value": "world -9617, 63, -1569",
+            "inline": false
+          },
+          {
+            "name": "購入者",
+            "value": "T_rex192",
+            "inline": true
+          },
+          {
+            "name": "アイテム",
+            "value": "Written Book",
+            "inline": true
+          },
+          {
+            "name": "個数",
+            "value": "1(x1)",
+            "inline": true
+          },
+          {
+            "name": "獲得した金額",
+            "value": "1.00",
+            "inline": true
+          },
+          {
+            "name": "消費税",
+            "value": "0.00",
+            "inline": true
+          }
+        ],
+        "author": {
+          "name": "QuickShop-Hikari"
+        },
+        "footer": {
+          "text": "QuickShop-Hikari Discord通知"
+        },
+        "content_scan_version": 2
+      }
+    ],
+    "timestamp": "2025-08-06T00:20:40.359000+00:00",
+    "edited_timestamp": null,
+    "flags": 0,
+    "components": [],
+    "id": "1402446242314850345",
+    "channel_id": "1115614629662572564",
+    "author": {
+      "id": "576415368550023178",
+      "username": "めいんさばのはかせ",
+      "avatar": "9b12715f64401ac2ae83888293d466a8",
+      "discriminator": "1346",
+      "public_flags": 0,
+      "flags": 0,
+      "bot": true,
+      "banner": null,
+      "accent_color": null,
+      "global_name": null,
+      "avatar_decoration_data": null,
+      "collectibles": null,
+      "display_name_styles": null,
+      "banner_color": null,
+      "clan": null,
+      "primary_guild": null
+    },
+    "pinned": false,
+    "mention_everyone": false,
+    "tts": false
+  },
+  {
+    "type": 0,
+    "content": "",
+    "mentions": [],
+    "mention_roles": [],
+    "attachments": [],
+    "embeds": [
+      {
+        "type": "rich",
+        "title": ":inbox_tray: 誰かがあなたのショップで商品を売却しました",
+        "description": "プレイヤー narumincho があなたのショップで Written Book x1  を売却しました。",
+        "color": 52084,
+        "timestamp": "2025-08-05T22:02:29.085000+00:00",
+        "fields": [
+          {
+            "name": "ショップ",
+            "value": "world -9589, 219, -1567",
+            "inline": false
+          },
+          {
+            "name": "売却者",
+            "value": "narumincho",
+            "inline": true
+          },
+          {
+            "name": "アイテム",
+            "value": "Written Book",
+            "inline": true
+          },
+          {
+            "name": "個数",
+            "value": "1 (x1)",
+            "inline": true
+          },
+          {
+            "name": "支払った金額",
+            "value": "1.00",
+            "inline": true
+          },
+          {
+            "name": "消費税",
+            "value": "0.00",
+            "inline": true
+          }
+        ],
+        "author": {
+          "name": "QuickShop-Hikari"
+        },
+        "footer": {
+          "text": "QuickShop-Hikari Discord通知"
+        },
+        "content_scan_version": 2
+      }
+    ],
+    "timestamp": "2025-08-05T22:02:29.246000+00:00",
+    "edited_timestamp": null,
+    "flags": 0,
+    "components": [],
+    "id": "1402411466866294906",
+    "channel_id": "1115614629662572564",
+    "author": {
+      "id": "576415368550023178",
+      "username": "めいんさばのはかせ",
+      "avatar": "9b12715f64401ac2ae83888293d466a8",
+      "discriminator": "1346",
+      "public_flags": 0,
+      "flags": 0,
+      "bot": true,
+      "banner": null,
+      "accent_color": null,
+      "global_name": null,
+      "avatar_decoration_data": null,
+      "collectibles": null,
+      "display_name_styles": null,
+      "banner_color": null,
+      "clan": null,
+      "primary_guild": null
+    },
+    "pinned": false,
+    "mention_everyone": false,
+    "tts": false
+  },
+  {
+    "type": 0,
+    "content": "",
+    "mentions": [],
+    "mention_roles": [],
+    "attachments": [],
+    "embeds": [
+      {
+        "type": "rich",
+        "title": ":outbox_tray: 誰かがあなたのショップで商品を購入しました",
+        "description": "プレイヤー narumincho があなたのショップで Written Book x1  を購入しました。",
+        "color": 52084,
+        "timestamp": "2025-08-05T22:02:23.888000+00:00",
+        "fields": [
+          {
+            "name": "ショップ",
+            "value": "world -9589, 219, -1566",
+            "inline": false
+          },
+          {
+            "name": "購入者",
+            "value": "narumincho",
+            "inline": true
+          },
+          {
+            "name": "アイテム",
+            "value": "Written Book",
+            "inline": true
+          },
+          {
+            "name": "個数",
+            "value": "1(x1)",
+            "inline": true
+          },
+          {
+            "name": "獲得した金額",
+            "value": "1.00",
+            "inline": true
+          },
+          {
+            "name": "消費税",
+            "value": "0.00",
+            "inline": true
+          }
+        ],
+        "author": {
+          "name": "QuickShop-Hikari"
+        },
+        "footer": {
+          "text": "QuickShop-Hikari Discord通知"
+        },
+        "content_scan_version": 2
+      }
+    ],
+    "timestamp": "2025-08-05T22:02:24.002000+00:00",
+    "edited_timestamp": null,
+    "flags": 0,
+    "components": [],
+    "id": "1402411444871364629",
+    "channel_id": "1115614629662572564",
+    "author": {
+      "id": "576415368550023178",
+      "username": "めいんさばのはかせ",
+      "avatar": "9b12715f64401ac2ae83888293d466a8",
+      "discriminator": "1346",
+      "public_flags": 0,
+      "flags": 0,
+      "bot": true,
+      "banner": null,
+      "accent_color": null,
+      "global_name": null,
+      "avatar_decoration_data": null,
+      "collectibles": null,
+      "display_name_styles": null,
+      "banner_color": null,
+      "clan": null,
+      "primary_guild": null
+    },
+    "pinned": false,
+    "mention_everyone": false,
+    "tts": false
+  },
+  {
+    "type": 0,
+    "content": "",
+    "mentions": [],
+    "mention_roles": [],
+    "attachments": [],
+    "embeds": [
+      {
+        "type": "rich",
+        "title": ":inbox_tray: 誰かがあなたのショップで商品を売却しました",
+        "description": "プレイヤー narumincho があなたのショップで Written Book x1  を売却しました。",
+        "color": 52084,
+        "timestamp": "2025-08-05T21:59:12.682000+00:00",
+        "fields": [
+          {
+            "name": "ショップ",
+            "value": "world -9589, 219, -1567",
+            "inline": false
+          },
+          {
+            "name": "売却者",
+            "value": "narumincho",
+            "inline": true
+          },
+          {
+            "name": "アイテム",
+            "value": "Written Book",
+            "inline": true
+          },
+          {
+            "name": "個数",
+            "value": "1 (x1)",
+            "inline": true
+          },
+          {
+            "name": "支払った金額",
+            "value": "1.00",
+            "inline": true
+          },
+          {
+            "name": "消費税",
+            "value": "0.00",
+            "inline": true
+          }
+        ],
+        "author": {
+          "name": "QuickShop-Hikari"
+        },
+        "footer": {
+          "text": "QuickShop-Hikari Discord通知"
+        },
+        "content_scan_version": 2
+      }
+    ],
+    "timestamp": "2025-08-05T21:59:12.940000+00:00",
+    "edited_timestamp": null,
+    "flags": 0,
+    "components": [],
+    "id": "1402410643499257866",
+    "channel_id": "1115614629662572564",
+    "author": {
+      "id": "576415368550023178",
+      "username": "めいんさばのはかせ",
+      "avatar": "9b12715f64401ac2ae83888293d466a8",
+      "discriminator": "1346",
+      "public_flags": 0,
+      "flags": 0,
+      "bot": true,
+      "banner": null,
+      "accent_color": null,
+      "global_name": null,
+      "avatar_decoration_data": null,
+      "collectibles": null,
+      "display_name_styles": null,
+      "banner_color": null,
+      "clan": null,
+      "primary_guild": null
+    },
+    "pinned": false,
+    "mention_everyone": false,
+    "tts": false
+  },
+  {
+    "type": 0,
+    "content": "",
+    "mentions": [],
+    "mention_roles": [],
+    "attachments": [],
+    "embeds": [
+      {
+        "type": "rich",
+        "title": ":inbox_tray: 誰かがあなたのショップで商品を売却しました",
+        "description": "プレイヤー narumincho があなたのショップで Written Book x1  を売却しました。",
+        "color": 52084,
+        "timestamp": "2025-08-05T21:56:42.681000+00:00",
+        "fields": [
+          {
+            "name": "ショップ",
+            "value": "world -9589, 219, -1567",
+            "inline": false
+          },
+          {
+            "name": "売却者",
+            "value": "narumincho",
+            "inline": true
+          },
+          {
+            "name": "アイテム",
+            "value": "Written Book",
+            "inline": true
+          },
+          {
+            "name": "個数",
+            "value": "1 (x1)",
+            "inline": true
+          },
+          {
+            "name": "支払った金額",
+            "value": "1.00",
+            "inline": true
+          },
+          {
+            "name": "消費税",
+            "value": "0.00",
+            "inline": true
+          }
+        ],
+        "author": {
+          "name": "QuickShop-Hikari"
+        },
+        "footer": {
+          "text": "QuickShop-Hikari Discord通知"
+        },
+        "content_scan_version": 2
+      }
+    ],
+    "timestamp": "2025-08-05T21:56:42.893000+00:00",
+    "edited_timestamp": null,
+    "flags": 0,
+    "components": [],
+    "id": "1402410014156787732",
+    "channel_id": "1115614629662572564",
+    "author": {
+      "id": "576415368550023178",
+      "username": "めいんさばのはかせ",
+      "avatar": "9b12715f64401ac2ae83888293d466a8",
+      "discriminator": "1346",
+      "public_flags": 0,
+      "flags": 0,
+      "bot": true,
+      "banner": null,
+      "accent_color": null,
+      "global_name": null,
+      "avatar_decoration_data": null,
+      "collectibles": null,
+      "display_name_styles": null,
+      "banner_color": null,
+      "clan": null,
+      "primary_guild": null
+    },
+    "pinned": false,
+    "mention_everyone": false,
+    "tts": false
+  },
+  {
+    "type": 0,
+    "content": "",
+    "mentions": [],
+    "mention_roles": [],
+    "attachments": [],
+    "embeds": [
+      {
+        "type": "rich",
+        "title": ":outbox_tray: 誰かがあなたのショップで商品を購入しました",
+        "description": "プレイヤー narumincho があなたのショップで Written Book x2  を購入しました。",
+        "color": 52084,
+        "timestamp": "2025-08-05T21:56:37.828000+00:00",
+        "fields": [
+          {
+            "name": "ショップ",
+            "value": "world -9589, 219, -1566",
+            "inline": false
+          },
+          {
+            "name": "購入者",
+            "value": "narumincho",
+            "inline": true
+          },
+          {
+            "name": "アイテム",
+            "value": "Written Book",
+            "inline": true
+          },
+          {
+            "name": "個数",
+            "value": "2(x1)",
+            "inline": true
+          },
+          {
+            "name": "獲得した金額",
+            "value": "2.00",
+            "inline": true
+          },
+          {
+            "name": "消費税",
+            "value": "0.00",
+            "inline": true
+          }
+        ],
+        "author": {
+          "name": "QuickShop-Hikari"
+        },
+        "footer": {
+          "text": "QuickShop-Hikari Discord通知"
+        },
+        "content_scan_version": 2
+      }
+    ],
+    "timestamp": "2025-08-05T21:56:38.399000+00:00",
+    "edited_timestamp": null,
+    "flags": 0,
+    "components": [],
+    "id": "1402409995307450468",
+    "channel_id": "1115614629662572564",
+    "author": {
+      "id": "576415368550023178",
+      "username": "めいんさばのはかせ",
+      "avatar": "9b12715f64401ac2ae83888293d466a8",
+      "discriminator": "1346",
+      "public_flags": 0,
+      "flags": 0,
+      "bot": true,
+      "banner": null,
+      "accent_color": null,
+      "global_name": null,
+      "avatar_decoration_data": null,
+      "collectibles": null,
+      "display_name_styles": null,
+      "banner_color": null,
+      "clan": null,
+      "primary_guild": null
+    },
+    "pinned": false,
+    "mention_everyone": false,
+    "tts": false
+  },
+  {
+    "type": 0,
+    "content": "",
+    "mentions": [],
+    "mention_roles": [],
+    "attachments": [],
+    "embeds": [
+      {
+        "type": "rich",
+        "title": ":inbox_tray: 誰かがあなたのショップで商品を売却しました",
+        "description": "プレイヤー T_rex192 があなたのショップで Written Book x1  を売却しました。",
+        "color": 52084,
+        "timestamp": "2025-08-05T11:32:50.737000+00:00",
+        "fields": [
+          {
+            "name": "ショップ",
+            "value": "world -9589, 219, -1567",
+            "inline": false
+          },
+          {
+            "name": "売却者",
+            "value": "T_rex192",
+            "inline": true
+          },
+          {
+            "name": "アイテム",
+            "value": "Written Book",
+            "inline": true
+          },
+          {
+            "name": "個数",
+            "value": "1 (x1)",
+            "inline": true
+          },
+          {
+            "name": "支払った金額",
+            "value": "1.00",
+            "inline": true
+          },
+          {
+            "name": "消費税",
+            "value": "0.00",
+            "inline": true
+          }
+        ],
+        "author": {
+          "name": "QuickShop-Hikari"
+        },
+        "footer": {
+          "text": "QuickShop-Hikari Discord通知"
+        },
+        "content_scan_version": 2
+      }
+    ],
+    "timestamp": "2025-08-05T11:32:50.964000+00:00",
+    "edited_timestamp": null,
+    "flags": 0,
+    "components": [],
+    "id": "1402253013267124336",
+    "channel_id": "1115614629662572564",
+    "author": {
+      "id": "576415368550023178",
+      "username": "めいんさばのはかせ",
+      "avatar": "9b12715f64401ac2ae83888293d466a8",
+      "discriminator": "1346",
+      "public_flags": 0,
+      "flags": 0,
+      "bot": true,
+      "banner": null,
+      "accent_color": null,
+      "global_name": null,
+      "avatar_decoration_data": null,
+      "collectibles": null,
+      "display_name_styles": null,
+      "banner_color": null,
+      "clan": null,
+      "primary_guild": null
+    },
+    "pinned": false,
+    "mention_everyone": false,
+    "tts": false
+  },
+  {
+    "type": 0,
+    "content": "",
+    "mentions": [],
+    "mention_roles": [],
+    "attachments": [],
+    "embeds": [
+      {
+        "type": "rich",
+        "title": ":outbox_tray: 誰かがあなたのショップで商品を購入しました",
+        "description": "プレイヤー T_rex192 があなたのショップで Written Book x1  を購入しました。",
+        "color": 52084,
+        "timestamp": "2025-08-05T11:32:49.037000+00:00",
+        "fields": [
+          {
+            "name": "ショップ",
+            "value": "world -9589, 219, -1566",
+            "inline": false
+          },
+          {
+            "name": "購入者",
+            "value": "T_rex192",
+            "inline": true
+          },
+          {
+            "name": "アイテム",
+            "value": "Written Book",
+            "inline": true
+          },
+          {
+            "name": "個数",
+            "value": "1(x1)",
+            "inline": true
+          },
+          {
+            "name": "獲得した金額",
+            "value": "1.00",
+            "inline": true
+          },
+          {
+            "name": "消費税",
+            "value": "0.00",
+            "inline": true
+          }
+        ],
+        "author": {
+          "name": "QuickShop-Hikari"
+        },
+        "footer": {
+          "text": "QuickShop-Hikari Discord通知"
+        },
+        "content_scan_version": 2
+      }
+    ],
+    "timestamp": "2025-08-05T11:32:49.187000+00:00",
+    "edited_timestamp": null,
+    "flags": 0,
+    "components": [],
+    "id": "1402253005813710908",
+    "channel_id": "1115614629662572564",
+    "author": {
+      "id": "576415368550023178",
+      "username": "めいんさばのはかせ",
+      "avatar": "9b12715f64401ac2ae83888293d466a8",
+      "discriminator": "1346",
+      "public_flags": 0,
+      "flags": 0,
+      "bot": true,
+      "banner": null,
+      "accent_color": null,
+      "global_name": null,
+      "avatar_decoration_data": null,
+      "collectibles": null,
+      "display_name_styles": null,
+      "banner_color": null,
+      "clan": null,
+      "primary_guild": null
+    },
+    "pinned": false,
+    "mention_everyone": false,
+    "tts": false
+  },
+  {
+    "type": 0,
+    "content": "",
+    "mentions": [],
+    "mention_roles": [],
+    "attachments": [],
+    "embeds": [
+      {
+        "type": "rich",
+        "title": ":inbox_tray: 誰かがあなたのショップで商品を売却しました",
+        "description": "プレイヤー T_rex192 があなたのショップで Written Book x1  を売却しました。",
+        "color": 52084,
+        "timestamp": "2025-08-05T11:27:18.893000+00:00",
+        "fields": [
+          {
+            "name": "ショップ",
+            "value": "world -9617, 63, -1568",
+            "inline": false
+          },
+          {
+            "name": "売却者",
+            "value": "T_rex192",
+            "inline": true
+          },
+          {
+            "name": "アイテム",
+            "value": "Written Book",
+            "inline": true
+          },
+          {
+            "name": "個数",
+            "value": "1 (x1)",
+            "inline": true
+          },
+          {
+            "name": "支払った金額",
+            "value": "1.00",
+            "inline": true
+          },
+          {
+            "name": "消費税",
+            "value": "0.00",
+            "inline": true
+          }
+        ],
+        "author": {
+          "name": "QuickShop-Hikari"
+        },
+        "footer": {
+          "text": "QuickShop-Hikari Discord通知"
+        },
+        "content_scan_version": 2
+      }
+    ],
+    "timestamp": "2025-08-05T11:27:19.126000+00:00",
+    "edited_timestamp": null,
+    "flags": 0,
+    "components": [],
+    "id": "1402251621437538344",
+    "channel_id": "1115614629662572564",
+    "author": {
+      "id": "576415368550023178",
+      "username": "めいんさばのはかせ",
+      "avatar": "9b12715f64401ac2ae83888293d466a8",
+      "discriminator": "1346",
+      "public_flags": 0,
+      "flags": 0,
+      "bot": true,
+      "banner": null,
+      "accent_color": null,
+      "global_name": null,
+      "avatar_decoration_data": null,
+      "collectibles": null,
+      "display_name_styles": null,
+      "banner_color": null,
+      "clan": null,
+      "primary_guild": null
+    },
+    "pinned": false,
+    "mention_everyone": false,
+    "tts": false
+  },
+  {
+    "type": 0,
+    "content": "",
+    "mentions": [],
+    "mention_roles": [],
+    "attachments": [],
+    "embeds": [
+      {
+        "type": "rich",
+        "title": ":outbox_tray: 誰かがあなたのショップで商品を購入しました",
+        "description": "プレイヤー T_rex192 があなたのショップで Written Book x1  を購入しました。",
+        "color": 52084,
+        "timestamp": "2025-08-05T11:27:16.934000+00:00",
+        "fields": [
+          {
+            "name": "ショップ",
+            "value": "world -9617, 63, -1569",
+            "inline": false
+          },
+          {
+            "name": "購入者",
+            "value": "T_rex192",
+            "inline": true
+          },
+          {
+            "name": "アイテム",
+            "value": "Written Book",
+            "inline": true
+          },
+          {
+            "name": "個数",
+            "value": "1(x1)",
+            "inline": true
+          },
+          {
+            "name": "獲得した金額",
+            "value": "1.00",
+            "inline": true
+          },
+          {
+            "name": "消費税",
+            "value": "0.00",
+            "inline": true
+          }
+        ],
+        "author": {
+          "name": "QuickShop-Hikari"
+        },
+        "footer": {
+          "text": "QuickShop-Hikari Discord通知"
+        },
+        "content_scan_version": 2
+      }
+    ],
+    "timestamp": "2025-08-05T11:27:17.577000+00:00",
+    "edited_timestamp": null,
+    "flags": 0,
+    "components": [],
+    "id": "1402251614940692571",
+    "channel_id": "1115614629662572564",
+    "author": {
+      "id": "576415368550023178",
+      "username": "めいんさばのはかせ",
+      "avatar": "9b12715f64401ac2ae83888293d466a8",
+      "discriminator": "1346",
+      "public_flags": 0,
+      "flags": 0,
+      "bot": true,
+      "banner": null,
+      "accent_color": null,
+      "global_name": null,
+      "avatar_decoration_data": null,
+      "collectibles": null,
+      "display_name_styles": null,
+      "banner_color": null,
+      "clan": null,
+      "primary_guild": null
+    },
+    "pinned": false,
+    "mention_everyone": false,
+    "tts": false
+  },
+  {
+    "type": 0,
+    "content": "",
+    "mentions": [],
+    "mention_roles": [],
+    "attachments": [],
+    "embeds": [
+      {
+        "type": "rich",
+        "title": ":mailbox_with_no_mail: Your shop has run out of stock",
+        "description": "Your shop inventory is empty now!\nYou need to refill the shop container with items to continue selling items!",
+        "color": 16065893,
+        "timestamp": "2025-08-05T11:27:16.934000+00:00",
+        "fields": [
+          {
+            "name": "Shop",
+            "value": "world -9617, 63, -1569",
+            "inline": false
+          }
+        ],
+        "author": {
+          "name": "QuickShop-Hikari"
+        },
+        "footer": {
+          "text": "QuickShop-Hikari Discord Notification"
+        },
+        "content_scan_version": 2
+      }
+    ],
+    "timestamp": "2025-08-05T11:27:17.112000+00:00",
+    "edited_timestamp": null,
+    "flags": 0,
+    "components": [],
+    "id": "1402251612990341170",
+    "channel_id": "1115614629662572564",
+    "author": {
+      "id": "576415368550023178",
+      "username": "めいんさばのはかせ",
+      "avatar": "9b12715f64401ac2ae83888293d466a8",
+      "discriminator": "1346",
+      "public_flags": 0,
+      "flags": 0,
+      "bot": true,
+      "banner": null,
+      "accent_color": null,
+      "global_name": null,
+      "avatar_decoration_data": null,
+      "collectibles": null,
+      "display_name_styles": null,
+      "banner_color": null,
+      "clan": null,
+      "primary_guild": null
+    },
+    "pinned": false,
+    "mention_everyone": false,
+    "tts": false
+  },
+  {
+    "type": 0,
+    "content": "",
+    "mentions": [],
+    "mention_roles": [],
+    "attachments": [],
+    "embeds": [
+      {
+        "type": "rich",
+        "title": ":inbox_tray: 誰かがあなたのショップで商品を売却しました",
+        "description": "プレイヤー T_rex192 があなたのショップで Written Book x1  を売却しました。",
+        "color": 52084,
+        "timestamp": "2025-08-05T10:54:15.181000+00:00",
+        "fields": [
+          {
+            "name": "ショップ",
+            "value": "world -9589, 219, -1567",
+            "inline": false
+          },
+          {
+            "name": "売却者",
+            "value": "T_rex192",
+            "inline": true
+          },
+          {
+            "name": "アイテム",
+            "value": "Written Book",
+            "inline": true
+          },
+          {
+            "name": "個数",
+            "value": "1 (x1)",
+            "inline": true
+          },
+          {
+            "name": "支払った金額",
+            "value": "1.00",
+            "inline": true
+          },
+          {
+            "name": "消費税",
+            "value": "0.00",
+            "inline": true
+          }
+        ],
+        "author": {
+          "name": "QuickShop-Hikari"
+        },
+        "footer": {
+          "text": "QuickShop-Hikari Discord通知"
+        },
+        "content_scan_version": 2
+      }
+    ],
+    "timestamp": "2025-08-05T10:54:15.301000+00:00",
+    "edited_timestamp": null,
+    "flags": 0,
+    "components": [],
+    "id": "1402243300672667691",
+    "channel_id": "1115614629662572564",
+    "author": {
+      "id": "576415368550023178",
+      "username": "めいんさばのはかせ",
+      "avatar": "9b12715f64401ac2ae83888293d466a8",
+      "discriminator": "1346",
+      "public_flags": 0,
+      "flags": 0,
+      "bot": true,
+      "banner": null,
+      "accent_color": null,
+      "global_name": null,
+      "avatar_decoration_data": null,
+      "collectibles": null,
+      "display_name_styles": null,
+      "banner_color": null,
+      "clan": null,
+      "primary_guild": null
+    },
+    "pinned": false,
+    "mention_everyone": false,
+    "tts": false
+  },
+  {
+    "type": 0,
+    "content": "",
+    "mentions": [],
+    "mention_roles": [],
+    "attachments": [],
+    "embeds": [
+      {
+        "type": "rich",
+        "title": ":outbox_tray: 誰かがあなたのショップで商品を購入しました",
+        "description": "プレイヤー T_rex192 があなたのショップで Written Book x1  を購入しました。",
+        "color": 52084,
+        "timestamp": "2025-08-05T10:54:13.520000+00:00",
+        "fields": [
+          {
+            "name": "ショップ",
+            "value": "world -9589, 219, -1566",
+            "inline": false
+          },
+          {
+            "name": "購入者",
+            "value": "T_rex192",
+            "inline": true
+          },
+          {
+            "name": "アイテム",
+            "value": "Written Book",
+            "inline": true
+          },
+          {
+            "name": "個数",
+            "value": "1(x1)",
+            "inline": true
+          },
+          {
+            "name": "獲得した金額",
+            "value": "1.00",
+            "inline": true
+          },
+          {
+            "name": "消費税",
+            "value": "0.00",
+            "inline": true
+          }
+        ],
+        "author": {
+          "name": "QuickShop-Hikari"
+        },
+        "footer": {
+          "text": "QuickShop-Hikari Discord通知"
+        },
+        "content_scan_version": 2
+      }
+    ],
+    "timestamp": "2025-08-05T10:54:13.750000+00:00",
+    "edited_timestamp": null,
+    "flags": 0,
+    "components": [],
+    "id": "1402243294167306331",
+    "channel_id": "1115614629662572564",
+    "author": {
+      "id": "576415368550023178",
+      "username": "めいんさばのはかせ",
+      "avatar": "9b12715f64401ac2ae83888293d466a8",
+      "discriminator": "1346",
+      "public_flags": 0,
+      "flags": 0,
+      "bot": true,
+      "banner": null,
+      "accent_color": null,
+      "global_name": null,
+      "avatar_decoration_data": null,
+      "collectibles": null,
+      "display_name_styles": null,
+      "banner_color": null,
+      "clan": null,
+      "primary_guild": null
+    },
+    "pinned": false,
+    "mention_everyone": false,
+    "tts": false
+  },
+  {
+    "type": 0,
+    "content": "",
+    "mentions": [],
+    "mention_roles": [],
+    "attachments": [],
+    "embeds": [
+      {
+        "type": "rich",
+        "title": ":inbox_tray: 誰かがあなたのショップで商品を売却しました",
+        "description": "プレイヤー T_rex192 があなたのショップで Written Book x1  を売却しました。",
+        "color": 52084,
+        "timestamp": "2025-08-05T10:53:58.278000+00:00",
+        "fields": [
+          {
+            "name": "ショップ",
+            "value": "world -9617, 63, -1568",
+            "inline": false
+          },
+          {
+            "name": "売却者",
+            "value": "T_rex192",
+            "inline": true
+          },
+          {
+            "name": "アイテム",
+            "value": "Written Book",
+            "inline": true
+          },
+          {
+            "name": "個数",
+            "value": "1 (x1)",
+            "inline": true
+          },
+          {
+            "name": "支払った金額",
+            "value": "1.00",
+            "inline": true
+          },
+          {
+            "name": "消費税",
+            "value": "0.00",
+            "inline": true
+          }
+        ],
+        "author": {
+          "name": "QuickShop-Hikari"
+        },
+        "footer": {
+          "text": "QuickShop-Hikari Discord通知"
+        },
+        "content_scan_version": 2
+      }
+    ],
+    "timestamp": "2025-08-05T10:53:58.426000+00:00",
+    "edited_timestamp": null,
+    "flags": 0,
+    "components": [],
+    "id": "1402243229893529633",
+    "channel_id": "1115614629662572564",
+    "author": {
+      "id": "576415368550023178",
+      "username": "めいんさばのはかせ",
+      "avatar": "9b12715f64401ac2ae83888293d466a8",
+      "discriminator": "1346",
+      "public_flags": 0,
+      "flags": 0,
+      "bot": true,
+      "banner": null,
+      "accent_color": null,
+      "global_name": null,
+      "avatar_decoration_data": null,
+      "collectibles": null,
+      "display_name_styles": null,
+      "banner_color": null,
+      "clan": null,
+      "primary_guild": null
+    },
+    "pinned": false,
+    "mention_everyone": false,
+    "tts": false
+  },
+  {
+    "type": 0,
+    "content": "",
+    "mentions": [],
+    "mention_roles": [],
+    "attachments": [],
+    "embeds": [
+      {
+        "type": "rich",
+        "title": ":mailbox_with_no_mail: Your shop has run out of stock",
+        "description": "Your shop inventory is empty now!\nYou need to refill the shop container with items to continue selling items!",
+        "color": 16065893,
+        "timestamp": "2025-08-05T10:53:55.681000+00:00",
+        "fields": [
+          {
+            "name": "Shop",
+            "value": "world -9617, 63, -1569",
+            "inline": false
+          }
+        ],
+        "author": {
+          "name": "QuickShop-Hikari"
+        },
+        "footer": {
+          "text": "QuickShop-Hikari Discord Notification"
+        },
+        "content_scan_version": 2
+      }
+    ],
+    "timestamp": "2025-08-05T10:53:56.285000+00:00",
+    "edited_timestamp": null,
+    "flags": 0,
+    "components": [],
+    "id": "1402243220913524796",
+    "channel_id": "1115614629662572564",
+    "author": {
+      "id": "576415368550023178",
+      "username": "めいんさばのはかせ",
+      "avatar": "9b12715f64401ac2ae83888293d466a8",
+      "discriminator": "1346",
+      "public_flags": 0,
+      "flags": 0,
+      "bot": true,
+      "banner": null,
+      "accent_color": null,
+      "global_name": null,
+      "avatar_decoration_data": null,
+      "collectibles": null,
+      "display_name_styles": null,
+      "banner_color": null,
+      "clan": null,
+      "primary_guild": null
+    },
+    "pinned": false,
+    "mention_everyone": false,
+    "tts": false
+  },
+  {
+    "type": 0,
+    "content": "",
+    "mentions": [],
+    "mention_roles": [],
+    "attachments": [],
+    "embeds": [
+      {
+        "type": "rich",
+        "title": ":outbox_tray: 誰かがあなたのショップで商品を購入しました",
+        "description": "プレイヤー T_rex192 があなたのショップで Written Book x1  を購入しました。",
+        "color": 52084,
+        "timestamp": "2025-08-05T10:53:55.680000+00:00",
+        "fields": [
+          {
+            "name": "ショップ",
+            "value": "world -9617, 63, -1569",
+            "inline": false
+          },
+          {
+            "name": "購入者",
+            "value": "T_rex192",
+            "inline": true
+          },
+          {
+            "name": "アイテム",
+            "value": "Written Book",
+            "inline": true
+          },
+          {
+            "name": "個数",
+            "value": "1(x1)",
+            "inline": true
+          },
+          {
+            "name": "獲得した金額",
+            "value": "1.00",
+            "inline": true
+          },
+          {
+            "name": "消費税",
+            "value": "0.00",
+            "inline": true
+          }
+        ],
+        "author": {
+          "name": "QuickShop-Hikari"
+        },
+        "footer": {
+          "text": "QuickShop-Hikari Discord通知"
+        },
+        "content_scan_version": 2
+      }
+    ],
+    "timestamp": "2025-08-05T10:53:55.878000+00:00",
+    "edited_timestamp": null,
+    "flags": 0,
+    "components": [],
+    "id": "1402243219206438922",
+    "channel_id": "1115614629662572564",
+    "author": {
+      "id": "576415368550023178",
+      "username": "めいんさばのはかせ",
+      "avatar": "9b12715f64401ac2ae83888293d466a8",
+      "discriminator": "1346",
+      "public_flags": 0,
+      "flags": 0,
+      "bot": true,
+      "banner": null,
+      "accent_color": null,
+      "global_name": null,
+      "avatar_decoration_data": null,
+      "collectibles": null,
+      "display_name_styles": null,
+      "banner_color": null,
+      "clan": null,
+      "primary_guild": null
+    },
+    "pinned": false,
+    "mention_everyone": false,
+    "tts": false
+  },
+  {
+    "type": 0,
+    "content": "",
+    "mentions": [],
+    "mention_roles": [],
+    "attachments": [],
+    "embeds": [
+      {
+        "type": "rich",
+        "title": ":inbox_tray: 誰かがあなたのショップで商品を売却しました",
+        "description": "プレイヤー T_rex192 があなたのショップで Written Book x1  を売却しました。",
+        "color": 52084,
+        "timestamp": "2025-08-05T10:52:25.927000+00:00",
+        "fields": [
+          {
+            "name": "ショップ",
+            "value": "world -9589, 219, -1567",
+            "inline": false
+          },
+          {
+            "name": "売却者",
+            "value": "T_rex192",
+            "inline": true
+          },
+          {
+            "name": "アイテム",
+            "value": "Written Book",
+            "inline": true
+          },
+          {
+            "name": "個数",
+            "value": "1 (x1)",
+            "inline": true
+          },
+          {
+            "name": "支払った金額",
+            "value": "1.00",
+            "inline": true
+          },
+          {
+            "name": "消費税",
+            "value": "0.00",
+            "inline": true
+          }
+        ],
+        "author": {
+          "name": "QuickShop-Hikari"
+        },
+        "footer": {
+          "text": "QuickShop-Hikari Discord通知"
+        },
+        "content_scan_version": 2
+      }
+    ],
+    "timestamp": "2025-08-05T10:52:26.065000+00:00",
+    "edited_timestamp": null,
+    "flags": 0,
+    "components": [],
+    "id": "1402242842503544854",
+    "channel_id": "1115614629662572564",
+    "author": {
+      "id": "576415368550023178",
+      "username": "めいんさばのはかせ",
+      "avatar": "9b12715f64401ac2ae83888293d466a8",
+      "discriminator": "1346",
+      "public_flags": 0,
+      "flags": 0,
+      "bot": true,
+      "banner": null,
+      "accent_color": null,
+      "global_name": null,
+      "avatar_decoration_data": null,
+      "collectibles": null,
+      "display_name_styles": null,
+      "banner_color": null,
+      "clan": null,
+      "primary_guild": null
+    },
+    "pinned": false,
+    "mention_everyone": false,
+    "tts": false
+  },
+  {
+    "type": 0,
+    "content": "",
+    "mentions": [],
+    "mention_roles": [],
+    "attachments": [],
+    "embeds": [
+      {
+        "type": "rich",
+        "title": ":outbox_tray: 誰かがあなたのショップで商品を購入しました",
+        "description": "プレイヤー T_rex192 があなたのショップで Written Book x1  を購入しました。",
+        "color": 52084,
+        "timestamp": "2025-08-05T10:52:24.170000+00:00",
+        "fields": [
+          {
+            "name": "ショップ",
+            "value": "world -9589, 219, -1566",
+            "inline": false
+          },
+          {
+            "name": "購入者",
+            "value": "T_rex192",
+            "inline": true
+          },
+          {
+            "name": "アイテム",
+            "value": "Written Book",
+            "inline": true
+          },
+          {
+            "name": "個数",
+            "value": "1(x1)",
+            "inline": true
+          },
+          {
+            "name": "獲得した金額",
+            "value": "1.00",
+            "inline": true
+          },
+          {
+            "name": "消費税",
+            "value": "0.00",
+            "inline": true
+          }
+        ],
+        "author": {
+          "name": "QuickShop-Hikari"
+        },
+        "footer": {
+          "text": "QuickShop-Hikari Discord通知"
+        },
+        "content_scan_version": 2
+      }
+    ],
+    "timestamp": "2025-08-05T10:52:24.522000+00:00",
+    "edited_timestamp": null,
+    "flags": 0,
+    "components": [],
+    "id": "1402242836031737927",
+    "channel_id": "1115614629662572564",
+    "author": {
+      "id": "576415368550023178",
+      "username": "めいんさばのはかせ",
+      "avatar": "9b12715f64401ac2ae83888293d466a8",
+      "discriminator": "1346",
+      "public_flags": 0,
+      "flags": 0,
+      "bot": true,
+      "banner": null,
+      "accent_color": null,
+      "global_name": null,
+      "avatar_decoration_data": null,
+      "collectibles": null,
+      "display_name_styles": null,
+      "banner_color": null,
+      "clan": null,
+      "primary_guild": null
+    },
+    "pinned": false,
+    "mention_everyone": false,
+    "tts": false
+  },
+  {
+    "type": 0,
+    "content": "",
+    "mentions": [],
+    "mention_roles": [],
+    "attachments": [],
+    "embeds": [
+      {
+        "type": "rich",
+        "title": ":inbox_tray: 誰かがあなたのショップで商品を売却しました",
+        "description": "プレイヤー T_rex192 があなたのショップで Written Book x1  を売却しました。",
+        "color": 52084,
+        "timestamp": "2025-08-05T10:47:33.419000+00:00",
+        "fields": [
+          {
+            "name": "ショップ",
+            "value": "world -9617, 63, -1568",
+            "inline": false
+          },
+          {
+            "name": "売却者",
+            "value": "T_rex192",
+            "inline": true
+          },
+          {
+            "name": "アイテム",
+            "value": "Written Book",
+            "inline": true
+          },
+          {
+            "name": "個数",
+            "value": "1 (x1)",
+            "inline": true
+          },
+          {
+            "name": "支払った金額",
+            "value": "1.00",
+            "inline": true
+          },
+          {
+            "name": "消費税",
+            "value": "0.00",
+            "inline": true
+          }
+        ],
+        "author": {
+          "name": "QuickShop-Hikari"
+        },
+        "footer": {
+          "text": "QuickShop-Hikari Discord通知"
+        },
+        "content_scan_version": 2
+      }
+    ],
+    "timestamp": "2025-08-05T10:47:33.610000+00:00",
+    "edited_timestamp": null,
+    "flags": 0,
+    "components": [],
+    "id": "1402241615858368564",
+    "channel_id": "1115614629662572564",
+    "author": {
+      "id": "576415368550023178",
+      "username": "めいんさばのはかせ",
+      "avatar": "9b12715f64401ac2ae83888293d466a8",
+      "discriminator": "1346",
+      "public_flags": 0,
+      "flags": 0,
+      "bot": true,
+      "banner": null,
+      "accent_color": null,
+      "global_name": null,
+      "avatar_decoration_data": null,
+      "collectibles": null,
+      "display_name_styles": null,
+      "banner_color": null,
+      "clan": null,
+      "primary_guild": null
+    },
+    "pinned": false,
+    "mention_everyone": false,
+    "tts": false
+  },
+  {
+    "type": 0,
+    "content": "",
+    "mentions": [],
+    "mention_roles": [],
+    "attachments": [],
+    "embeds": [
+      {
+        "type": "rich",
+        "title": ":outbox_tray: 誰かがあなたのショップで商品を購入しました",
+        "description": "プレイヤー T_rex192 があなたのショップで Written Book x1  を購入しました。",
+        "color": 52084,
+        "timestamp": "2025-08-05T10:47:31.870000+00:00",
+        "fields": [
+          {
+            "name": "ショップ",
+            "value": "world -9617, 63, -1569",
+            "inline": false
+          },
+          {
+            "name": "購入者",
+            "value": "T_rex192",
+            "inline": true
+          },
+          {
+            "name": "アイテム",
+            "value": "Written Book",
+            "inline": true
+          },
+          {
+            "name": "個数",
+            "value": "1(x1)",
+            "inline": true
+          },
+          {
+            "name": "獲得した金額",
+            "value": "1.00",
+            "inline": true
+          },
+          {
+            "name": "消費税",
+            "value": "0.00",
+            "inline": true
+          }
+        ],
+        "author": {
+          "name": "QuickShop-Hikari"
+        },
+        "footer": {
+          "text": "QuickShop-Hikari Discord通知"
+        },
+        "content_scan_version": 2
+      }
+    ],
+    "timestamp": "2025-08-05T10:47:32.100000+00:00",
+    "edited_timestamp": null,
+    "flags": 0,
+    "components": [],
+    "id": "1402241609524969512",
+    "channel_id": "1115614629662572564",
+    "author": {
+      "id": "576415368550023178",
+      "username": "めいんさばのはかせ",
+      "avatar": "9b12715f64401ac2ae83888293d466a8",
+      "discriminator": "1346",
+      "public_flags": 0,
+      "flags": 0,
+      "bot": true,
+      "banner": null,
+      "accent_color": null,
+      "global_name": null,
+      "avatar_decoration_data": null,
+      "collectibles": null,
+      "display_name_styles": null,
+      "banner_color": null,
+      "clan": null,
+      "primary_guild": null
+    },
+    "pinned": false,
+    "mention_everyone": false,
+    "tts": false
+  },
+  {
+    "type": 0,
+    "content": "",
+    "mentions": [],
+    "mention_roles": [],
+    "attachments": [],
+    "embeds": [
+      {
+        "type": "rich",
+        "title": ":inbox_tray: 誰かがあなたのショップで商品を売却しました",
+        "description": "プレイヤー T_rex192 があなたのショップで Written Book x1  を売却しました。",
+        "color": 52084,
+        "timestamp": "2025-08-05T10:46:58.020000+00:00",
+        "fields": [
+          {
+            "name": "ショップ",
+            "value": "world -9589, 219, -1567",
+            "inline": false
+          },
+          {
+            "name": "売却者",
+            "value": "T_rex192",
+            "inline": true
+          },
+          {
+            "name": "アイテム",
+            "value": "Written Book",
+            "inline": true
+          },
+          {
+            "name": "個数",
+            "value": "1 (x1)",
+            "inline": true
+          },
+          {
+            "name": "支払った金額",
+            "value": "1.00",
+            "inline": true
+          },
+          {
+            "name": "消費税",
+            "value": "0.00",
+            "inline": true
+          }
+        ],
+        "author": {
+          "name": "QuickShop-Hikari"
+        },
+        "footer": {
+          "text": "QuickShop-Hikari Discord通知"
+        },
+        "content_scan_version": 2
+      }
+    ],
+    "timestamp": "2025-08-05T10:46:58.263000+00:00",
+    "edited_timestamp": null,
+    "flags": 0,
+    "components": [],
+    "id": "1402241467602178078",
+    "channel_id": "1115614629662572564",
+    "author": {
+      "id": "576415368550023178",
+      "username": "めいんさばのはかせ",
+      "avatar": "9b12715f64401ac2ae83888293d466a8",
+      "discriminator": "1346",
+      "public_flags": 0,
+      "flags": 0,
+      "bot": true,
+      "banner": null,
+      "accent_color": null,
+      "global_name": null,
+      "avatar_decoration_data": null,
+      "collectibles": null,
+      "display_name_styles": null,
+      "banner_color": null,
+      "clan": null,
+      "primary_guild": null
+    },
+    "pinned": false,
+    "mention_everyone": false,
+    "tts": false
+  },
+  {
+    "type": 0,
+    "content": "",
+    "mentions": [],
+    "mention_roles": [],
+    "attachments": [],
+    "embeds": [
+      {
+        "type": "rich",
+        "title": ":outbox_tray: 誰かがあなたのショップで商品を購入しました",
+        "description": "プレイヤー T_rex192 があなたのショップで Written Book x1  を購入しました。",
+        "color": 52084,
+        "timestamp": "2025-08-05T10:46:56.273000+00:00",
+        "fields": [
+          {
+            "name": "ショップ",
+            "value": "world -9589, 219, -1566",
+            "inline": false
+          },
+          {
+            "name": "購入者",
+            "value": "T_rex192",
+            "inline": true
+          },
+          {
+            "name": "アイテム",
+            "value": "Written Book",
+            "inline": true
+          },
+          {
+            "name": "個数",
+            "value": "1(x1)",
+            "inline": true
+          },
+          {
+            "name": "獲得した金額",
+            "value": "1.00",
+            "inline": true
+          },
+          {
+            "name": "消費税",
+            "value": "0.00",
+            "inline": true
+          }
+        ],
+        "author": {
+          "name": "QuickShop-Hikari"
+        },
+        "footer": {
+          "text": "QuickShop-Hikari Discord通知"
+        },
+        "content_scan_version": 2
+      }
+    ],
+    "timestamp": "2025-08-05T10:46:56.433000+00:00",
+    "edited_timestamp": null,
+    "flags": 0,
+    "components": [],
+    "id": "1402241459926728735",
+    "channel_id": "1115614629662572564",
+    "author": {
+      "id": "576415368550023178",
+      "username": "めいんさばのはかせ",
+      "avatar": "9b12715f64401ac2ae83888293d466a8",
+      "discriminator": "1346",
+      "public_flags": 0,
+      "flags": 0,
+      "bot": true,
+      "banner": null,
+      "accent_color": null,
+      "global_name": null,
+      "avatar_decoration_data": null,
+      "collectibles": null,
+      "display_name_styles": null,
+      "banner_color": null,
+      "clan": null,
+      "primary_guild": null
+    },
+    "pinned": false,
+    "mention_everyone": false,
+    "tts": false
+  },
+  {
+    "type": 0,
+    "content": "",
+    "mentions": [],
+    "mention_roles": [],
+    "attachments": [],
+    "embeds": [
+      {
+        "type": "rich",
+        "title": ":inbox_tray: 誰かがあなたのショップで商品を売却しました",
+        "description": "プレイヤー T_rex192 があなたのショップで Written Book x1  を売却しました。",
+        "color": 52084,
+        "timestamp": "2025-08-05T07:00:15.229000+00:00",
+        "fields": [
+          {
+            "name": "ショップ",
+            "value": "world -9617, 63, -1568",
+            "inline": false
+          },
+          {
+            "name": "売却者",
+            "value": "T_rex192",
+            "inline": true
+          },
+          {
+            "name": "アイテム",
+            "value": "Written Book",
+            "inline": true
+          },
+          {
+            "name": "個数",
+            "value": "1 (x1)",
+            "inline": true
+          },
+          {
+            "name": "支払った金額",
+            "value": "1.00",
+            "inline": true
+          },
+          {
+            "name": "消費税",
+            "value": "0.00",
+            "inline": true
+          }
+        ],
+        "author": {
+          "name": "QuickShop-Hikari"
+        },
+        "footer": {
+          "text": "QuickShop-Hikari Discord通知"
+        },
+        "content_scan_version": 2
+      }
+    ],
+    "timestamp": "2025-08-05T07:00:15.487000+00:00",
+    "edited_timestamp": null,
+    "flags": 0,
+    "components": [],
+    "id": "1402184413424517161",
+    "channel_id": "1115614629662572564",
+    "author": {
+      "id": "576415368550023178",
+      "username": "めいんさばのはかせ",
+      "avatar": "9b12715f64401ac2ae83888293d466a8",
+      "discriminator": "1346",
+      "public_flags": 0,
+      "flags": 0,
+      "bot": true,
+      "banner": null,
+      "accent_color": null,
+      "global_name": null,
+      "avatar_decoration_data": null,
+      "collectibles": null,
+      "display_name_styles": null,
+      "banner_color": null,
+      "clan": null,
+      "primary_guild": null
+    },
+    "pinned": false,
+    "mention_everyone": false,
+    "tts": false
+  },
+  {
+    "type": 0,
+    "content": "",
+    "mentions": [],
+    "mention_roles": [],
+    "attachments": [],
+    "embeds": [
+      {
+        "type": "rich",
+        "title": ":outbox_tray: 誰かがあなたのショップで商品を購入しました",
+        "description": "プレイヤー T_rex192 があなたのショップで Written Book x1  を購入しました。",
+        "color": 52084,
+        "timestamp": "2025-08-05T07:00:13.177000+00:00",
+        "fields": [
+          {
+            "name": "ショップ",
+            "value": "world -9617, 63, -1569",
+            "inline": false
+          },
+          {
+            "name": "購入者",
+            "value": "T_rex192",
+            "inline": true
+          },
+          {
+            "name": "アイテム",
+            "value": "Written Book",
+            "inline": true
+          },
+          {
+            "name": "個数",
+            "value": "1(x1)",
+            "inline": true
+          },
+          {
+            "name": "獲得した金額",
+            "value": "1.00",
+            "inline": true
+          },
+          {
+            "name": "消費税",
+            "value": "0.00",
+            "inline": true
+          }
+        ],
+        "author": {
+          "name": "QuickShop-Hikari"
+        },
+        "footer": {
+          "text": "QuickShop-Hikari Discord通知"
+        },
+        "content_scan_version": 2
+      }
+    ],
+    "timestamp": "2025-08-05T07:00:13.460000+00:00",
+    "edited_timestamp": null,
+    "flags": 0,
+    "components": [],
+    "id": "1402184404922663024",
+    "channel_id": "1115614629662572564",
+    "author": {
+      "id": "576415368550023178",
+      "username": "めいんさばのはかせ",
+      "avatar": "9b12715f64401ac2ae83888293d466a8",
+      "discriminator": "1346",
+      "public_flags": 0,
+      "flags": 0,
+      "bot": true,
+      "banner": null,
+      "accent_color": null,
+      "global_name": null,
+      "avatar_decoration_data": null,
+      "collectibles": null,
+      "display_name_styles": null,
+      "banner_color": null,
+      "clan": null,
+      "primary_guild": null
+    },
+    "pinned": false,
+    "mention_everyone": false,
+    "tts": false
+  },
+  {
+    "type": 0,
+    "content": "",
+    "mentions": [],
+    "mention_roles": [],
+    "attachments": [],
+    "embeds": [
+      {
+        "type": "rich",
+        "title": ":inbox_tray: 誰かがあなたのショップで商品を売却しました",
+        "description": "プレイヤー T_rex192 があなたのショップで Written Book x1  を売却しました。",
+        "color": 52084,
+        "timestamp": "2025-08-05T06:58:17.286000+00:00",
+        "fields": [
+          {
+            "name": "ショップ",
+            "value": "world -9589, 219, -1567",
+            "inline": false
+          },
+          {
+            "name": "売却者",
+            "value": "T_rex192",
+            "inline": true
+          },
+          {
+            "name": "アイテム",
+            "value": "Written Book",
+            "inline": true
+          },
+          {
+            "name": "個数",
+            "value": "1 (x1)",
+            "inline": true
+          },
+          {
+            "name": "支払った金額",
+            "value": "1.00",
+            "inline": true
+          },
+          {
+            "name": "消費税",
+            "value": "0.00",
+            "inline": true
+          }
+        ],
+        "author": {
+          "name": "QuickShop-Hikari"
+        },
+        "footer": {
+          "text": "QuickShop-Hikari Discord通知"
+        },
+        "content_scan_version": 2
+      }
+    ],
+    "timestamp": "2025-08-05T06:58:17.501000+00:00",
+    "edited_timestamp": null,
+    "flags": 0,
+    "components": [],
+    "id": "1402183918555365376",
+    "channel_id": "1115614629662572564",
+    "author": {
+      "id": "576415368550023178",
+      "username": "めいんさばのはかせ",
+      "avatar": "9b12715f64401ac2ae83888293d466a8",
+      "discriminator": "1346",
+      "public_flags": 0,
+      "flags": 0,
+      "bot": true,
+      "banner": null,
+      "accent_color": null,
+      "global_name": null,
+      "avatar_decoration_data": null,
+      "collectibles": null,
+      "display_name_styles": null,
+      "banner_color": null,
+      "clan": null,
+      "primary_guild": null
+    },
+    "pinned": false,
+    "mention_everyone": false,
+    "tts": false
+  },
+  {
+    "type": 0,
+    "content": "",
+    "mentions": [],
+    "mention_roles": [],
+    "attachments": [],
+    "embeds": [
+      {
+        "type": "rich",
+        "title": ":outbox_tray: 誰かがあなたのショップで商品を購入しました",
+        "description": "プレイヤー T_rex192 があなたのショップで Written Book x1  を購入しました。",
+        "color": 52084,
+        "timestamp": "2025-08-05T06:58:15.887000+00:00",
+        "fields": [
+          {
+            "name": "ショップ",
+            "value": "world -9589, 219, -1566",
+            "inline": false
+          },
+          {
+            "name": "購入者",
+            "value": "T_rex192",
+            "inline": true
+          },
+          {
+            "name": "アイテム",
+            "value": "Written Book",
+            "inline": true
+          },
+          {
+            "name": "個数",
+            "value": "1(x1)",
+            "inline": true
+          },
+          {
+            "name": "獲得した金額",
+            "value": "1.00",
+            "inline": true
+          },
+          {
+            "name": "消費税",
+            "value": "0.00",
+            "inline": true
+          }
+        ],
+        "author": {
+          "name": "QuickShop-Hikari"
+        },
+        "footer": {
+          "text": "QuickShop-Hikari Discord通知"
+        },
+        "content_scan_version": 2
+      }
+    ],
+    "timestamp": "2025-08-05T06:58:16.111000+00:00",
+    "edited_timestamp": null,
+    "flags": 0,
+    "components": [],
+    "id": "1402183912725413969",
+    "channel_id": "1115614629662572564",
+    "author": {
+      "id": "576415368550023178",
+      "username": "めいんさばのはかせ",
+      "avatar": "9b12715f64401ac2ae83888293d466a8",
+      "discriminator": "1346",
+      "public_flags": 0,
+      "flags": 0,
+      "bot": true,
+      "banner": null,
+      "accent_color": null,
+      "global_name": null,
+      "avatar_decoration_data": null,
+      "collectibles": null,
+      "display_name_styles": null,
+      "banner_color": null,
+      "clan": null,
+      "primary_guild": null
+    },
+    "pinned": false,
+    "mention_everyone": false,
+    "tts": false
+  },
+  {
+    "type": 0,
+    "content": "",
+    "mentions": [],
+    "mention_roles": [],
+    "attachments": [],
+    "embeds": [
+      {
+        "type": "rich",
+        "title": ":inbox_tray: 誰かがあなたのショップで商品を売却しました",
+        "description": "プレイヤー T_rex192 があなたのショップで Written Book x1  を売却しました。",
+        "color": 52084,
+        "timestamp": "2025-08-05T06:53:15.833000+00:00",
+        "fields": [
+          {
+            "name": "ショップ",
+            "value": "world -9617, 63, -1568",
+            "inline": false
+          },
+          {
+            "name": "売却者",
+            "value": "T_rex192",
+            "inline": true
+          },
+          {
+            "name": "アイテム",
+            "value": "Written Book",
+            "inline": true
+          },
+          {
+            "name": "個数",
+            "value": "1 (x1)",
+            "inline": true
+          },
+          {
+            "name": "支払った金額",
+            "value": "1.00",
+            "inline": true
+          },
+          {
+            "name": "消費税",
+            "value": "0.00",
+            "inline": true
+          }
+        ],
+        "author": {
+          "name": "QuickShop-Hikari"
+        },
+        "footer": {
+          "text": "QuickShop-Hikari Discord通知"
+        },
+        "content_scan_version": 2
+      }
+    ],
+    "timestamp": "2025-08-05T06:53:16.005000+00:00",
+    "edited_timestamp": null,
+    "flags": 0,
+    "components": [],
+    "id": "1402182653989359666",
+    "channel_id": "1115614629662572564",
+    "author": {
+      "id": "576415368550023178",
+      "username": "めいんさばのはかせ",
+      "avatar": "9b12715f64401ac2ae83888293d466a8",
+      "discriminator": "1346",
+      "public_flags": 0,
+      "flags": 0,
+      "bot": true,
+      "banner": null,
+      "accent_color": null,
+      "global_name": null,
+      "avatar_decoration_data": null,
+      "collectibles": null,
+      "display_name_styles": null,
+      "banner_color": null,
+      "clan": null,
+      "primary_guild": null
+    },
+    "pinned": false,
+    "mention_everyone": false,
+    "tts": false
+  },
+  {
+    "type": 0,
+    "content": "",
+    "mentions": [],
+    "mention_roles": [],
+    "attachments": [],
+    "embeds": [
+      {
+        "type": "rich",
+        "title": ":outbox_tray: 誰かがあなたのショップで商品を購入しました",
+        "description": "プレイヤー T_rex192 があなたのショップで Written Book x1  を購入しました。",
+        "color": 52084,
+        "timestamp": "2025-08-05T06:53:12.176000+00:00",
+        "fields": [
+          {
+            "name": "ショップ",
+            "value": "world -9617, 63, -1569",
+            "inline": false
+          },
+          {
+            "name": "購入者",
+            "value": "T_rex192",
+            "inline": true
+          },
+          {
+            "name": "アイテム",
+            "value": "Written Book",
+            "inline": true
+          },
+          {
+            "name": "個数",
+            "value": "1(x1)",
+            "inline": true
+          },
+          {
+            "name": "獲得した金額",
+            "value": "1.00",
+            "inline": true
+          },
+          {
+            "name": "消費税",
+            "value": "0.00",
+            "inline": true
+          }
+        ],
+        "author": {
+          "name": "QuickShop-Hikari"
+        },
+        "footer": {
+          "text": "QuickShop-Hikari Discord通知"
+        },
+        "content_scan_version": 2
+      }
+    ],
+    "timestamp": "2025-08-05T06:53:12.397000+00:00",
+    "edited_timestamp": null,
+    "flags": 0,
+    "components": [],
+    "id": "1402182638856568902",
+    "channel_id": "1115614629662572564",
+    "author": {
+      "id": "576415368550023178",
+      "username": "めいんさばのはかせ",
+      "avatar": "9b12715f64401ac2ae83888293d466a8",
+      "discriminator": "1346",
+      "public_flags": 0,
+      "flags": 0,
+      "bot": true,
+      "banner": null,
+      "accent_color": null,
+      "global_name": null,
+      "avatar_decoration_data": null,
+      "collectibles": null,
+      "display_name_styles": null,
+      "banner_color": null,
+      "clan": null,
+      "primary_guild": null
+    },
+    "pinned": false,
+    "mention_everyone": false,
+    "tts": false
+  },
+  {
+    "type": 0,
+    "content": "",
+    "mentions": [],
+    "mention_roles": [],
+    "attachments": [],
+    "embeds": [
+      {
+        "type": "rich",
+        "title": ":inbox_tray: 誰かがあなたのショップで商品を売却しました",
+        "description": "プレイヤー T_rex192 があなたのショップで Written Book x1  を売却しました。",
+        "color": 52084,
+        "timestamp": "2025-08-05T06:50:39.633000+00:00",
+        "fields": [
+          {
+            "name": "ショップ",
+            "value": "world -9589, 219, -1567",
+            "inline": false
+          },
+          {
+            "name": "売却者",
+            "value": "T_rex192",
+            "inline": true
+          },
+          {
+            "name": "アイテム",
+            "value": "Written Book",
+            "inline": true
+          },
+          {
+            "name": "個数",
+            "value": "1 (x1)",
+            "inline": true
+          },
+          {
+            "name": "支払った金額",
+            "value": "1.00",
+            "inline": true
+          },
+          {
+            "name": "消費税",
+            "value": "0.00",
+            "inline": true
+          }
+        ],
+        "author": {
+          "name": "QuickShop-Hikari"
+        },
+        "footer": {
+          "text": "QuickShop-Hikari Discord通知"
+        },
+        "content_scan_version": 2
+      }
+    ],
+    "timestamp": "2025-08-05T06:50:40.724000+00:00",
+    "edited_timestamp": null,
+    "flags": 0,
+    "components": [],
+    "id": "1402182002693636137",
+    "channel_id": "1115614629662572564",
+    "author": {
+      "id": "576415368550023178",
+      "username": "めいんさばのはかせ",
+      "avatar": "9b12715f64401ac2ae83888293d466a8",
+      "discriminator": "1346",
+      "public_flags": 0,
+      "flags": 0,
+      "bot": true,
+      "banner": null,
+      "accent_color": null,
+      "global_name": null,
+      "avatar_decoration_data": null,
+      "collectibles": null,
+      "display_name_styles": null,
+      "banner_color": null,
+      "clan": null,
+      "primary_guild": null
+    },
+    "pinned": false,
+    "mention_everyone": false,
+    "tts": false
+  }
+]
