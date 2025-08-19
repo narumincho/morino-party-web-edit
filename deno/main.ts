@@ -105,3 +105,31 @@ export const startServer = (
     };
   };
 };
+
+export const savePlayersJson = async ({ cloudflareR2 }: {
+  cloudflareR2: {
+    accountId: string;
+    bucket: string;
+    keyId: string;
+    secretKey: string;
+  };
+}) => {
+  const s3 = new S3Client({
+    endPoint: `${cloudflareR2.accountId}.r2.cloudflarestorage.com`,
+    region: "auto",
+    accessKey: cloudflareR2.keyId,
+    bucket: cloudflareR2.bucket,
+    secretKey: cloudflareR2.secretKey,
+  });
+  const playersResponse = await fetch(
+    "https://seikatsumain.map.morino.party/tiles/players.json",
+  );
+  if (!playersResponse.ok) {
+    return;
+  }
+
+  await s3.putObject(
+    `moripa-players/${new Date().toISOString()}.json`,
+    JSON.stringify(await playersResponse.json()),
+  );
+};

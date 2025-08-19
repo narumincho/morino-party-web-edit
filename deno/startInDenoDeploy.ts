@@ -1,4 +1,4 @@
-import { startServer } from "./main.ts";
+import { savePlayersJson, startServer } from "./main.ts";
 
 import { Command } from "@cliffy/command";
 
@@ -17,6 +17,17 @@ new Command().env("CLOUDFLARE_R2_ACCOUNT_ID=<cloudflareR2AccountId>", "", {
       cloudflareR2SecretKey,
     },
   ) => {
+    Deno.cron("playerIn", "* * * * *", () => {
+      savePlayersJson({
+        cloudflareR2: {
+          accountId: cloudflareR2AccountId,
+          bucket: cloudflareR2Bucket,
+          keyId: cloudflareR2KeyId,
+          secretKey: cloudflareR2SecretKey,
+        },
+      });
+    });
+
     startServer({
       cloudflareR2: {
         accountId: cloudflareR2AccountId,
