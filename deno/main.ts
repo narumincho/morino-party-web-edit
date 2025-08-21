@@ -2,6 +2,7 @@ import { S3Client } from "@bradenmacdonald/s3-lite-client";
 import { getProfile } from "./profile.ts";
 import { handleSkin } from "./skin.ts";
 import { handleWebmap } from "./webmap.ts";
+import { createClient } from "@supabase/supabase-js";
 
 export const startServer = (
   { cloudflareR2 }: {
@@ -106,14 +107,65 @@ export const startServer = (
   };
 };
 
-export const savePlayersJson = async ({ cloudflareR2 }: {
+export const savePlayers = async ({ supabase }: {
+  supabase: {
+    secretKey: string;
+  };
+}) => {
+  const client = createClient(
+    "https://shpcyrnsdhkkxkukppyu.supabase.co",
+    supabase.secretKey,
+  );
+  const playersResponse = await fetch(
+    "https://seikatsumain.map.morino.party/tiles/players.json",
+  );
+  if (!playersResponse.ok) {
+    return;
+  }
+  const json: {
+    players: ReadonlyArray<
+      {
+        world: string;
+        x: number;
+        y: number;
+        z: number;
+        uuid: string;
+        name: string;
+      }
+    >;
+  } = await playersResponse.json();
+
+  for (const data of json.players) {
+    await client.from("player").insert({
+      id: data.uuid,
+      name: data.name,
+    });
+    const size = 53;
+    if (
+      -3033 - size < data.x && data.x < -3033 + size && 300 - size < data.z &&
+      data.z < 300 + size
+    ) {
+      await client.from("coordinate").insert({
+        player: data.uuid,
+        x: data.x,
+        y: data.y,
+        z: data.z,
+      });
+    }
+  }
+};
+
+export const moveToSupabase = async ({ cloudflareR2, supabase }: {
   cloudflareR2: {
     accountId: string;
     bucket: string;
     keyId: string;
     secretKey: string;
   };
-}) => {
+  supabase: {
+    secretKey: string;
+  };
+}): Promise<void> => {
   const s3 = new S3Client({
     endPoint: `${cloudflareR2.accountId}.r2.cloudflarestorage.com`,
     region: "auto",
@@ -121,15 +173,50 @@ export const savePlayersJson = async ({ cloudflareR2 }: {
     bucket: cloudflareR2.bucket,
     secretKey: cloudflareR2.secretKey,
   });
-  const playersResponse = await fetch(
-    "https://seikatsumain.map.morino.party/tiles/players.json",
-  );
-  if (!playersResponse.ok) {
-    return;
-  }
 
-  await s3.putObject(
-    `moripa-players/${new Date().toISOString()}.json`,
-    JSON.stringify(await playersResponse.json()),
+  const client = createClient(
+    "https://shpcyrnsdhkkxkukppyu.supabase.co",
+    supabase.secretKey,
   );
+
+  for await (const file of s3.listObjects({ prefix: "moripa-players" })) {
+    console.log(file.key);
+    const json: {
+      players: ReadonlyArray<
+        {
+          world: string;
+          x: number;
+          y: number;
+          z: number;
+          uuid: string;
+          name: string;
+        }
+      >;
+    } = await (await fetch(
+      `https://pub-a69d97eea8a74065b1e91a1d27af56bf.r2.dev/${file.key}`,
+    )).json();
+
+    const date = new Date(file.key.match(/\/(.+)\.json/)?.[1] ?? "");
+    for (const data of json.players) {
+      await client.from("player").insert({
+        id: data.uuid,
+        name: data.name,
+        created_at: date,
+      });
+      const size = 53;
+      if (
+        -3033 - size < data.x && data.x < -3033 + size && 300 - size < data.z &&
+        data.z < 300 + size
+      ) {
+        await client.from("coordinate").insert({
+          player: data.uuid,
+          x: data.x,
+          y: data.y,
+          z: data.z,
+          created_at: date,
+        });
+      }
+    }
+    await s3.deleteObject(file.key);
+  }
 };
