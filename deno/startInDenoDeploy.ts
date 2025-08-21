@@ -24,7 +24,9 @@ new Command().env("CLOUDFLARE_R2_ACCOUNT_ID=<cloudflareR2AccountId>", "", {
   ) => {
     Deno.cron("playerIn", "* * * * *", () => {
       savePlayers({
-        supabase: supabaseSecret,
+        supabase: {
+          secretKey: supabaseSecret,
+        },
       });
     });
 
