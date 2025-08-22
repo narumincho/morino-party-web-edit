@@ -1,42 +1,34 @@
 import { savePlayers, startServer } from "./main.ts";
 
-import { Command } from "@cliffy/command";
+const getRequiredEnv = (name: string): string => {
+  const value = Deno.env.get(name);
+  if (!value) {
+    throw new Error(`env ${name} is empty or undefined`);
+  }
+  return value;
+};
 
-new Command().env("CLOUDFLARE_R2_ACCOUNT_ID=<cloudflareR2AccountId>", "", {
-  required: true,
-}).env("CLOUDFLARE_R2_BUCKET=<bucket>", "", { required: true }).env(
-  "CLOUDFLARE_R2_KEY_ID=<keyId>",
-  "",
-  { required: true },
-).env("CLOUDFLARE_R2_SECRET_KEY=<secretKey>", "", { required: true }).env(
-  "SUPABASE_SECRET=<secretKey>",
-  "",
-  { required: true },
-).action(
-  (
-    {
-      cloudflareR2AccountId,
-      cloudflareR2Bucket,
-      cloudflareR2KeyId,
-      cloudflareR2SecretKey,
-      supabaseSecret,
+const cloudflareR2AccountId = getRequiredEnv("CLOUDFLARE_R2_ACCOUNT_ID");
+const cloudflareR2Bucket = getRequiredEnv("CLOUDFLARE_R2_BUCKET");
+const cloudflareR2SecretKey = getRequiredEnv("CLOUDFLARE_R2_SECRET_KEY");
+const cloudflareR2KeyId = getRequiredEnv("CLOUDFLARE_R2_KEY_ID");
+const supabaseUrl = getRequiredEnv("SUPABASE_URL");
+const supabaseSecret = getRequiredEnv("SUPABASE_SECRET");
+
+Deno.cron("playerIn", "* * * * *", () => {
+  savePlayers({
+    supabase: {
+      url: supabaseUrl,
+      secretKey: supabaseSecret,
     },
-  ) => {
-    Deno.cron("playerIn", "* * * * *", () => {
-      savePlayers({
-        supabase: {
-          secretKey: supabaseSecret,
-        },
-      });
-    });
+  });
+});
 
-    startServer({
-      cloudflareR2: {
-        accountId: cloudflareR2AccountId,
-        bucket: cloudflareR2Bucket,
-        keyId: cloudflareR2KeyId,
-        secretKey: cloudflareR2SecretKey,
-      },
-    });
+startServer({
+  cloudflareR2: {
+    accountId: cloudflareR2AccountId,
+    bucket: cloudflareR2Bucket,
+    keyId: cloudflareR2KeyId,
+    secretKey: cloudflareR2SecretKey,
   },
-).parse();
+});

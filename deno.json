@@ -21,7 +21,6 @@
   },
   "imports": {
     "@bradenmacdonald/s3-lite-client": "jsr:@bradenmacdonald/s3-lite-client@^0.9.0",
-    "@cliffy/command": "jsr:@cliffy/command@1.0.0-rc.8",
     "@std/collections": "jsr:@std/collections@^1.1.2",
     "@supabase/supabase-js": "jsr:@supabase/supabase-js@^2.55.0"
   }
