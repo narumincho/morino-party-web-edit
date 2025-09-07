@@ -112,7 +112,14 @@ export const savePlayers = async ({ supabase }: {
     url: string;
     secretKey: string;
   };
-}) => {
+}): Promise<void> => {
+  const now = new Date().getTime();
+  if (
+    new Date("2025-09-13T20:00:00+09:00").getTime() < now &&
+    now < new Date("2025-09-13T21:30:00+09:00").getTime()
+  ) {
+    return;
+  }
   const client = createClient(
     supabase.url,
     supabase.secretKey,
