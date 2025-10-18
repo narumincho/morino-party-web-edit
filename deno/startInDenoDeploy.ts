@@ -15,14 +15,14 @@ const cloudflareR2KeyId = getRequiredEnv("CLOUDFLARE_R2_KEY_ID");
 const supabaseUrl = getRequiredEnv("SUPABASE_URL");
 const supabaseSecret = getRequiredEnv("SUPABASE_SECRET");
 
-Deno.cron("playerIn", "* * * * *", () => {
-  savePlayers({
-    supabase: {
-      url: supabaseUrl,
-      secretKey: supabaseSecret,
-    },
-  });
-});
+// Deno.cron("playerIn", "* * * * *", () => {
+//   savePlayers({
+//     supabase: {
+//       url: supabaseUrl,
+//       secretKey: supabaseSecret,
+//     },
+//   });
+// });
 
 startServer({
   cloudflareR2: {
