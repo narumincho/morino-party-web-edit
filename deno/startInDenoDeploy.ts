@@ -26,8 +26,8 @@ const mongodbUri = getRequiredEnv("MONGODB_URI");
 //   });
 // });
 
-Deno.cron("playerOnline", "15 13 * * *", async () => {
-  await saveOnlinePlayers(mongodbUri);
+Deno.cron("playerOnline", "20 13 * * *", () => {
+  saveOnlinePlayers(mongodbUri);
 });
 
 startServer({
