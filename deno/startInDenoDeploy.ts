@@ -1,4 +1,5 @@
 import { savePlayers, startServer } from "./main.ts";
+import { saveOnlinePlayers } from "./saveOnlinePlayers.ts";
 
 const getRequiredEnv = (name: string): string => {
   const value = Deno.env.get(name);
@@ -14,6 +15,7 @@ const cloudflareR2SecretKey = getRequiredEnv("CLOUDFLARE_R2_SECRET_KEY");
 const cloudflareR2KeyId = getRequiredEnv("CLOUDFLARE_R2_KEY_ID");
 const supabaseUrl = getRequiredEnv("SUPABASE_URL");
 const supabaseSecret = getRequiredEnv("SUPABASE_SECRET");
+const mongodbUri = getRequiredEnv("MONGODB_URI");
 
 // Deno.cron("playerIn", "* * * * *", () => {
 //   savePlayers({
@@ -23,6 +25,10 @@ const supabaseSecret = getRequiredEnv("SUPABASE_SECRET");
 //     },
 //   });
 // });
+
+Deno.cron("playerOnline", "15 13 * * *", async () => {
+  await saveOnlinePlayers(mongodbUri);
+});
 
 startServer({
   cloudflareR2: {
