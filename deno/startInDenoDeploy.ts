@@ -15,20 +15,19 @@ const cloudflareR2SecretKey = getRequiredEnv("CLOUDFLARE_R2_SECRET_KEY");
 const cloudflareR2KeyId = getRequiredEnv("CLOUDFLARE_R2_KEY_ID");
 const supabaseUrl = getRequiredEnv("SUPABASE_URL");
 const supabaseSecret = getRequiredEnv("SUPABASE_SECRET");
-const mongodbUri = getRequiredEnv("MONGODB_URI");
 
-// Deno.cron("playerIn", "* * * * *", () => {
-//   savePlayers({
-//     supabase: {
-//       url: supabaseUrl,
-//       secretKey: supabaseSecret,
-//     },
-//   });
-// });
-
-Deno.cron("playerOnline", "20 13 * * *", () => {
-  saveOnlinePlayers(mongodbUri);
+Deno.cron("playerIn", "* * * * *", () => {
+  savePlayers({
+    supabase: {
+      url: supabaseUrl,
+      secretKey: supabaseSecret,
+    },
+  });
 });
+
+// Deno.cron("playerOnline", "20 13 * * *", () => {
+//   saveOnlinePlayers(mongodbUri);
+// });
 
 startServer({
   cloudflareR2: {
